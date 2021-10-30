@@ -1,0 +1,216 @@
+
+@media (min-width: 768px){
+  .tel-contact{
+    display: flex;
+  }
+  body.information-contact{
+        background-color: #F5F5F5;
+  }
+.white_bg{
+  	background-color: #fff;
+  	border-radius: 8px;
+  	padding: 32px 36px;
+  }
+.contact_welcome{
+  display: none;
+}
+.chaiki_warehouse img{
+  border-radius: 8px;
+}
+}
+.contact_welcome{
+background: linear-gradient(277.71deg, #6F38AB -5.58%, #6F38AB -5.56%, rgba(212, 45, 239, 0.49) 198.86%);
+  color: #fff;
+  padding: 21px 18px;
+  height: 96px;
+  width: 100vw;
+  margin-left: -15px;
+  margin-bottom: 5px;
+}
+.contact_welcome__d{
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  margin-bottom: 16px;
+}
+.contact_welcome__t{
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 17px;
+  margin-bottom: 16px;
+}
+.information-contact  #content {
+    margin-top: 24px;
+}
+.white_bg + .white_bg{
+  margin-top: 32px;
+}
+.title_contact_form{
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 32px;
+  margin-bottom: 24px;
+}
+.co-title{
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  margin-bottom: 16px;
+}
+ h4.co-title:before {
+  vertical-align: middle;
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  left: -40px;
+  top: 0px;
+}
+.co-location h4:before {
+  content: url(../images/common/location-violet.svg);
+}
+.co-phone h4:before {
+  content: url(../images/contact/phone.svg);
+}
+.co-email h4:before {
+  content: url(../images/contact/mail.svg);
+}
+.co-schedule h4:before {
+  content: url(../images/contact/time.svg);
+}
+.co-left-part{
+  padding-left: 55px!important;
+  display: flex;
+  flex-direction: column;
+}
+.co-description{
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  color: #666666;
+}
+.co-left-part>div{
+  margin-bottom: 24px;
+  position: relative;
+}
+.information-contact .h2-title{
+  margin-top: 0px!important;
+  margin-bottom: 24px;
+}
+.co-email .btn-link{
+  font-weight: 600;
+}
+.tel-universal-contact{
+  display: block!important;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 24px!important;
+  margin-bottom: 16px;
+}
+.tel-contact a.tel{
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  color: #666666;
+}
+.tel-contact .tel{
+  display: block;
+  padding-left: 30px;
+}
+.tel-contact>div{
+  margin-right: 15px;
+}
+.co-title-map{
+  font-weight: 500;
+  font-size: 14px;
+  font-size: 18px;
+  line-height: 26px;
+  margin-bottom: 24px;
+}
+.chaiki_warehouse_img{
+  border: 1px solid #D9D9D9;
+  border-radius: 8px;
+  margin-bottom: 24px;
+}
+.co-warehouse .co-title{
+  margin-bottom: 0px;
+}
+.map_container{
+  margin-bottom: 26px;
+}
+
+@media (max-width: 767px){
+  .information-contact .h2-title, {
+    font-size: 20px;
+    line-height: 24px;
+    margin-bottom: 16px;
+  }
+  .co-title {
+    margin-bottom: 0px;
+    }
+    .co-description{
+      font-size: 13px;
+      line-height: 17px;
+    }
+    .tel-universal-contact {
+      font-size: 24px;
+      line-height: 24px!important;
+      margin-bottom: 12px;
+  }
+h4.co-title:before {
+    top: -2px;
+}
+.co-left-part>div {
+  margin-bottom: 20px
+}
+.co-title-map {
+  font-size: 12px;
+  line-height: 20px;
+  margin-bottom: 8px;
+}
+.map_container {
+    margin-bottom: 16px;
+}
+.co-location{
+  order: 3;
+}
+.co-phone{
+  order: 1;
+}
+.co-email{
+  order: 2;
+}
+.co-phone:after{
+  content: '';
+  display: block;
+  width: 100%;
+  height: 1px;
+  background-color: #D3D3D3;
+}
+.co-phone:after, .co-email:after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 1px;
+    background-color: #D3D3D3;
+    width: calc(100vw - 30px);
+    position: absolute;
+    left: -39px;
+    bottom: -11px;
+}
+.conact_maps{
+  margin-top: 0px!important;
+}
+
+.co-email .btn-link{
+  font-size: 14px;
+  line-height: 20px;
+}
+}
+
+@media (min-width: 481px) and (max-width: 767px){
+.contact_welcome {
+    margin-left: -20px;
+}
+
+}

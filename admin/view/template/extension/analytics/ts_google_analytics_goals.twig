@@ -1,0 +1,56 @@
+<div class="table-responsive">
+	<table class="table table-bordered table-hover">
+		<thead>
+			<tr>
+				<td class="text-left">{{ text_goal['label'] }}</td>
+				<td class="text-left">{{ text_goal['category'] }}</td>
+				<td class="text-left">{{ text_goal['action'] }}</td>
+				<td class="text-left">{{ text_goal['element'] }}</td>
+				<td class="text-left">{{ text_goal['event'] }}</td>
+				<td class="text-left">{{ text_goal['value'] }}</td>
+				<td class="text-right"></td>
+			</tr>
+		</thead>
+		<tbody>
+			{% for goal in goals %} 
+			<tr class="goal_data" data-goal-id="{{ goal['goal_id'] }}" data-action="{{ goal['action'] }}" data-label="{{ goal['label'] }}" data-category="{{ goal['category'] }}" data-element="{{ goal['element'] }}" data-event="{{ goal['event'] }}" data-value="{{ goal['value'] }}">
+				<td class="text-left"><span title="{{ goal['label'] }}">{{ goal['label'] }}</span></td>
+				<td class="text-left"><span title="{{ goal['category'] }}">{{ goal['category'] }}</span></td>
+				<td class="text-left"><span><i class="fa fa-files-o copy-to-clipboard" data-toggle="tooltip" data-original-title="{{ text_copy_to_clipboard['action'] }}"></i> {{ goal['action'] }}</span></td>
+				<td class="text-left"><span>{{ goal['element'] }}</span></td>
+				<td class="text-left"><span>{{ goal['event'] }}</span></td>
+				<td class="text-left"><span>{{ goal['value'] }} {{ currency_default }}</span></td>
+				<td class="text-right">
+					<a class="btn btn-primary goal_edit" data-toggle="tooltip" data-original-title="{{ button_edit }}"><i class="fa fa-pencil"></i></a>
+					<a class="btn btn-danger goal_delete" data-toggle="tooltip" data-original-title="{{ button_remove }}"><i class="fa fa-trash"></i></a>
+				</td>
+			</tr>
+			{% endfor %} 
+		</tbody>
+		<tfoot>
+			<tr>
+				<td colspan="6">
+					{% if (goals_pages > 1) %} 
+					<nav>
+						<ul class="pagination">
+							{% if (goals_page > 1) %} 
+							<li><a href="#" aria-label="Previous" data-page="{{ goals_page - 1 }}"><span aria-hidden="true">&laquo;</span></a></li>
+							{% endif %} 
+							{% set page=1 %}{% for page in page..goals_pages %} 
+							<li {% if (page == goals_page) %}class="active"{% endif %}><a href="#" data-page="{{ page }}">{{ page }}</a></li>
+							{% endfor %} 
+							{% if (goals_page < goals_pages) %} 
+							<li><a href="#" aria-label="Next" data-page="{{ goals_page + 1 }}"><span aria-hidden="true">&raquo;</span></a></li>
+							{% endif %} 
+						</ul>
+					</nav>
+					{% endif %} 
+					<span class="goals-results">{{ results }}</span>
+				</td>
+				<td class="text-right">
+					<a class="btn btn-primary goal_add" data-toggle="tooltip" data-original-title="{{ button_add }}"><i class="fa fa-plus"></i></a>
+				</td>
+			</tr>
+		</tfoot>
+	</table>
+</div>

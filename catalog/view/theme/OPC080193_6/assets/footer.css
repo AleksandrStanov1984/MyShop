@@ -1,0 +1,382 @@
+.footer {
+  margin-top: 72px;
+  padding: 35px 0 49px 0;
+  color: #fff;
+  font-size: 14px;
+  position: relative;
+}
+
+.footer > .wrapper > .row {
+  width: 100%;
+}
+
+.footer .wrapper {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  z-index: 1;
+}
+
+.footer-phones {
+  margin-top: 17px;
+}
+
+.footer_text__about {
+  color: #DCD5DE;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  margin-bottom: 21px;
+  line-height: 1.35;
+}
+
+.footer_text__about_first {
+  margin-bottom: 18px;
+}
+
+.footer_payment img {
+  padding-right: 3px;
+  vertical-align: middle;
+}
+
+.footer-links a {
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 0px;
+  color: #DCD5DE;
+}
+
+.icon-footer-worktime {
+  background-image: url("data:image/svg+xml,%3Csvg width='22' height='22' viewBox='0 0 22 22' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg clip-path='url(%23clip0)'%3E%3Cpath d='M11.0468 0C5.18673 0 0.419189 4.9346 0.419189 11C0.419189 17.0654 5.18673 22 11.0468 22C16.9069 22 21.6744 17.0654 21.6744 11C21.6744 4.9346 16.9069 0 11.0468 0ZM11.0468 21.2667C5.57747 21.2667 1.1277 16.661 1.1277 11C1.1277 5.33903 5.57747 0.733333 11.0468 0.733333C16.5161 0.733333 20.9659 5.33903 20.9659 11C20.9659 16.661 16.5161 21.2667 11.0468 21.2667Z' fill='%23C0AEC5'/%3E%3Cpath d='M11.0468 2.19995C10.8513 2.19995 10.6926 2.36385 10.6926 2.56662V11H5.37879C5.18324 11 5.02454 11.1639 5.02454 11.3666C5.02454 11.5694 5.18324 11.7333 5.37879 11.7333H11.0468C11.2424 11.7333 11.4011 11.5694 11.4011 11.3666V2.56662C11.4011 2.36385 11.2424 2.19995 11.0468 2.19995Z' fill='%23C0AEC5'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='clip0'%3E%3Crect width='21.2552' height='22' fill='white' transform='translate(0.419189)'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E%0A");
+  width: 22px;
+  height: 22px;
+  background-repeat: no-repeat;
+  display: inline-block;
+  margin-right: 8px;
+  vertical-align: middle;
+  position: absolute;
+  left: 0px;
+  top: 5px;
+}
+
+/*footer*/
+
+/*.icon-callback-footer{    display: inline-block;    vertical-align: middle;    height: 9.66px;    width: 10px;    position: absolute;    left: 0px;    top: 8px;  background-image: url("data:image/svg+xml,%3Csvg width='11' height='10' viewBox='0 0 11 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg clip-path='url(%23clip0)'%3E%3Cpath d='M9.87925 7.71557L7.92373 6.36577C7.67557 6.19586 7.34292 6.25177 7.15946 6.49425L6.58984 7.2523C6.51663 7.35221 6.38356 7.38119 6.27766 7.3203L6.16931 7.25847C5.81011 7.05583 5.36319 6.80354 4.46271 5.87118C3.56223 4.93882 3.318 4.47588 3.12221 4.10478L3.0628 3.99263C3.00316 3.88304 3.03063 3.74472 3.12719 3.66834L3.85909 3.07894C4.09327 2.88902 4.14736 2.54482 3.98339 2.28788L2.67928 0.263849C2.51123 0.00220808 2.17408 -0.0763349 1.91392 0.0855355L1.09619 0.593956C0.839256 0.7503 0.650754 1.0035 0.57021 1.30051C0.275749 2.41101 0.497269 4.32756 3.22494 7.15114C5.39475 9.39681 7.01007 10.0007 8.12033 10.0007C8.37585 10.0019 8.63037 9.96745 8.87704 9.89841C9.16405 9.81514 9.40872 9.62002 9.55967 9.354L10.0514 8.50813C10.208 8.2388 10.1321 7.88961 9.87925 7.71557Z' fill='%23DC56DF'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='clip0'%3E%3Crect width='9.66146' height='10' fill='white' transform='translate(0.471313)'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E%0A");}*/
+
+.callback-footer {
+  background: transparent;
+  border: 1px solid #9354b1;
+  border-radius: 50px;
+  padding: 3px 19px 3px 13px;
+  display: inline-block;
+  margin-left: -20px;
+}
+
+.callback_link_footer {
+  background: transparent;
+  color: #9f97b8;
+  font-weight: normal;
+  padding-left: 3px;
+  font-size: 13px;
+}
+
+.callback-footer:hover {
+  border-color: #dc56df;
+}
+
+.callback-footer:hover svg path {
+  fill: #dc56df;
+}
+
+.callback-footer:hover .callback_link_footer {
+  color: #dc56df;
+}
+
+.sz_social {
+  display: inline-block;
+}
+
+.no-wrap {
+  white-space: nowrap;
+}
+
+.delivery-from-stock {
+  line-height: 1.6;
+  vertical-align: top;
+  position: relative;
+  display: inline-block;
+  padding-left: 32px;
+  font-size: 14px;
+  color: #DCD5DE;
+}
+
+.icon-delivery-from-stock {
+  background-image: url("data:image/svg+xml,%3Csvg width='23' height='25' viewBox='0 0 23 25' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M22.0851 18.5068C21.6884 17.0847 20.7125 15.9122 19.4124 15.2958V5.93193C19.4125 5.7821 19.336 5.64339 19.2114 5.56712L10.2055 0.0589874C10.077 -0.0196625 9.91728 -0.0196625 9.7888 0.0589874L0.782904 5.56712C0.774308 5.57221 0.768167 5.57983 0.75998 5.58577C0.751793 5.5917 0.744015 5.59848 0.735828 5.60526C0.700265 5.63423 0.669717 5.66918 0.64536 5.70864C0.64536 5.71161 0.640447 5.7133 0.63881 5.71627V5.71923C0.615732 5.76229 0.600075 5.80916 0.592553 5.85778C0.592553 5.87049 0.588868 5.88236 0.58764 5.89507C0.586412 5.90778 0.581909 5.91922 0.581909 5.93193V16.9482C0.581858 17.098 0.658306 17.2367 0.782904 17.313L9.7888 22.8211C9.79959 22.8266 9.81064 22.8314 9.82195 22.8356C9.83311 22.8413 9.84462 22.8464 9.85634 22.8508C9.94645 22.8898 10.0479 22.8898 10.138 22.8508C10.1498 22.8464 10.1615 22.8413 10.1728 22.8356C10.1834 22.8305 10.1949 22.8275 10.2055 22.8211L12.6498 21.3259C13.4019 24.0227 16.1238 25.5778 18.7293 24.7993C21.3348 24.0208 22.8372 21.2036 22.0851 18.5068ZM9.99716 0.915715L12.1258 2.21775L8.96967 4.14814C8.77492 4.26726 8.71029 4.52725 8.82537 4.72883C8.94045 4.9304 9.19164 4.9973 9.38639 4.87818L12.931 2.71179L15.0597 4.01383L6.85861 9.02835L4.72994 7.72631L8.15914 5.62898C8.35389 5.50987 8.41852 5.24988 8.30344 5.0483C8.18836 4.84672 7.93716 4.77983 7.74241 4.89894L3.92514 7.23397L1.79607 5.93193L9.99716 0.915715ZM6.44925 9.76263V12.5917L4.3345 11.2981V8.46906L6.44925 9.76263ZM12.6151 18.6044C12.5062 19.0318 12.4518 19.4721 12.4533 19.9141C12.4534 20.0914 12.4624 20.2687 12.4803 20.445L10.4065 21.714V20.3378C10.4065 20.1038 10.2232 19.9141 9.99716 19.9141C9.77109 19.9141 9.5878 20.1038 9.5878 20.3378V21.714L1.40063 16.7067V6.67468L3.51578 7.96825V11.5396C3.51563 11.6896 3.59203 11.8286 3.71678 11.9049L6.65024 13.6993C6.71339 13.7377 6.78533 13.758 6.85861 13.7581C7.08467 13.7581 7.26796 13.5684 7.26796 13.3344V10.263L9.5878 11.682V18.643C9.5878 18.877 9.77109 19.0667 9.99716 19.0667C10.2232 19.0667 10.4065 18.877 10.4065 18.643V11.682L17.8257 7.14415C18.0204 7.02503 18.0849 6.76514 17.9698 6.56367C17.8547 6.3622 17.6037 6.29542 17.409 6.41453L9.99716 10.9481L7.66381 9.52069L15.8649 4.50448L18.5937 6.17344V14.9992C15.9809 14.2859 13.3042 15.9 12.6151 18.6044ZM17.3656 24.1512C15.1048 24.1512 13.272 22.2542 13.272 19.9141C13.272 17.5741 15.1048 15.6771 17.3656 15.6771C19.6264 15.6771 21.4592 17.5741 21.4592 19.9141C21.4567 22.2531 19.6254 24.1486 17.3656 24.1512Z' fill='%23C0AEC5'/%3E%3C/svg%3E ");
+  background-repeat: no-repeat;
+  display: inline-block;
+  margin-right: 8px;
+  vertical-align: middle;
+  display: inline-block;
+  width: 24.15px;
+  height: 25px;
+  position: absolute;
+  left: 0px;
+  top: 2px;
+}
+
+.footer .copyright {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.footer .footer-links li {
+  margin-bottom: 8px;
+}
+
+.footer .foote-links li a:hover {
+  text-decoration: underline;
+}
+
+.footer-subtitle {
+  margin-bottom: 15px;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 191.4%;
+  color: #FFFFFF;
+}
+
+.footer .footer-phones a {
+  display: block;
+  font-weight: normal;
+  font-size: 13px;
+  color: #C9BFD2;
+}
+
+.footer-worktime {
+  line-height: 1.6;
+  vertical-align: top;
+  position: relative;
+  display: inline-block;
+  padding-left: 32px;
+  font-size: 14px;
+  color: #DCD5DE;
+  margin-bottom: 20px;
+}
+
+footer .social a {
+  display: block;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 1.7;
+  color: #C9BFD2;
+}
+
+.black-phone-life,
+.black-phone-city {
+  vertical-align: middle;
+  height: 10.5px;
+}
+
+.footer-worktime .btn {
+  margin-top: 3px;
+}
+
+.copyright-footer {
+  text-align: right;
+}
+
+.footer-bottom {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 12px;
+  line-height: 16px;
+  margin-top: 5px;
+  text-align: center;
+}
+
+.tel {
+  padding-left: 22px;
+  display: inline-block;
+  position: relative;
+  line-height: 23px;
+  margin-bottom: 7px;
+}
+
+.tel-universal-footer {
+  margin-bottom: 0px !important;
+  padding-bottom: 5px;
+  padding-left: 0px !important;
+  font-weight: normal;
+  font-size: 16px !important;
+  line-height: 2;
+  color: #C9BFD2;
+}
+
+.footer-contacts .tel {
+  padding-left: 25px;
+}
+
+footer .tel:before {
+  width: 16px;
+  height: 16px;
+}
+
+.tel-mts:before {
+  background-image: url(../images/tel-mts.svg);
+}
+
+.tel-kyiv:before {
+  background-image: url(../images/tel-kyivstar.svg);
+}
+
+.tel-life:before {
+  background-image: url(../images/tel-life.svg);
+}
+
+.icon-link-mail {
+  padding-left: 30px;
+  background-image: url("data:image/svg+xml,%3Csvg width='16' height='13' viewBox='0 0 16 13' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M14.0858 0.875H1.91803C1.14382 0.875 0.514038 1.5058 0.514038 2.28126V10.7188C0.514038 11.4942 1.14382 12.125 1.91803 12.125H14.0858C14.86 12.125 15.4898 11.4942 15.4898 10.7188V2.28126C15.4898 1.5058 14.86 0.875 14.0858 0.875ZM14.0858 1.8125C14.1494 1.8125 14.2099 1.82571 14.2652 1.84879L8.00193 7.28599L1.73862 1.84879C1.79392 1.82574 1.85441 1.8125 1.918 1.8125H14.0858ZM14.0858 11.1875H1.91803C1.65981 11.1875 1.45002 10.9774 1.45002 10.7187V2.83926L7.69526 8.26056C7.78348 8.33699 7.8927 8.375 8.00193 8.375C8.11115 8.375 8.22038 8.33702 8.3086 8.26056L14.5538 2.83926V10.7188C14.5538 10.9774 14.344 11.1875 14.0858 11.1875Z' fill='%23C9BFD2'/%3E%3C/svg%3E ");
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  background-repeat: no-repeat;
+  vertical-align: middle;
+  position: absolute;
+  left: 0px;
+}
+
+.footer-contacts .free-in-ukraine {
+  color: #fff;
+  margin-bottom: 15px;
+  font-size: 9px;
+  padding-left: 22px;
+}
+
+footer .footer-phones a.tel-universal {
+  margin-bottom: 5px;
+  padding-left: 22px;
+}
+
+.link-mail {
+  padding-left: 23px;
+  position: relative;
+  margin-top: 14px;
+}
+
+#scroll-top {
+  display: none;
+  background-color: #845aa1;
+  border-radius: 50px;
+  width: 65px;
+  height: 65px;
+  line-height: 65px;
+  position: fixed;
+  bottom: 137px;
+  right: 0px;
+  margin-right: 20px;
+  text-align: center;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.footer__sitemap {
+  color: #c9bfd2;
+  opacity: 0.2;
+  padding-left: 21px;
+  margin-top: 6px;
+  display: block;
+  font-size: 13px;
+}
+
+/*end-footer*/
+
+@media (min-width: 992px) {
+  .footer {
+    background: url(../images/line_footer.png) no-repeat left top, -o-linear-gradient(356.11deg, #35155D 7.29%, #782C97 51.46%, #46206E 101.7%);
+    background: url(../images/line_footer.png) no-repeat left top, linear-gradient(93.89deg, #35155D 7.29%, #782C97 51.46%, #46206E 101.7%);
+  }
+
+  .footer:after {
+    content: '';
+    background: url(../images/line_footer.png) no-repeat left top;
+    position: absolute;
+    top: 0;
+    -webkit-transform: scale(-1, 1);
+    -ms-transform: scale(-1, 1);
+    transform: scale(-1, 1);
+    right: 0;
+    height: 100%;
+    width: 100%;
+  }
+
+  .footer-bottom {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (max-width: 991px) {
+  .footer {
+    background: #4B2079;
+  }
+}
+
+@media (max-width: 767px) {
+  .footer-phones .tel-universal {
+    font-size: 21px !important;
+  }
+
+  .footer {
+    margin-top: 48px;
+    padding: 11px 0 0;
+  }
+
+  .copyright-footer {
+    text-align: left;
+  }
+
+  .footer-col__customers {
+    -webkit-box-ordinal-group: 2;
+    -webkit-order: 1;
+    -ms-flex-order: 1;
+    order: 1;
+  }
+
+  .footer-col__contact {
+    -webkit-box-ordinal-group: 3;
+    -webkit-order: 2;
+    -ms-flex-order: 2;
+    order: 2;
+  }
+
+  .footer-col__social {
+    -webkit-box-ordinal-group: 5;
+    -webkit-order: 4;
+    -ms-flex-order: 4;
+    order: 4;
+  }
+
+  .footer-col__schedule {
+    -webkit-box-ordinal-group: 4;
+    -webkit-order: 3;
+    -ms-flex-order: 3;
+    order: 3;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .footer {
+    margin-top: 56px;
+  }
+
+  .footer-phones .tel-universal {
+    font-size: 18px !important;
+  }
+}

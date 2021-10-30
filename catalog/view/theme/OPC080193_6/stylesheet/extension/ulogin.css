@@ -1,0 +1,48 @@
+.ulogin_accounts, .ulogin_form, .ulogin_note {
+    margin: 5px 15px;
+}
+
+.panel.ulogin_panel {
+    clear: both;
+    text-align: center;
+    padding: 20px;
+}
+.ulogin_panel .panel-heading{
+  font-size: 18px;
+  line-height: 149.4%;
+  color: #7B7B7B;
+}
+.ulogin_provider {
+    margin-right: 10px;
+    display: inline-block;
+    cursor: pointer;
+    float: left;
+}
+
+.ulogin_provider:hover {
+    opacity: 0.75;
+}
+.ulogin_right {
+    float: right;
+}
+.btn-soc{
+  display: inline-block;
+  margin: 5px 17px;
+  cursor: pointer;
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+}
+.ulogin_panel-body{
+  padding-top: 23px
+}
+.ulogin_panel-body .btn-soc{
+  overflow: hidden;
+}
+.ulogin_panel-body .btn-soc{
+  overflow: hidden;
+}
+.ulogin_panel-body .btn-soc img:hover{
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}

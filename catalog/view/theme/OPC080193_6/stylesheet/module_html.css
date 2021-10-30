@@ -1,0 +1,26 @@
+.scroll-all-stock{
+  position: relative;
+  
+  margin-bottom: 40px;
+}
+.scroll-stock-link{
+    display: block;
+    height: 40px;
+  border-radius: 8px;
+  background-color: #e9e8ee;
+  font-size: 16px;
+  font-weight: 600;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 40px;
+  color: #000000;
+  text-align: center;
+}
+.scroll-stock-link svg{
+  position: absolute;
+  right: 29.5px;
+  top: 0px;
+  bottom: 0px;
+  margin-top: auto;
+  margin-bottom: auto;
+}

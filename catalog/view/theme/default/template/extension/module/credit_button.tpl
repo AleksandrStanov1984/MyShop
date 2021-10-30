@@ -1,0 +1,1 @@
+<button type="button" data-loading-text="<?php echo $text_loading; ?>" class="btn-secondary button-credit"><span><?php echo $text_buycredit; ?></span></button>

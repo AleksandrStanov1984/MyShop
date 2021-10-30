@@ -1,0 +1,24 @@
+<?php
+$GLOBALS['SEOSHIELD_CONFIG']['track_products_visits']['selectors'] = array(
+    array(
+        'selector' => '<!--seoshield_formulas--kartochka-tovara-->',
+    ),
+);
+$GLOBALS['SEOSHIELD_CONFIG']['track_products_visits']['product_selector'] = '<!--product_in_listingEX-->';
+$GLOBALS['SEOSHIELD_CONFIG']['track_products_visits']['table_name'] = 'ss__track_products_visits';
+$GLOBALS['SEOSHIELD_CONFIG']['track_products_visits']['table_info_name'] = 'ss__track_product_info';
+$GLOBALS['SEOSHIELD_CONFIG']['track_products_visits']['seoshield_config_url_key'] = 'page_url';
+$GLOBALS['SEOSHIELD_CONFIG']['track_products_visits']['product_info'] = '#<!--ss_product_info\|(?<c_name>[^\|]+)\|(?<c_value>.*?)-->#s';
+$GLOBALS['SEOSHIELD_CONFIG']['track_products_visits']['meta_description_selector'] = '#<meta[^>]*?name=[\'\"]?description[^>]*?content=[\'\"](.*?)[\'\"]\s?/?>#s';
+$GLOBALS['SEOSHIELD_CONFIG']['track_products_visits']['breadcrumbs_selector'] = '#<!--ss_breadcrums_list:(.*?)-->#';
+$GLOBALS['SEOSHIELD_CONFIG']['track_products_visits']['product_manufacturer'] = '#<!--ss_product_manufacturer:(.*?)-->#';
+$GLOBALS['SEOSHIELD_CONFIG']['track_products_visits']['product_model'] = '#<!--ss_product_model:(.*?)-->#';
+$GLOBALS['SEOSHIELD_CONFIG']['track_products_visits']['product_code'] = '#<!--ss_product_code:(.*?)-->#';
+$GLOBALS['SEOSHIELD_CONFIG']['track_products_visits']['short_desc'] = '#<!--ss_short_desc:(.*?)-->#';
+$GLOBALS['SEOSHIELD_CONFIG']['track_products_visits']['full_desc'] = '#<!--ss_full_desc:(.*?)-->#';
+$GLOBALS['SEOSHIELD_CONFIG']['track_products_visits']['reviews_num'] = '#<!--ss_reviews_num:([0-9]+?)-->#';
+$GLOBALS['SEOSHIELD_CONFIG']['track_products_visits']['price'] = '#<!--ss_price:([0-9]+?)-->#';
+$GLOBALS['SEOSHIELD_CONFIG']['track_products_visits']['discount_price'] = '#<!--ss_discount_price:([0-9]+?)-->#';
+$GLOBALS['SEOSHIELD_CONFIG']['track_products_visits']['availability'] = '<!--ss_availability:true-->';
+$GLOBALS['SEOSHIELD_CONFIG']['track_products_visits']['product_id'] = '#<!--ss_product_id:([0-9]+?)-->#';
+$GLOBALS['SEOSHIELD_CONFIG']['track_products_visits']['debug'] = true;

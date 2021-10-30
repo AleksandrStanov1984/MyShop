@@ -1,0 +1,390 @@
+<modification>
+    <name>Оплата часятми и Мгновенная рассрочка Приватбанк Холд</name>
+	<version>1.1.0</version>
+	<link>http://fringe.com.ua</link>
+	<author>Stealth</author>
+	<code>privatbank_pp_ocmod_hold</code>
+
+	<file path="admin/model/sale/order.php">
+		<operation>
+			<search><![CDATA[$order_product_query =]]></search>
+			<add position="before"><![CDATA[
+			$order_privat_query = $this->db->query("SELECT * FROM " . DB_PREFIX . "order_privat WHERE order_id = '" . (int)$order_id . "'");
+			
+			if ($order_privat_query->num_rows) {
+				$privat_order_id = $order_privat_query->row['privat_order_id'];
+				$privat_order_status = $order_privat_query->row['privat_order_status'];
+			} else {
+				$privat_order_id = '';
+				$privat_order_status = '';
+			}
+			]]></add>
+		</operation>
+		<operation>
+			<search><![CDATA[$order_query->row['payment_code'],]]></search>
+			<add position="after"><![CDATA[
+				'privat_order_id'         => $privat_order_id,
+				'privat_order_status'     => $privat_order_status,
+			]]></add>
+		</operation>
+		<operation>
+			<search><![CDATA[$this->db->query("DELETE FROM `" . DB_PREFIX . "order]]></search>
+			<add position="before"><![CDATA[
+		$this->db->query("DELETE FROM `" . DB_PREFIX . "order_privat` WHERE order_id = '" . (int)$order_id . "'");
+			]]></add>
+		</operation>
+	</file>	
+	<file path="admin/controller/sale/order.php">
+		<operation>
+			<search><![CDATA[$data['payment_method'] = $order_info['payment_method'];]]></search>
+			<add position="before"><![CDATA[
+			$data['text_confirm'] = $this->language->get('text_confirm');
+			$data['text_wait'] = 'Пожалуйста подождите!';
+			$data['privat_order_status'] = $order_info['privat_order_status']; 
+			$data['privat_order_id'] = $order_info['privat_order_id']; 
+			$data['payment_code'] = $order_info['payment_code'];
+			]]></add>
+		</operation>
+		<operation>
+			<search><![CDATA[public function getForm]]></search>
+			<add position="before"><![CDATA[
+    public function askstatus (){
+		
+		if (isset($this->request->get['privat_order_id'])) {
+			$privat_order_id = $this->request->get['privat_order_id'];
+			$payment_code = $this->request->get['payment_code'];
+		} else {
+			$privat_order_id = 0;
+			$payment_code = 0;
+		}
+		
+		$data_deal['storeId'] = $this->config->get($payment_code . '_shop_id');
+		$data_deal['orderId'] = $privat_order_id;
+		$data_deal['showRefund'] = true;
+		$data_deal['showAmount'] = true;
+		$data_deal['signature'] = $this->generateSignature($payment_code, $data_deal);
+
+        $requestDial = json_encode($data_deal);       
+        $url = 'https://payparts2.privatbank.ua/ipp/v2/payment/state';     
+		
+		$responseResDeal = $this->curlPostWithData($url,$requestDial);
+
+        if(is_array($responseResDeal)){
+            if(strcmp($responseResDeal['state'], 'FAIL') == 0){
+                $this->log->write('PRIVATBANK_PAYMENTPARTS :: REFRESH STATUS failed: ' . json_encode($responseResDeal));                
+            }            
+            if(strcmp($responseResDeal['state'], 'SUCCESS') == 0){
+				$this->db->query("UPDATE " . DB_PREFIX . "order_privat SET privat_order_status = '" . $this->db->escape($responseResDeal['paymentState']) . "' WHERE privat_order_id = '" . $this->db->escape($privat_order_id) . "'");				
+            }   
+            echo  json_encode($responseResDeal);         
+        } else {
+            echo json_encode(array('state'=>'sys_error','message'=>$responseResDeal));
+        }
+	}	
+	
+    public function confirmhold (){
+	
+		$this->language->load('sale/privatorder');
+		
+		if (isset($this->request->get['privat_order_id'])) {
+			$privat_order_id = $this->request->get['privat_order_id'];
+			$payment_code = $this->request->get['payment_code'];
+		} else {
+			$privat_order_id = 0;
+			$payment_code = 0;
+		}
+		
+		$data_deal['storeId'] = $this->config->get($payment_code . '_shop_id');
+		$data_deal['orderId'] = $privat_order_id;
+		$data_deal['signature'] = $this->generateSignature($payment_code, $data_deal);
+
+        $requestDial = json_encode($data_deal);       
+        $url = 'https://payparts2.privatbank.ua/ipp/v2/payment/confirm';     
+		
+		$responseResDeal = $this->curlPostWithData($url,$requestDial);
+
+        if(is_array($responseResDeal)){
+            if(strcmp($responseResDeal['state'], 'FAIL') == 0){
+                $this->log->write('PRIVATBANK_PAYMENTPARTS :: CONFIRM failed: ' . json_encode($responseResDeal));                
+            }            
+            if(strcmp($responseResDeal['state'], 'SUCCESS') == 0){
+				$this->db->query("UPDATE " . DB_PREFIX . "order_privat SET privat_order_status = 'SUCCESS' WHERE privat_order_id = '" . $this->db->escape($privat_order_id) . "'");				
+				$responseResDeal['order_status_id'] = $this->config->get($payment_code . '_completed_status_id');
+				$responseResDeal['comment'] = $this->language->get('text_order_confirmed');
+            }   
+            echo  json_encode($responseResDeal);         
+        } else {
+            echo json_encode(array('state'=>'sys_error','message'=>$responseResDeal));
+        }
+	}
+	
+    public function cancelhold (){
+	
+		$this->language->load('sale/privatorder');
+		
+		if (isset($this->request->get['privat_order_id'])) {
+			$privat_order_id = $this->request->get['privat_order_id'];
+			$payment_code = $this->request->get['payment_code'];
+		} else {
+			$privat_order_id = 0;
+			$payment_code = 0;
+		}
+		
+		$data_deal['storeId'] = $this->config->get($payment_code . '_shop_id');
+		$data_deal['orderId'] = $privat_order_id;
+		$data_deal['signature'] = $this->generateSignature($payment_code, $data_deal);
+
+        $requestDial = json_encode($data_deal);       
+        $url = 'https://payparts2.privatbank.ua/ipp/v2/payment/cancel';     
+		
+		$responseResDeal = $this->curlPostWithData($url,$requestDial);
+
+        if(is_array($responseResDeal)){
+            if(strcmp($responseResDeal['state'], 'FAIL') == 0){
+                $this->log->write('PRIVATBANK_PAYMENTPARTS :: CANCEL failed: ' . json_encode($responseResDeal));                
+            }            
+            if(strcmp($responseResDeal['state'], 'SUCCESS') == 0){
+				$this->db->query("UPDATE " . DB_PREFIX . "order_privat SET privat_order_status = 'CANCELED' WHERE privat_order_id = '" . $this->db->escape($privat_order_id) . "'");				
+				$responseResDeal['order_status_id'] = $this->config->get($payment_code . '_canceled_status_id');
+				$responseResDeal['comment'] = $this->language->get('text_order_canceled');
+            }   
+            echo  json_encode($responseResDeal);         
+        } else {
+            echo json_encode(array('state'=>'sys_error','message'=>$responseResDeal));
+        }
+	}
+	
+    private function generateSignature ($payment_code, $dataAnsweArr){
+
+        $passwordStore = $this->config->get($payment_code . '_shop_password');
+        
+        $signatureAnswerStr = $passwordStore.
+							  $dataAnsweArr['storeId'].
+                              $dataAnsweArr['orderId'].
+                              $passwordStore;
+                              
+        $signatureAnswer = base64_encode(SHA1($signatureAnswerStr, true));
+		
+        return $signatureAnswer;
+        
+    }
+	
+    private function curlPostWithData($url, $request) {
+		try {
+			$curl = curl_init($url);
+			curl_setopt($curl, CURLOPT_POST, true);
+			curl_setopt($curl, CURLOPT_POSTFIELDS, $request);
+			curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+			curl_setopt($curl, CURLOPT_HEADER, 0);
+			curl_setopt($curl, CURLOPT_HTTPHEADER, array('Accept: application/json','Accept-Encoding: UTF-8','Content-Type: application/json; charset=UTF-8'));
+			curl_setopt($curl, CURLOPT_TIMEOUT, 30);
+			curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
+
+			$response = curl_exec($curl);
+			$curl_errno = curl_errno($curl);
+			$curl_error = curl_error($curl);
+			$aInfo = @curl_getinfo($curl);            
+			//close curl
+			curl_close($curl);          
+			//analysis of the information received
+	   
+			if($curl_errno!=0){
+				$this->log->write('PRIVATBANK_PAYMENTPARTS :: CURL failed ' . $curl_error . '(' . $curl_errno . ')');  
+				return 'error';
+			} 
+			if($aInfo["http_code"]!='200'){
+				$this->log->write('PRIVATBANK_PAYMENTPARTS :: HTTP failed ' . $aInfo["http_code"] . '(' . $response . ')');  
+				return 'error';
+			} 
+			return json_decode($response,true);
+		   
+		} catch(Exception $e){
+			return false;
+		}
+    }
+			]]></add>
+		</operation>
+	</file>	
+	<file path="admin/view/template/sale/order_info.tpl">
+		<operation>
+			<search><![CDATA[<?php echo $payment_method; ?></td>]]></search>
+			<add position="replace"><![CDATA[
+<?php echo $payment_method; ?>
+<?php if ($privat_order_status) { ?>
+ <br>Статус: <b id="privat_order_status"><?php echo $privat_order_status; ?>
+ <?php if ($privat_order_status == 'LOCKED') { ?>
+ <a id="button-confirm" class="btn btn-primary">Подтвердить</a> <a id="button-cancel" class="btn btn-primary"><?php echo $button_cancel; ?></a>
+ <?php } ?>
+ </b> <a id="button-status" class="btn btn-primary">Обновить</a>
+<?php } ?>
+</td>
+			]]></add>
+		</operation>
+		<operation>
+			<search><![CDATA[<?php echo $footer; ?>]]></search>
+			<add position="before"><![CDATA[
+<?php if ($privat_order_status) { ?>
+<script type="text/javascript">
+$(document).ready(function(){
+    $("#button-status").click(function(){
+        $.ajax({
+            type: 'post',
+            url: 'index.php?route=sale/order/askstatus&token=<?php echo $token; ?>&privat_order_id=<?php echo $privat_order_id; ?>&payment_code=<?php echo $payment_code; ?>',
+            dataType: 'json',
+			beforeSend: function() {
+				$('.success, .warning, .alert, attention').remove();
+				$('.page-header > div').append('<div class="alert alert-info"> <?php echo $text_wait; ?></div>');
+			},
+               success: function(data){
+					console.log(data['state']);
+                    switch(data['state']){
+                        case 'SUCCESS':
+							$('.success, .warning, .alert, .attention').remove();
+                            $('.page-header > div').append('<div class="alert alert-success">Статус заказа обновлен: ' + data['paymentState'] + '</div>');
+							$('#privat_order_status').html(data['paymentState']);
+                            break;
+                        case 'FAIL':
+							$('.success, .warning, .alert, .attention').remove();
+                            $('.page-header > div').append('<div class="alert alert-warning">При обновлении статуса заказа произошла ошибка: ' + data['message'] + '</div>');
+							break;
+                        case 'sys_error':
+							$('.success, .warning, .alert, .attention').remove();
+                            $('.page-header > div').append('<div class="alert alert-warning">При обновлении статуса заказа произошла ошибка: ' + data['message'] + '</div>');
+							break;
+                    }                                 
+               }    
+        });
+        return false;    
+    });
+	
+    $("#button-confirm").click(function(){
+	if(confirm('<?php echo $text_confirm; ?>')){
+        $.ajax({
+            type: 'post',
+            url: 'index.php?route=sale/order/confirmhold&token=<?php echo $token; ?>&privat_order_id=<?php echo $privat_order_id; ?>&order_id=<?php echo $order_id; ?>&payment_code=<?php echo $payment_code; ?>',
+            dataType: 'json',
+			beforeSend: function() {
+				$('.success, .warning, .alert, attention').remove();
+				$('.page-header > div').append('<div class="alert alert-info"> <?php echo $text_wait; ?></div>');
+			},
+               success: function(data){
+					console.log(data['state']);
+                    switch(data['state']){
+                        case 'SUCCESS':
+							$('.success, .warning, .alert, .attention').remove();
+                            $('.page-header > div').append('<div class="alert alert-success">Заказ успешно подтвержден!</div>');
+							$('#privat_order_status').html('SUCCESS');
+							
+							$.ajax({
+								url: '<?php echo $catalog; ?>index.php?route=api/order/history&token=' + token + '&store_id=<?php echo $store_id; ?>&order_id=<?php echo $order_id; ?>',
+								type: 'post',
+								dataType: 'json',
+								data: 'order_status_id=' + data['order_status_id'] + '&notify=1&override=0&append=' + ($('input[name=\'append\']').prop('checked') ? 1 : 0) + '&comment=' + data['comment'],
+								beforeSend: function() {
+									$('#button-history').button('loading');
+								},
+								complete: function() {
+									$('#button-history').button('reset');
+								},
+								success: function(json) {
+								//	$('.alert').remove();
+
+									if (json['error']) {
+										$('#history').before('<div class="alert alert-danger"><i class="fa fa-exclamation-circle"></i> ' + json['error'] + ' <button type="button" class="close" data-dismiss="alert">&times;</button></div>');
+									}
+
+									if (json['success']) {
+										$('#history').load('index.php?route=sale/order/history&token=<?php echo $token; ?>&order_id=<?php echo $order_id; ?>');
+
+										$('#history').before('<div class="alert alert-success"><i class="fa fa-check-circle"></i> ' + json['success'] + ' <button type="button" class="close" data-dismiss="alert">&times;</button></div>');
+									}
+								},
+								error: function(xhr, ajaxOptions, thrownError) {
+									alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+								}
+							});
+							
+                            break;
+                        case 'FAIL':
+							$('.success, .warning, .alert, .attention').remove();
+                            $('.page-header > div').append('<div class="alert alert-warning">При подтверждении заказа произошла ошибка: ' + data['message'] + '</div>');
+							break;
+                        case 'sys_error':
+							$('.success, .warning, .alert, .attention').remove();
+                            $('.page-header > div').append('<div class="alert alert-warning">При подтверждении заказа произошла ошибка: ' + data['message'] + '</div>');
+							break;
+                    }                                 
+               }    
+        });
+        return false;   
+	}
+    });
+    $("#button-cancel").click(function(){
+	if(confirm('<?php echo $text_confirm; ?>')){
+        $.ajax({
+            type: 'post',
+            url: 'index.php?route=sale/order/cancelhold&token=<?php echo $token; ?>&privat_order_id=<?php echo $privat_order_id; ?>&order_id=<?php echo $order_id; ?>&payment_code=<?php echo $payment_code; ?>',
+            dataType: 'json',
+			beforeSend: function() {
+				$('.success, .warning, .alert, attention').remove();
+				$('.page-header > div').append('<div class="alert alert-info"> <?php echo $text_wait; ?></div>');
+			},
+               success: function(data){
+					console.log(data['state']);
+                    switch(data['state']){
+                        case 'SUCCESS':
+							$('.success, .warning, .alert, .attention').remove();
+                            $('.page-header > div').append('<div class="alert alert-success">Заказ успешно отменен!</div>');
+							$('#privat_order_status').html('CANCELED');
+							
+							$.ajax({
+								url: '<?php echo $catalog; ?>index.php?route=api/order/history&token=' + token + '&store_id=<?php echo $store_id; ?>&order_id=<?php echo $order_id; ?>',
+								type: 'post',
+								dataType: 'json',
+								data: 'order_status_id=' + data['order_status_id'] + '&notify=1&override=0&append=' + ($('input[name=\'append\']').prop('checked') ? 1 : 0) + '&comment=' + data['comment'],
+								beforeSend: function() {
+									$('#button-history').button('loading');
+								},
+								complete: function() {
+									$('#button-history').button('reset');
+								},
+								success: function(json) {
+								//	$('.alert').remove();
+
+									if (json['error']) {
+										$('#history').before('<div class="alert alert-danger"><i class="fa fa-exclamation-circle"></i> ' + json['error'] + ' <button type="button" class="close" data-dismiss="alert">&times;</button></div>');
+									}
+
+									if (json['success']) {
+										$('#history').load('index.php?route=sale/order/history&token=<?php echo $token; ?>&order_id=<?php echo $order_id; ?>');
+
+										$('#history').before('<div class="alert alert-success"><i class="fa fa-check-circle"></i> ' + json['success'] + ' <button type="button" class="close" data-dismiss="alert">&times;</button></div>');
+									}
+								},
+								error: function(xhr, ajaxOptions, thrownError) {
+									alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+								}
+							});
+							
+                            break;
+                        case 'FAIL':
+							$('.success, .warning, .alert, .attention').remove();
+                            $('.page-header > div').append('<div class="alert alert-warning">При отмене заказа произошла ошибка: ' + data['message'] + '</div>');
+							break;
+                        case 'sys_error':
+							$('.success, .warning, .alert, .attention').remove();
+                            $('.page-header > div').append('<div class="alert alert-warning">При отмене заказа произошла ошибка: ' + data['message'] + '</div>');
+							break;
+                    }                                 
+               }    
+        });
+        return false;    
+	}
+    });  
+});    
+</script>
+<?php } ?>
+			]]></add>
+		</operation>
+	</file>	
+</modification>

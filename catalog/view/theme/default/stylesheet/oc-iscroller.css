@@ -1,0 +1,164 @@
+/**
+ * iScroller 1.2.1, September 20, 2017
+ * Copyright 2014-2017 Igor Bukin / egozza88@gmail.com
+ * License: Commercial. Reselling of this software or its derivatives is not allowed. You may use this software for one website ONLY including all its subdomains if the top level domain belongs to you and all subdomains are parts of the same OpenCart store.
+ * Support: oc.iscroller@gmail.com
+ */
+i.iscroller-separator {
+    width: auto!important;
+    clear: both;
+    float: none;
+}
+#infscr-loading {
+    clear: both;
+    float: none;
+}
+/*
+i.iscroller-separator {
+    width: 100%!important;
+    float: left;
+    clear: none;
+}
+#infscr-loading {
+    float: left;
+    width: 100%;
+    clear: none;
+}
+*/
+i.iscroller-separator {
+    position: relative!important;
+    display: block!important;
+    text-align: center;
+    margin: 15px 0;
+    font-style: normal;
+}
+.iscroller-separator:before, .iscroller-separator:after {
+    content: ' ';
+    display: block;
+    position: absolute;
+    top: 50%;
+    z-index: 0;
+    width: 50%;
+    height: 1px;
+}
+.iscroller-separator:before {
+    background: -moz-linear-gradient(right, rgba(204,204,204,0) 10px, rgba(204,204,204,1) 10px, rgba(204,204,204,0) 100%);
+    background: -webkit-linear-gradient(right, rgba(204,204,204,0) 10px, rgba(204,204,204,1) 10px,rgba(204,204,204,0) 100%);
+    background: -o-linear-gradient(right, rgba(204,204,204,0) 10px, rgba(204,204,204,1) 10px,rgba(204,204,204,0) 100%);
+    background: -ms-linear-gradient(right, rgba(204,204,204,0) 10px, rgba(204,204,204,1) 10px,rgba(204,204,204,0) 100%); 
+    background: linear-gradient(to left, rgba(204,204,204,0) 10px, rgba(204,204,204,1) 10px,rgba(204,204,204,0) 100%); 
+    left: 0;
+}
+.iscroller-separator:after {
+    background: -moz-linear-gradient(left, rgba(204,204,204,0) 10px, rgba(204,204,204,1) 10px, rgba(204,204,204,0) 100%);
+    background: -webkit-linear-gradient(left, rgba(204,204,204,0) 10px, rgba(204,204,204,1) 10px,rgba(204,204,204,0) 100%);
+    background: -o-linear-gradient(left, rgba(204,204,204,0) 10px, rgba(204,204,204,1) 10px,rgba(204,204,204,0) 100%);
+    background: -ms-linear-gradient(left, rgba(204,204,204,0) 10px, rgba(204,204,204,1) 10px,rgba(204,204,204,0) 100%); 
+    background: linear-gradient(to right, rgba(204,204,204,0) 10px, rgba(204,204,204,1) 10px,rgba(204,204,204,0) 100%); 
+    right: 0;
+}
+.iscroller-separator > span {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    color: #999;
+    position: relative;
+    line-height: 20px;
+}
+.iscroller-btn-cont {
+    text-align: center;
+}
+#infscr-loading {
+    text-align: center;
+    display: block;
+    position: relative;
+    font-style: normal;
+    padding-bottom: 15px;
+}
+#infscr-loading i {
+    display: block;
+    position: relative;
+    font-style: normal;
+}
+.iscroller-bar {
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    bottom: 0;
+    transition-property: width, opacity;
+    transition-duration: 500ms;
+    opacity: 0.5;
+    cursor: pointer;
+    width: 40px;
+}
+.iscroller-bar:hover {
+    width: 60px!important;
+    opacity: 1;
+}
+.iscroller-bar.iscroller-left {
+    left: 0;
+}
+.iscroller-bar.iscroller-right {
+    right: 0;
+}
+.iscroller-bar.iscroller-hidden {
+    display: none!important;
+}
+.iscroller-bar.iscroller-as-btn {
+    top: auto;
+    bottom: 20px;
+    height: 40px;
+    width: 40px!important;
+}
+.iscroller-bar.iscroller-as-btn.iscroller-left {
+    left: 20px;
+}
+.iscroller-bar.iscroller-as-btn.iscroller-right {
+    right: 20px;
+}
+.iscroller-bar.iscroller-as-btn .iscroller-arrow {
+    bottom: 5px;
+}
+.iscroller-bar.iscroller-as-btn.iscroller-top .iscroller-arrow {
+    top: 5px;
+}
+.iscroller-arrow {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    bottom: 10px;
+    left: 50%;
+    margin-left: -5px;
+}
+.iscroller-arrow > div {
+    content: ' ';
+    border-style: solid;
+    border-width: 0 10px 20px 10px;
+    border-color: transparent;
+    position: absolute;
+    height: 0;
+    width: 0;
+    top: -20px;
+    margin-left: -10px;
+    left: 50%;
+}
+.iscroller-top .iscroller-arrow > div {
+    top: 10px;
+    border-width: 20px 10px 0 10px;
+}
+.iscroller-top .iscroller-arrow {
+    bottom: inherit;
+    top: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+

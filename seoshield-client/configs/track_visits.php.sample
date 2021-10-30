@@ -1,0 +1,16 @@
+<?php
+$GLOBALS['SEOSHIELD_CONFIG']['track_visits']['selectors'] = array(
+    array(
+        'selector' => '<!--seoshield_formulas--fil-traciya-->',
+    ),
+);
+$GLOBALS['SEOSHIELD_CONFIG']['track_visits']['product_selector'] = '<!--product_in_listingEX-->';
+$GLOBALS['SEOSHIELD_CONFIG']['track_visits']['table_name'] = 'ss__track_visits';
+$GLOBALS['SEOSHIELD_CONFIG']['track_visits']['filter_uri_part'] = '/filter/';
+$GLOBALS['SEOSHIELD_CONFIG']['track_visits']['pagination_comment'] = '<!--ss_pagination_page-->';
+$GLOBALS['SEOSHIELD_CONFIG']['track_visits']['seoshield_config_url_key'] = 'page_url';
+$GLOBALS['SEOSHIELD_CONFIG']['track_visits']['selected_filters_selector'] = '#<!--ss_selected_filters_info\|(?<filter_name>[^\|]+)\|(?<filter_value>.*?)-->#s';
+$GLOBALS['SEOSHIELD_CONFIG']['track_visits']['meta_description_selector'] = '#<meta[^>]*?name=[\'\"]?description[^>]*?content=[\'\"](.*?)[\'\"]\s*/>#s';
+$GLOBALS['SEOSHIELD_CONFIG']['track_visits']['cms_category_name'] = '#<!--ss_category_name:(.*?)-->#s';
+$GLOBALS['SEOSHIELD_CONFIG']['track_visits']['breadcrumbs_selector'] = '#<!--ss_breadcrums_list:(.*?)-->#';
+$GLOBALS['SEOSHIELD_CONFIG']['track_visits']['debug'] = true;

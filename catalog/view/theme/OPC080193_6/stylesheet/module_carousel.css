@@ -1,0 +1,21 @@
+h2.title, .h2-title {
+    font-size: 22px;
+    font-weight: 500;
+    text-align: left;
+    position: relative;
+    padding-bottom: 15px;
+    margin-top: 40px;
+    color: #000;
+}
+.title-link {
+    text-align: right;
+    top: -55px;
+    position: relative;
+}
+.title-link a {
+    color: #fbad24;
+    text-decoration: underline;
+}
+.title-link a:hover {
+    text-decoration: none;
+}

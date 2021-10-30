@@ -1,0 +1,368 @@
+/*get-call*/
+#bingc-active{
+    display: none!important;
+}
+
+body #bingc-passive-get-phone-form span.bingc-sample-countdown-timer {
+display: none!important;
+}
+body #bingc-passive div.bingc-passive-overlay {
+    background: #ffffff !important;
+    border-radius: 13px!important;
+    height: auto !important;
+}
+@media(min-width: 768px){
+  body #bingc-passive div.bingc-passive-overlay {
+      background: #ffffff !important;
+      width: 695px!important;
+      height: auto !important;
+      padding: 66px 20px 87px;
+  }
+}
+@media(max-width: 767px){
+  body #bingc-passive div.bingc-passive-overlay {
+      width: 90%!important;
+      height: auto !important;
+      padding: 30px 20px 50px;
+  }
+  #bingc-passive div.bingc-passive-overlay a.bingc-passive-close-button {
+    top: 13px!important;
+    right: 14px!important;
+}
+#bingc-passive div.bingc-passive-overlay a.bingc-passive-close-button svg {
+    width: 22px!important;
+    height: 22px!important;
+}
+}
+#bingc-passive div.bingc-passive-overlay a.bingc-powered-by{
+    display: none!important;
+}
+
+.bingc-we-will-call-you-restriction{
+    margin-bottom: 7px!important;
+    font-size: 14px!important;
+    line-height: 19px!important;
+    color: #163955!important;
+    font-weight: 300!important;
+}
+#bingc-passive div.bingc-passive-overlay div.bingc-passive-content div.bingc-passive-get-phone-form form.bingc-passive-get-phone-form input.bingc-passive-get-phone-form-input {
+    padding: 13px 20px;
+    display: block!important;
+    color: #2F2F2F !important;
+    width: 100% !important;
+    height: 55px !important;
+    margin-bottom: 41px!important;
+    border: 1px solid #D9D9D9;
+    box-sizing: border-box;
+    border-radius: 50px!important;
+    font-size: 18px!important;
+    text-align: center!important;
+}
+#bingc-passive div.bingc-passive-overlay div.bingc-passive-content div.bingc-passive-get-phone-form form.bingc-passive-get-phone-form input.bingc-passive-get-phone-form-input::-webkit-input-placeholder {
+    color: #2F2F2F !important;
+    font-size: 18px!important;
+}
+#bingc-passive div.bingc-passive-overlay div.bingc-passive-content div.bingc-passive-get-phone-form form.bingc-passive-get-phone-form input.bingc-passive-get-phone-form-input::-moz-placeholder {
+   color: #2F2F2F !important;
+    font-size: 18px!important;
+}
+#bingc-passive div.bingc-passive-overlay div.bingc-passive-content div.bingc-passive-get-phone-form form.bingc-passive-get-phone-form input.bingc-passive-get-phone-form-input:-ms-input-placeholder {
+    color: #2F2F2F !important;
+    font-size: 18px!important;
+}
+#bingc-passive div.bingc-passive-overlay div.bingc-passive-content div.bingc-passive-get-phone-form form.bingc-passive-get-phone-form input.bingc-passive-get-phone-form-input:-moz-placeholder {
+   color: #2F2F2F !important;
+    font-size: 18px!important;
+}
+#bingc-passive div.bingc-passive-overlay div.bingc-passive-content div.bingc-passive-get-phone-form form.bingc-passive-get-phone-form input.bingc-passive-get-phone-form-input:focus::-webkit-input-placeholder {
+    color: #2F2F2F !important;
+    font-size: 18px!important;
+}
+#bingc-passive div.bingc-passive-overlay div.bingc-passive-content div.bingc-passive-get-phone-form {
+    padding: 0 0 0 0px !important;
+}
+#bingc-passive div.bingc-passive-overlay div.bingc-passive-content div.bingc-we-will-call-you {
+    padding: 0px 0 0px 0px !important;;
+}
+#bingc-passive div.bingc-passive-overlay div.bingc-passive-content div.bingc-statistics{
+    display: none!important;
+}
+#bingc-passive div.bingc-passive-overlay div.bingc-passive-content div.bingc-phone-sample{
+     display: none!important;
+}
+#bingc-passive div.bingc-passive-overlay div.bingc-passive-content div.bingc-passive-get-phone-form form.bingc-passive-get-phone-form span.bingc-sample-countdown-timer{
+   display: none!important;
+}
+#bingc-passive div.bingc-passive-overlay div.bingc-passive-content div.bingc-passive-get-phone-form form.bingc-passive-get-phone-form div.bingc-passive-get-phone-form-input-border {
+   display: none!important;
+}
+#bingc-passive div.bingc-passive-overlay div.bingc-passive-content div.bingc-passive-get-phone-form form.bingc-passive-get-phone-form a.bingc-passive-phone-form-button {
+    display: inlin-block!important;
+    width: 219px!important;
+    margin-left: auto!important;
+    margin-right: auto!important;
+    height: 55px!important;
+    line-height: 55px!important;
+    font: normal 300 18px/55px 'Montserrat',sans-serif;
+    margin-bottom: 20px!important;
+    color: #fff !important;
+    text-align: center!important;
+    background: #6F38AB !important;
+    border-radius: 7px!important;
+    font-size: 18px!important;
+    padding: 0px !important;
+
+  }
+#bingc-passive div.bingc-passive-overlay div.bingc-passive-content div.bingc-passive-get-phone-form form.bingc-passive-get-phone-form{
+    max-width: 401px!important;
+    margin-right: auto !important;
+    margin-left: auto !important;
+    text-align: center!important;
+}
+#bingc-passive div.bingc-passive-background {
+    background: rgba(43, 46, 56, 0.9) !important;
+}
+#bingc-passive div.bingc-passive-overlay div.bingc-passive-content div.bingc-we-will-call-you div.bingc-we-will-call-you-alignment{
+    display: block!important;
+    width: auto!important;
+    height: auto!important;
+    text-align: center!important;
+}
+#bingc-passive div.bingc-passive-overlay div.bingc-passive-content div.bingc-we-will-call-you div.bingc-we-will-call-you-alignment div.bingc-we-will-call-you-restriction {
+    text-align: center!important;
+    font-size: 18px!important;
+    line-height: 149.4%!important;
+    text-align: center!important;
+    text-transform: capitalize!important;
+    color: #7B7B7B!important;
+    max-height: 141px!important;
+}
+#bingc-passive div.bingc-passive-overlay div.bingc-passive-content div.bingc-we-will-call-you div.bingc-we-will-call-you-alignment div.bingc-we-will-call-you-restriction h4{
+  text-align: center;
+  font-weight: normal;
+  font-size: 25px;
+  line-height: 191.4%;
+  color: #000000;
+  margin-bottom: 47px;
+}
+@media(max-width: 767px){
+  #bingc-passive div.bingc-passive-overlay div.bingc-passive-content div.bingc-we-will-call-you div.bingc-we-will-call-you-alignment div.bingc-we-will-call-you-restriction h4{
+    margin-bottom: 25px;
+  }
+}
+#bingc-passive div.bingc-passive-overlay div.bingc-passive-content div.bingc-we-will-call-you div.bingc-we-will-call-you-alignment div.bingc-we-will-call-you-restriction label{
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 149.4%;
+  text-align: center;
+  color: #7B7B7B;
+  margin-bottom: 21px;
+}
+#bingc-passive div.bingc-passive-overlay a.bingc-passive-close-button svg{
+  width: 27px!important;
+  height: 27px!important;
+}
+#bingc-passive div.bingc-passive-overlay a.bingc-passive-close-button svg polygon {
+  fill: #BDBEBE!important;
+}
+#bingc-passive div.bingc-passive-overlay a.bingc-passive-close-button {
+  top: 18px!important;
+  right: 27px!important;
+}
+#bingc-passive div.bingc-passive-overlay div.bingc-passive-content div.bingc-something-went-wrong {
+    padding: 0px 0 0px !important;
+    font: 300 18px/30px Open sans !important;
+    color: #000 !important;
+    text-align: center;
+}
+#bingc-passive div.bingc-passive-overlay div.bingc-passive-content div.bingc-we-already-call-you {
+    padding: 0px 0 35px !important;
+    font: 300 20px/35px Open sans,Ubuntu,Arial !important;
+    color: #fff !important;
+    text-align: center;
+}
+#bingc-passive div.bingc-passive-overlay div.bingc-passive-content div.bingc-passive-countdown-timer {
+    display: none;
+    padding: 0 0 35px;
+    font: 300 39px/44px Open sans,Ubuntu,Arial;
+    color: #000!important;
+    text-align: center;
+}
+@media (max-width: 979px){
+#bingc-passive div.bingc-passive-overlay {
+    width: 90% !important;
+    height: auto !important;
+    top: 50px !important;
+}
+}
+#bingc-passive div.bingc-passive-overlay div.bingc-passive-content div.bingc-we-will-call-you {
+    padding: 0px 0 0px 0px!important;
+    font: 300 20px/30px Open sans,Ubuntu,Arial !important;
+    color: #000 !important;
+}
+#bingc-passive div.bingc-passive-overlay div.bingc-passive-content div.bingc-we-will-call-you span.small-text {
+  font: 600 13px/20px Open sans,Ubuntu,Arial;
+  color: #000 !important;
+}
+#bingc-passive div.bingc-passive-overlay div.bingc-passive-content div.bingc-we-will-call-you {
+  padding: 0px 0 0px 0px!important;
+  font: 300 14px/35px Open sans,Ubuntu,Arial;
+  color: #000 !important;
+  text-align: center;
+}
+#bingc-passive div.bingc-passive-overlay div.bingc-passive-content div.bingc-passive-get-phone-form form.bingc-passive-get-phone-form div.bingc-passive-get-phone-form-date-selection div.bingc-passive-date-selection-select-hour, #bingc-passive div.bingc-passive-overlay div.bingc-passive-content div.bingc-passive-get-phone-form form.bingc-passive-get-phone-form div.bingc-passive-get-phone-form-date-selection div.bingc-passive-date-selection-select-minutes {
+    float: none!important;
+    display: inline-block!important;
+    width: 50px!important;
+    padding: 0 5px 0 0;
+    margin: 0 2px 0 0;
+    vertical-align: middle!important;
+    position: relative;
+    text-align: center;
+    cursor: pointer;
+    background: #6F38AB  !important;
+    box-shadow: 0 3px 10px 0 rgba(0,0,0,.15);
+}
+#bingc-passive div.bingc-passive-overlay div.bingc-passive-content div.bingc-passive-get-phone-form form.bingc-passive-get-phone-form div.bingc-passive-get-phone-form-date-selection div.bingc-passive-date-selection-select-hour span.bingc-passive-date-selection-selected-hour, #bingc-passive div.bingc-passive-overlay div.bingc-passive-content div.bingc-passive-get-phone-form form.bingc-passive-get-phone-form div.bingc-passive-get-phone-form-date-selection div.bingc-passive-date-selection-select-minutes span.bingc-passive-date-selection-selected-hour, #bingc-passive div.bingc-passive-overlay div.bingc-passive-content div.bingc-passive-get-phone-form form.bingc-passive-get-phone-form div.bingc-passive-get-phone-form-date-selection div.bingc-passive-date-selection-select-hour span.bingc-passive-date-selection-selected-minutes, #bingc-passive div.bingc-passive-overlay div.bingc-passive-content div.bingc-passive-get-phone-form form.bingc-passive-get-phone-form div.bingc-passive-get-phone-form-date-selection div.bingc-passive-date-selection-select-minutes span.bingc-passive-date-selection-selected-minutes {
+    font: 600 18px/38px Open sans,Ubuntu,Arial;
+    color: #fff !important;
+}
+#bingc-passive div.bingc-passive-overlay div.bingc-passive-content div.bingc-passive-get-phone-form form.bingc-passive-get-phone-form div.bingc-passive-get-phone-form-date-selection div.bingc-passive-date-selection-select-hour svg.bingc-passive-date-selection-arrows, #bingc-passive div.bingc-passive-overlay div.bingc-passive-content div.bingc-passive-get-phone-form form.bingc-passive-get-phone-form div.bingc-passive-get-phone-form-date-selection div.bingc-passive-date-selection-select-minutes svg.bingc-passive-date-selection-arrows {
+    width: 10px;
+    height: 14px;
+    position: absolute;
+    top: 13px!important;
+    right: 5px!important;
+}
+#bingc-passive div.bingc-passive-overlay div.bingc-passive-content div.bingc-passive-get-phone-form form.bingc-passive-get-phone-form div.bingc-passive-get-phone-form-date-selection div.bingc-passive-date-selection-select-day{
+    background: #6F38AB  !important;
+    box-shadow: 0 3px 10px 0 rgba(0,0,0,.15);
+}
+#bingc-passive div.bingc-passive-overlay div.bingc-passive-content div.bingc-passive-get-phone-form form.bingc-passive-get-phone-form div.bingc-passive-get-phone-form-date-selection div.bingc-passive-date-selection-select-day svg.bingc-passive-date-selection-arrows {
+    width: 10px;
+    height: 14px;
+    vertical-align: top;
+    margin: 10px 0 0 3px !important;
+}
+#bingc-passive div.bingc-passive-overlay div.bingc-passive-content div.bingc-passive-get-phone-form form.bingc-passive-get-phone-form div.bingc-passive-get-phone-form-date-selection div.bingc-passive-date-selection-select-day span.bingc-passive-date-selection-selected-day {
+    font: 400 13px/38px Open sans,Ubuntu,Arial;
+    color: #fff !important;
+}
+#bingc-passive div.bingc-passive-overlay div.bingc-passive-content div.bingc-passive-get-phone-form form.bingc-passive-get-phone-form div.bingc-passive-get-phone-form-date-selection div.bingc-passive-date-selection-select-day {
+    float: none!important;
+    display: inline-block!important;
+    width: 82px!important;
+    padding: 0 0 0 3px;
+    margin: 0 0 0 0px !important;
+    position: relative;
+    text-align: center;
+    cursor: pointer;
+    vertical-align: middle!important;
+}
+#bingc-passive div.bingc-passive-overlay div.bingc-passive-content div.bingc-passive-get-phone-form form.bingc-passive-get-phone-form div.bingc-passive-get-phone-form-date-selection div.bingc-passive-date-selection-select-hour div.bingc-passive-date-selection-select-hour-list-of-hours-container {
+    display: none;
+    zoom: 1;
+    position: absolute;
+    left: 0;
+    top: 39px!important;
+    z-index: 10;
+    -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.35);
+    -moz-box-shadow: 0 1px 3px rgba(0,0,0,0.35);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.35);
+}
+#bingc-passive div.bingc-passive-overlay div.bingc-passive-content div.bingc-passive-get-phone-form form.bingc-passive-get-phone-form div.bingc-passive-get-phone-form-date-selection div.bingc-passive-date-selection-select-day div.bingc-passive-date-selection-select-day-list-of-days-container {
+    top: 39px!important;
+}
+#bingc-passive div.bingc-passive-overlay div.bingc-passive-content div.bingc-passive-get-phone-form form.bingc-passive-get-phone-form div.bingc-passive-get-phone-form-date-selection div.bingc-passive-date-selection-select-minutes div.bingc-passive-date-selection-select-minutes-list-of-minutes-container {
+    top: 39px;
+}
+@media (max-height: 450px) and (max-width: 979px){
+#bingc-passive div.bingc-passive-overlay div.bingc-passive-content div.bingc-we-will-call-you.bingc-offline-form span.small-text {
+    padding-bottom: 5px;
+    font: 600 13px/20px Open sans,Ubuntu,Arial !important;
+    text-align: center!important;
+}
+}
+@media (max-width: 979px){
+
+#bingc-passive div.bingc-passive-overlay div.bingc-passive-content div.bingc-we-will-call-you.bingc-offline-form {
+  padding: 0px 0 0px 0px!important;
+  font: 300 14px/35px Open sans,Ubuntu,Arial;
+  color: #000 !important;
+  text-align: center;
+}
+bingc-passive div.bingc-passive-overlay div.bingc-passive-content div.bingc-we-will-call-you {
+    padding: 0px 0 20px 0px!important;
+    font: 300 14px/35px Open sans,Ubuntu,Arial;
+    color: #000 !important;
+    text-align: center;
+}
+#bingc-passive div.bingc-passive-overlay div.bingc-passive-content {
+    max-width: 480px;
+    margin: 0 auto;
+    padding: 0 0px 0px !important;
+}
+#bingc-passive div.bingc-passive-overlay div.bingc-passive-content div.bingc-we-will-call-you.bingc-offline-form span.small-text {
+    padding-bottom: 5px;
+    font: 600 13px/20px Open sans,Ubuntu,Arial !important;
+    text-align: center!important;
+}
+}
+#bingc-passive div.bingc-passive-overlay div.bingc-passive-content div.bingc-passive-get-phone-form form.bingc-passive-get-phone-form div.bingc-passive-get-phone-form-date-selection div.bingc-passive-date-selection-select-hour:hover, #bingc-passive div.bingc-passive-overlay div.bingc-passive-content div.bingc-passive-get-phone-form form.bingc-passive-get-phone-form div.bingc-passive-get-phone-form-date-selection div.bingc-passive-date-selection-select-minutes:hover {
+  background: #6F38AB  !important;
+  box-shadow: 0 3px 10px 0 rgba(0,0,0,.15);
+}
+#bingc-passive div.bingc-passive-overlay div.bingc-passive-content div.bingc-passive-get-phone-form form.bingc-passive-get-phone-form div.bingc-passive-get-phone-form-date-selection div.bingc-passive-date-selection-select-day:hover {
+  box-shadow: 0 3px 10px 0 rgba(0,0,0,.15);
+  background: #6F38AB  !important;
+}
+#bingc-passive div.bingc-passive-overlay div.bingc-passive-content div.bingc-we-will-call-you-later {
+    padding: 0px 0 3px !important;
+    font: 400 16px/24px Open sans,Ubuntu,Arial;
+    color: #000 !important;
+    text-align: center;
+}
+#bingc-passive div.bingc-passive-overlay div.bingc-passive-content div.bingc-we-will-call-you-later span.small-text {
+    font: 300 16px/20px Open sans,Ubuntu,Arial !important;
+    color: #000 !important;
+    text-align: center;
+}
+.bingc-we-already-call-you{
+  position: relative!important;
+}
+.bingc-we-already-call-you:after{
+  content: "Дякуємо! Ми зв'яжемося з Вами найближчим часом."!important;
+  display: block!important;
+  text-align: center!important;
+  position: absolute!important;
+  top: 16px!important;
+  color: #000!important;
+  left: 0px;
+  right: 0px;
+}
+#bingc-passive div.bingc-passive-overlay div.bingc-passive-content div.bingc-passive-get-phone-form form.bingc-passive-get-phone-form div.bingc-passive-get-phone-form-date-selection{
+  text-align: center!important;
+}
+#bingc-passive div.bingc-passive-overlay div.bingc-passive-content div.bingc-passive-get-phone-form form.bingc-passive-get-phone-form a.bingc-passive-phone-form-button:active {
+    background: rgba(111, 56, 171, 0.9)!important;
+}
+#bingc-passive div.bingc-passive-overlay div.bingc-passive-content div.bingc-passive-get-phone-form form.bingc-passive-get-phone-form a.bingc-passive-phone-form-button:hover {
+    background: rgba(111, 56, 171, 0.9)!important;
+}
+@media (max-width: 979px){
+#bingc-passive div.bingc-passive-overlay div.bingc-passive-content div.bingc-passive-get-phone-form form.bingc-passive-get-phone-form div.bingc-passive-get-phone-form-date-selection {
+    width: auto!important;
+    padding: 0 0 10px;
+}
+}
+@media(max-width: 767px){
+    #bingc-passive div.bingc-passive-overlay a.bingc-passive-close-button {
+    top: 13px!important;
+    right: 14px!important;
+}
+#bingc-passive div.bingc-passive-overlay a.bingc-passive-close-button svg {
+    width: 22px!important;
+    height: 22px!important;
+}
+}
+/*end-get-call*/

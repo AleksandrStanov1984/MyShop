@@ -1,0 +1,4 @@
+<?php
+$GLOBALS['SEOSHIELD_CONFIG']['bot_cache']['user_agent_selectors'] = array('chrome-lighthouse', 'bot');
+$GLOBALS['SEOSHIELD_CONFIG']['bot_cache']['cache_dir'] = '/data/html_cache/';
+$GLOBALS['SEOSHIELD_CONFIG']['bot_cache']['max_cache_lifetime'] = 108000;

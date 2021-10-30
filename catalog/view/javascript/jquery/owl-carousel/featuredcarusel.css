@@ -1,0 +1,30 @@
+.owl-carousel .product-thumb {margin-bottom: 0px;}
+.productcarusel .owl-wrapper-outer {border:0px;}
+.view2 .product-thumb .caption, .view1 .product-thumb .caption {min-height: 100px;}
+.view1 .button-group a, .view3 .button-group a {width: 60%;
+
+display: inline-block;
+float: left;
+background-color: #eee;
+color: #888;
+line-height: 38px;
+font-weight: bold;
+text-align: center;
+text-transform: uppercase;
+padding-top: 2px;
+padding-bottom: 3px;
+border-top-width: 2px;
+
+}
+.view1 .button-group a:hover, .view3 .button-group a:hover {color: #444;
+background-color: #ddd;
+text-decoration: none;
+cursor: pointer;}
+.product-thumb .button-group > a + button {width: 20%; border-left: 1px solid #ddd;}
+
+@media (max-width: 1200px) {
+.view1 .button-group a, .view3 .button-group a {width: 33%;}
+
+.view0 .product-thumb .caption, .view3 .product-thumb .caption {min-height: 190px;} 
+
+}

@@ -1,0 +1,336 @@
+.hpm-series .hpm-key label {
+  color: red;
+  text-align: left;
+  padding-top: 0;
+  margin-bottom: 5px;
+}
+
+.hpm-series .page-header {
+  vertical-align: middle;
+  margin: 0 0 15px;
+  padding: 0;
+  border-bottom: 1px solid rgba(75, 0, 130, 0.11);
+  background-color: rgba(225, 235, 255, 0.95);
+}
+
+.hpm-series .page-header h1 {
+  font-size: 18px;
+  margin: 0;
+  padding: 12px 8px 12px 0;
+}
+
+.hpm-series .page-header h1 span {
+  vertical-align: text-top;
+  font-size: 9px;
+  padding-left: 5px;
+  color: red;
+}
+
+.hpm-series .btn-help {
+  display: inline-block;
+  vertical-align: super;
+  cursor: pointer;
+  line-height: 18px;
+}
+
+.hpm-series .btn-helpers {
+  padding: 12px 16px 14px 16px;
+  background-color: rgb(239, 244, 251);
+  border-left: 1px solid rgba(75, 0, 130, 0.18);
+  border-right: 1px solid rgba(75, 0, 130, 0.17);
+}
+
+.hpm-series .btn-help i {
+  font-size: 18px;
+  color: green;
+}
+
+.hpm-series .kt-hpm .title-start {
+  width: 25%;
+}
+
+.hpm-series .pull-right.hm-info.btn {
+  margin-top: -4px;
+}
+
+.hpm-series .page-header>.container-fluid>.pull-right {
+  margin-top: 10px;
+}
+
+.hpm-series #container {
+  background: #f8f8f8 none repeat scroll 0 0;
+}
+
+.hpm-series .panel-default {
+  border: 1px solid rgba(9, 85, 202, 0.15);
+  box-shadow: 0 0 5px 5px rgba(9, 85, 202, 0.07);
+}
+
+.hpm-series legend {
+  padding: 7px 10px;
+  background-color: #f8f8f9;
+  margin-bottom: 0px;
+}
+
+.hpm-series thead {
+  background: rgba(9, 65, 192, 0.07) none repeat scroll 0 0;
+}
+
+.hpm-series .table-bordered {
+  border-top: 0.19em solid rgb(159, 132, 200);
+}
+
+.hpm-list .table-hover>tbody>tr:hover,
+.hpm-one .table-hover>tbody>tr:hover {
+  background-color: #ffffff !important;
+  margin-bottom: 30px;
+}
+
+.hpm-list .table-hover>tbody tr,
+.hpm-one .table-hover>tbody tr {
+  background-color: rgba(9, 65, 192, 0.04);
+}
+
+.hpm-list .table-hover>tbody tr:nth-child(2n+1),
+.hpm-one .table-hover>tbody tr:nth-child(2n+1) {
+  background-color: #f8f8f8;
+}
+
+.hpm-edit .table-hover>tbody>tr:hover {
+  background-color: #f8f8f8 !important;
+  margin-bottom: 30px;
+}
+
+.hpm-edit .table-hover>tbody tr {
+  background-color: rgba(9, 65, 192, 0.04);
+}
+
+.hpm-edit .table-hover>tbody tr:nth-child(2n+1) {
+  background-color: #fcfcfc;
+}
+
+.hpm-series legend h2 {
+  display: inline;
+}
+
+.name-start {
+  width: 200px;
+  max-width: 220px;
+  min-width: 200px;
+}
+
+.title-start {
+  width: 20%;
+}
+.text-center.switcher-editors {
+    max-width: 174px;
+    width: 174px;
+    min-width: 174px;
+}
+.switcher-edits.edit-group .input-group {
+    margin-left: 4px;
+    margin-right: 4px;
+    display: inline-block;
+}
+#hpmodel-prd-list thead .control-label, .name-text {
+  padding: 0;
+}
+
+.edit-type {
+  width: 146px;
+  min-width: 146px;
+}
+
+.name-text .form-control,
+.edit-type .form-control,
+.form-set .form-control,
+.form-tables .form-control,
+.edit-links .form-control {
+  padding: 8px 3px;
+}
+
+.edit-links {
+  width: 130px;
+}
+
+.status {
+  width: 60px;
+}
+
+.hpm-series table .btn {
+  padding: 5px 10px;
+}
+
+.bootstrap-switch {
+  border-radius: 0 !important;
+}
+
+.-switcher-edits .bootstrap-switch {
+  width: 42px !important;
+}
+
+.-switcher-edit .bootstrap-switch {
+  width: 44px !important;
+}
+
+.switcher-edits .bootstrap-switch-label,
+.switcher-edit .bootstrap-switch-label {
+  width: 0 !important;
+  padding: 0 !important;
+}
+
+.h5-scroll {
+  max-height: 280px;
+  overflow-y: auto;
+}
+
+.modal-content {
+  background: #f8f8f8 none repeat scroll 0 0;
+  border-radius: 0;
+}
+
+.modal-content .help-text {
+  background-color: #f4f8fa;
+  border-left: 3px solid #5bc0de;
+  margin: 10px 0;
+  padding: 5px 15px;
+}
+
+.modal-header {
+  background-color: rgba(9, 65, 192, 0.04);
+}
+
+.modal-footer {
+  background-color: rgba(9, 65, 192, 0.04);
+  padding: 10px;
+}
+
+.ka-ws {
+  color: #00063d;
+}
+
+.hpm-mods {
+  margin-right: 35px;
+}
+
+.hpm-mods a {
+  color: #f5f5f5;
+}
+
+.hpm-mods:hover a {
+  color: azure;
+}
+
+.hpm-list-img img {
+  width: 60px;
+}
+
+.hpm-list-img .thumbnails {
+  overflow: visible;
+}
+
+.hpm-list-img .thumbnails img {
+  height: 34px;
+  transition: all ease .1s;
+  width: auto;
+}
+
+.hpm-series table td.image img {
+  border: medium none;
+  padding: 0;
+}
+
+.hpm-series td:hover .thumbnails img {
+  border: 1px solid #e5e5e5;
+  position: relative;
+  z-index: 9;
+  transition: all ease .3s;
+  transform: scale(2.4);
+}
+
+.hpm-one .table h1,
+.hpm-one .table h2,
+.hpm-one .table h3,
+.hpm-one .table h4,
+.hpm-one .table h5,
+.hpm-one .table h6 {
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+}
+
+.form-set {
+  display: table-cell;
+}
+
+.name-text .input-group.pull-left {
+  width: 100%;
+}
+
+.hpm-series .hpm-main-product {
+  cursor: pointer;
+}
+#hpmodel-prd-list input[type="radio"]:checked::after,
+#hpmodel-prd-list .radio input[type="radio"]:checked::after,
+#hpmodel-prd-list .radio-inline input[type="radio"]:checked::after {
+    background: #eb0101;
+    top: 0;
+    left: 0;
+    width: 13px;
+    height: 13px;
+}
+#hpmodel-prd-list input[type="radio"],
+#hpmodel-prd-list .radio input[type="radio"],
+#hpmodel-prd-list .radio-inline input[type="radio"],
+#hpmodel-prd-list input[type="checkbox"],
+#hpmodel-prd-list .checkbox input[type="checkbox"],
+#hpmodel-prd-list .checkbox-inline input[type="checkbox"] {
+    border: 2px solid rgba(66, 148, 244, 0.9);
+    width: 17px;
+    height: 17px;
+}
+.form-group.hpm-key {
+    padding-top: 0;
+}
+.version {
+    display: inline-block;
+    color: rgba(0, 0, 0, 0.9);
+    padding: 0 10px 0 0;
+    font-size: 1.4em;
+    font-weight: bold;
+    line-height: 38px;
+}
+.version span {
+    font-size: 0.8em !important;
+    padding-right: 2px;
+    font-weight: 600;
+}
+.red-color {
+    color: red;
+}
+.bg-info {
+    width: 100%;
+}
+.bg-info img {
+    width: 40%;
+    float: left;
+    margin-right: 10px;
+}
+.bg-info, .bg-danger {
+    padding: 10px;
+    display: inline-block;
+}
+.bg-danger {
+    margin-top: 15px;
+}
+.bg-info b,.bg-danger b {
+    color: rgb(255, 0, 0);
+    display: block;
+    padding-bottom: 5px;
+    font-size: 16px;
+    border-bottom: 1px solid red;
+    margin-bottom: 5px;
+}
+.hpm-series table.off tbody td:not(:first-child), .hpm-series table.off thead td:not(:first-child) {
+    opacity: 0.5;
+}

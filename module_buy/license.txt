@@ -1,0 +1,16 @@
+=========== Модуль CSV Price Import/Export ======
+для sz.ua и для dev одинаковые
+bXlQY0t3RGlPYmRZeDhVQWVHeUY2b2R6ZXF5REZPQzNGVEt2RUdMTVVFVFd2ZFR5OTdFNHZKaG1Qc2FFemVEYzpjZjA3NDRkNTc3ZDU0MTQz
+
+========== AJAX замена товара по моделям - HYPER PRODUCT MODELS ========
+sz.ua-9c8c7d1f0d70cbc0ae8b1fac997aba59
+dev.sz.ua-e106a42aa7182f8f4a4f406ee155b0ae
+
+============ Модуль Simple ===========================
+Ключ для модуля Simple для домена sz.ua:
+
+aGVsMVg1UmFVYkpSdkhYZVJzMWZqZXpZQ2dVbDA0SzBmWFhoekd6aDZaYjVGc2ZKMHlyRVJKeHVBUWtsN3dRdlJ3bFZNeGxhSjRWQncwRTBYMExvTkdqZEg1QVJUckxJQTI5NjRYTUVSK3NaSEN4T1ZmakxuMDdIMEE3TENyTklrOW83U1F3T1BmZVFzM1BUaDQ0RE1uVC9iRW91MzlnN0ZobWJ0eEF6a1o4PXw3MTI3OTg4MDA
+
+Ключ для модуля Simple для домена dev.sz.ua:
+
+aDdVZUVYZWthOE4zMjF0LzhUcnVVTkJFZm9IZkJIdE1ORHBJWGxPYVcrRG13b284VjJrOEUzSkZxYTRZTjZiSzkxK3gveW4xSGZuZHpNclpWTmlzRjcvK05EOGxlRTVBbjZWcm4ybmpBeUlSc0g1TGxzZHY4aDVSbHdkSEpobGdUZjhNUTlQS1ZFU3B3ZG41czRZR3picEZ1c3ZyYUNIblp6V3ViNmFQQnMwPXw4OTU5NTYwMA

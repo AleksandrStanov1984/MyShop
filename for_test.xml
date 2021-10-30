@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <!DOCTYPE yml_catalog SYSTEM "shops.dtd">
+    <yml_catalog date="2020-08-31 11:31">
+        <shop>
+        <name>"Оптовый склад детских игрушек"</name>
+        <company>"Оптовый склад детских игрушек"</company>
+        <url>https://toysi.ua</url>
+        <currencies>
+            <currency id="UAH" rate="1"/>
+        </currencies>
+        <categories><category id="99116">Деревянные игрушки</category>
+<category id="99090">Детская комната и декор</category>
+<category id="99064">Детский транспорт</category>
+<category id="98922">Канцтовары и литература</category>
+<category id="99058">Конструкторы</category>
+<category id="98989">Мягкие игрушки, герои и куклы</category>
+<category id="99074">Настольные игры, пазлы</category>
+<category id="99023">Развивающие игрушки</category>
+<category id="98955">Роботы, Машины и Оружие</category>
+<category id="98883">Сезонные товары</category>
+<category id="98943">Спорттовары</category>
+<category id="98969">Товары для творчества</category>
+<category id="99104">Уход за ребёнком</category>
+<category id="51995">Уценка</category>
+<category id="98890" parentId="98883">Активные игры</category>
+<category id="99194" parentId="98883">Антисептики и мыло</category>
+<category id="98891" parentId="98883">Вентиляторы и ветрячки</category>
+<category id="98887" parentId="98883">Водное оружие</category>
+<category id="98889" parentId="98883">Зонты и дождевики</category>
+<category id="98886" parentId="98883">Игровые комплексы</category>
+<category id="98885" parentId="98883">Игрушки для песочницы</category>
+<category id="98894" parentId="98883">Лыжи</category>
+<category id="99193" parentId="98883">Маски защитные</category>
+<category id="98888" parentId="98883">Мыльные пузыри</category>
+<category id="98896" parentId="98883">Новогодние товары</category>
+<category id="98895" parentId="98883">Санки и ледянки</category>
+<category id="98892" parentId="98883">Сачки</category>
+<category id="98893" parentId="98883">Снежколепы</category>
+<category id="98884" parentId="98883">Товары для плаванья</category>
+<category id="98903" parentId="98884">Аксессуары</category>
+<category id="98897" parentId="98884">Бассейны</category>
+<category id="98899" parentId="98884">Круги и жилеты</category>
+<category id="98898" parentId="98884">Маски и ласты</category>
+<category id="98900" parentId="98884">Надувные матрасы</category>
+<category id="98901" parentId="98884">Надувные мячи</category>
+<category id="98906" parentId="98885">Ведерка</category>
+<category id="98908" parentId="98885">Лейки</category>
+<category id="98907" parentId="98885">Лопатки и грабли</category>
+<category id="98909" parentId="98885">Пасочки</category>
+<category id="98910" parentId="98885">Песочные наборы</category>
+<category id="99125" parentId="98890">Бомбочки</category>
+<category id="98912" parentId="98890">Воздушные змеи</category>
+<category id="98915" parentId="98890">Запускалки</category>
+<category id="99124" parentId="98890">Кетчболы</category>
+<category id="99123" parentId="98890">Кольцебросы</category>
+<category id="98913" parentId="98890">Планеры</category>
+<category id="98911" parentId="98890">Фрисби</category>
+<category id="98918" parentId="98896">Гирлянды</category>
+<category id="98920" parentId="98896">Ёлки и сосны</category>
+<category id="98916" parentId="98896">Игрушки на ёлку</category>
+<category id="98917" parentId="98896">Новогодний декор</category>
+<category id="98921" parentId="98896">Хлопушки</category>
+<category id="99127" parentId="98922">Блокноты</category>
+<category id="98927" parentId="98922">Карандаши и фломастеры</category>
+<category id="98932" parentId="98922">Книги для детей</category>
+<category id="98926" parentId="98922">Краски и кисти</category>
+<category id="98925" parentId="98922">Мелки</category>
+<category id="98924" parentId="98922">Пеналы и папки</category>
+<category id="98930" parentId="98922">Ручки и корректоры</category>
+<category id="98923" parentId="98922">Рюкзаки</category>
+<category id="98933" parentId="98922">Тетради</category>
+<category id="98929" parentId="98922">Точилки, резинки и клей</category>
+<category id="98928" parentId="98922">Трафареты и линейки</category>
+<category id="98931" parentId="98922">Цветная бумага и картон</category>
+<category id="98936" parentId="98932">Игровая литература</category>
+<category id="98937" parentId="98932">Книги для малышей</category>
+<category id="98938" parentId="98932">Подготовка к школе</category>
+<category id="98934" parentId="98932">Художественные книги</category>
+<category id="98935" parentId="98932">Энциклопедии</category>
+<category id="98941" parentId="98933">Английский язык</category>
+<category id="98940" parentId="98933">Математика</category>
+<category id="98939" parentId="98933">Письмо</category>
+<category id="98942" parentId="98933">Чтение</category>
+<category id="98945" parentId="98943">Баскетбол и волейбол</category>
+<category id="99153" parentId="98943">Бейсбол и гольф</category>
+<category id="99154" parentId="98943">Бокс</category>
+<category id="98948" parentId="98943">Боулинг</category>
+<category id="98950" parentId="98943">Гимнастические палки, скакалки и обручи</category>
+<category id="98944" parentId="98943">Дартс</category>
+<category id="98949" parentId="98943">Карематы и коврики</category>
+<category id="98951" parentId="98943">Мячики и попрыгунчики</category>
+<category id="98952" parentId="98943">Прыгуны</category>
+<category id="99174" parentId="98943">Скакалки</category>
+<category id="98954" parentId="98943">Спортивные аксессуары</category>
+<category id="99160" parentId="98943">Теннис и бадминтон</category>
+<category id="98953" parentId="98943">Фитболы (мячи для фитнесса)</category>
+<category id="98946" parentId="98943">Футбол</category>
+<category id="98947" parentId="98943">Хоккей</category>
+<category id="98957" parentId="98955">Железные дороги и треки</category>
+<category id="98958" parentId="98955">Машинки</category>
+<category id="98961" parentId="98955">Оружие</category>
+<category id="98959" parentId="98955">Радиоуправляемые игрушки</category>
+<category id="99151" parentId="98955">Рации и бинокли</category>
+<category id="98960" parentId="98955">Роботы</category>
+<category id="98956" parentId="98955">Самолеты и вертолеты</category>
+<category id="99156" parentId="98955">Трансформеры</category>
+<category id="99179" parentId="98958">Машинки на батарейках</category>
+<category id="99173" parentId="98958">Машины гиганты</category>
+<category id="98962" parentId="98958">Металлические модели</category>
+<category id="98963" parentId="98958">Пластиковые машинки</category>
+<category id="98964" parentId="98958">Спецтехника</category>
+<category id="98967" parentId="98959">Животные РУ</category>
+<category id="98968" parentId="98959">Лодки и катера РУ</category>
+<category id="98966" parentId="98959">Машинки РУ</category>
+<category id="98965" parentId="98959">Самолеты и вертолеты РУ</category>
+<category id="99145" parentId="98961">Автоматы и пистолеты</category>
+<category id="99146" parentId="98961">Арбалеты и луки</category>
+<category id="99147" parentId="98961">Мечи, ножи и сабли</category>
+<category id="99149" parentId="98961">Наборы с оружием</category>
+<category id="99148" parentId="98961">Пульки и пистоны</category>
+<category id="98970" parentId="98969">Антистресс и лизуны</category>
+<category id="98977" parentId="98969">Аппликации и оригами</category>
+<category id="98973" parentId="98969">Бисер и бусины</category>
+<category id="98975" parentId="98969">Гравюры и чеканки</category>
+<category id="98980" parentId="98969">Доски для рисования</category>
+<category id="99132" parentId="98969">Другое творчество</category>
+<category id="98971" parentId="98969">Картины из песка, блёсток, глиттера</category>
+<category id="98976" parentId="98969">Картины по номерам</category>
+<category id="99161" parentId="98969">Кинетический песок</category>
+<category id="98979" parentId="98969">Мольберты</category>
+<category id="98978" parentId="98969">Наборы для выжигания</category>
+<category id="98974" parentId="98969">Наборы для вышивания, вязания, плетения</category>
+<category id="98982" parentId="98969">Наклейки</category>
+<category id="98981" parentId="98969">Раскраски и роспись</category>
+<category id="98972" parentId="98969">Тесто для лепки и пластилин</category>
+<category id="98985" parentId="98970">Жвачки для рук</category>
+<category id="98987" parentId="98970">Игрушки антистресс</category>
+<category id="98984" parentId="98970">Лизуны и слаймы</category>
+<category id="98986" parentId="98970">Растущие игрушки</category>
+<category id="98988" parentId="98970">Светящиеся игрушки</category>
+<category id="98983" parentId="98970">Спиннеры</category>
+<category id="98991" parentId="98989">Заводные игрушки</category>
+<category id="98993" parentId="98989">Игровые фигурки</category>
+<category id="98995" parentId="98989">Куклы и пупсы</category>
+<category id="98990" parentId="98989">Мягкие игрушки</category>
+<category id="98994" parentId="98989">Фигурки героев</category>
+<category id="98999" parentId="98990">Глазастики</category>
+<category id="99000" parentId="98990">Животные и птицы</category>
+<category id="98998" parentId="98990">Куклы мягкие</category>
+<category id="98996" parentId="98990">Медведи</category>
+<category id="99001" parentId="98990">Подушки</category>
+<category id="98997" parentId="98990">Сквиши</category>
+<category id="99004" parentId="98993">Животные</category>
+<category id="99003" parentId="98993">Пони и лошадки</category>
+<category id="99011" parentId="98994">Бейблейды</category>
+<category id="99005" parentId="98994">Герои Marvel и DC</category>
+<category id="99014" parentId="98994">Герои в масках</category>
+<category id="99017" parentId="98994">Другие герои</category>
+<category id="99012" parentId="98994">Робокары</category>
+<category id="99150" parentId="98994">Солдатики</category>
+<category id="99015" parentId="98994">Тоботы</category>
+<category id="99191" parentId="98994">Три кота</category>
+<category id="99008" parentId="98994">Черепашки ниндзя</category>
+<category id="99006" parentId="98994">Щенячий патруль</category>
+<category id="99022" parentId="98995">Коляски для кукол</category>
+<category id="99018" parentId="98995">Куклы</category>
+<category id="99020" parentId="98995">Кукольные наборы</category>
+<category id="99021" parentId="98995">Мебель для кукол</category>
+<category id="99019" parentId="98995">Пупсы</category>
+<category id="99027" parentId="99023">Игровые столики</category>
+<category id="99024" parentId="99023">Игрушки для малышей</category>
+<category id="99134" parentId="99023">Интерактивные игрушки</category>
+<category id="99026" parentId="99023">Музыкальные инструменты</category>
+<category id="99025" parentId="99023">Наборы для обучения</category>
+<category id="99159" parentId="99023">Научные игры</category>
+<category id="99028" parentId="99023">Ролевые игрушки</category>
+<category id="99034" parentId="99024">Игрушки - каталки</category>
+<category id="99133" parentId="99024">Игрушки для ванной</category>
+<category id="99035" parentId="99024">Игрушки на колесах</category>
+<category id="99040" parentId="99024">Кубики</category>
+<category id="99033" parentId="99024">Лабиринты</category>
+<category id="99029" parentId="99024">Мобили</category>
+<category id="99031" parentId="99024">Пазлы и вкладыши</category>
+<category id="99041" parentId="99024">Пирамидки</category>
+<category id="99037" parentId="99024">Погремушки</category>
+<category id="99030" parentId="99024">Развивающие коврики</category>
+<category id="99039" parentId="99024">Сортеры</category>
+<category id="99038" parentId="99024">Шнуровки</category>
+<category id="99192" parentId="99024">Юлы</category>
+<category id="99042" parentId="99026">Духовые</category>
+<category id="99045" parentId="99026">Клавишные</category>
+<category id="99044" parentId="99026">Струнные</category>
+<category id="99043" parentId="99026">Ударные</category>
+<category id="99049" parentId="99028">Аксессуары для одежды</category>
+<category id="99052" parentId="99028">Бытовая техника</category>
+<category id="99131" parentId="99028">Докторские наборы</category>
+<category id="99047" parentId="99028">Косметика</category>
+<category id="99054" parentId="99028">Кухни и посуда</category>
+<category id="99046" parentId="99028">Маскарадные костюмы</category>
+<category id="99057" parentId="99028">Наборы для уборки</category>
+<category id="99137" parentId="99028">Наборы для фокусов</category>
+<category id="99143" parentId="99028">Наборы инструментов</category>
+<category id="99056" parentId="99028">Рыбалки</category>
+<category id="99055" parentId="99028">Сад и огород</category>
+<category id="99144" parentId="99028">Столики и трюмо</category>
+<category id="99053" parentId="99028">Супермаркет</category>
+<category id="99048" parentId="99028">Украшения</category>
+<category id="99059" parentId="99058">Деревянные конструкторы</category>
+<category id="99062" parentId="99058">Конструкторы типа Лего</category>
+<category id="99060" parentId="99058">Магнитные конструкторы</category>
+<category id="99063" parentId="99058">Металлические конструкторы</category>
+<category id="99135" parentId="99058">Необычные конструкторы</category>
+<category id="99157" parentId="99058">Пластиковые конструкторы</category>
+<category id="99061" parentId="99058">Резиновые конструкторы</category>
+<category id="99183" parentId="99062">Для девочек</category>
+<category id="99184" parentId="99062">Майнкрафт</category>
+<category id="99072" parentId="99064">Автокресла</category>
+<category id="99175" parentId="99064">Беговелы</category>
+<category id="99065" parentId="99064">Велосипеды</category>
+<category id="99069" parentId="99064">Защита</category>
+<category id="99067" parentId="99064">Каталки-толокары</category>
+<category id="99068" parentId="99064">Ролики</category>
+<category id="99066" parentId="99064">Самокаты</category>
+<category id="99073" parentId="99064">Ходунки</category>
+<category id="99070" parentId="99064">Электромобили</category>
+<category id="99188" parentId="99066">Самокаты трехколесные</category>
+<category id="99190" parentId="99066">Самокаты четырехколесные</category>
+<category id="99081" parentId="99074">Головоломки</category>
+<category id="99141" parentId="99074">Мозаики</category>
+<category id="99163" parentId="99074">Настольные игры</category>
+<category id="99075" parentId="99074">Пазлы</category>
+<category id="99082" parentId="99074">Фингерборды</category>
+<category id="99130" parentId="99075">Другие пазлы</category>
+<category id="99089" parentId="99075">Напольные пазлы (коврики)</category>
+<category id="99087" parentId="99075">Пазлы Castorland</category>
+<category id="99088" parentId="99075">Пазлы G-Toys</category>
+<category id="99158" parentId="99075">Пазлы данкотойс</category>
+<category id="99086" parentId="99075">Пазлы для малышей</category>
+<category id="99126" parentId="99090">Батарейки</category>
+<category id="99128" parentId="99090">Детская мебель</category>
+<category id="99103" parentId="99090">Качалки</category>
+<category id="99098" parentId="99090">Корзины для игрушек</category>
+<category id="99095" parentId="99090">Кошельки, копилки и шкатулки</category>
+<category id="99096" parentId="99090">Надувные шарики</category>
+<category id="99092" parentId="99090">Ночники</category>
+<category id="99176" parentId="99090">Пазлы напольные</category>
+<category id="99097" parentId="99090">Палатки</category>
+<category id="99094" parentId="99090">Подарочные пакеты</category>
+<category id="99181" parentId="99090">Попсокеты</category>
+<category id="99155" parentId="99090">Ростомеры</category>
+<category id="99093" parentId="99090">Свечи</category>
+<category id="99129" parentId="99090">Свистки</category>
+<category id="99091" parentId="99090">Фоторамки и фотоальбомы</category>
+<category id="99140" parentId="99090">Шарики для сухого бассейна</category>
+<category id="99107" parentId="99104">Горшки и ванночки</category>
+<category id="99109" parentId="99104">Градусники</category>
+<category id="99105" parentId="99104">Детская посуда</category>
+<category id="99106" parentId="99104">Детские ножницы</category>
+<category id="99111" parentId="99104">Зубные щетки и мочалки</category>
+<category id="99110" parentId="99104">Клеёнки и коврики</category>
+<category id="99112" parentId="99104">Круги для купания</category>
+<category id="99177" parentId="99104">Ланчбоксы</category>
+<category id="99108" parentId="99104">Нагрудники и слюнявчики</category>
+<category id="99171" parentId="99104">Поильники</category>
+<category id="99185" parentId="99104">Расчёски</category>
+<category id="99187" parentId="99104">Рюкзаки-переноски</category>
+<category id="99170" parentId="99104">Соски и прорезыватели</category>
+<category id="99178" parentId="99104">Термосумки и термостаканы</category>
+<category id="99180" parentId="99116">Деревянная мебель</category>
+<category id="99122" parentId="99116">Деревянные вкладыши</category>
+<category id="99119" parentId="99116">Деревянные каталки</category>
+<category id="99118" parentId="99116">Деревянные лабиринты</category>
+<category id="99121" parentId="99116">Конструкторы из дерева</category>
+<category id="99120" parentId="99116">Сортеры и геометрики</category>
+<category id="99168" parentId="99163">Азартные</category>
+<category id="99166" parentId="99163">Для малышей</category>
+<category id="99165" parentId="99163">Логические</category>
+<category id="99164" parentId="99163">Развлекательные</category>
+<category id="99167" parentId="99163">Спортивные</category>
+<category id="99169" parentId="99163">Экономические</category>
+</categories><offers><offer available="true" id="9010080"><name>Игрушка музыкальная &quot;Жучок&quot; 7259</name><vendorCode>10080</vendorCode><vendor></vendor><url>https://toysi.ua/muz-igrushka-juchok-obuchayuschaya-na-russkom-yazyke-batar-zvuk-svet-v-kor</url><picture>https://toysi.ua/p/enl_10080.jpg</picture><pickup>true</pickup><delivery>true</delivery><description><![CDATA[Игрушка поможет развивать координацию, мелкую моторику, развитие интеллекта, аудиальные навыки. Нажимая на кнопки, ребёнок будет изучать цвета (названия на русском языке), и знакомиться с животными (есть изображения). Так же, у игрушки есть  световые эффекты. Выполнена из качественных и безопасных материалов.<br/><br/><b>Упаковка:</b> Коробка<br/><b>Цвет:</b> Разноцветный<br/><b>Тип эл-тов питания:</b> Батарейки АА<br/><b>Кол-во эл-тов питания:</b> 3<br/><b>Эл-ты питания в комплекте:</b> Нет<br/><b>Вес в упаковке:</b> 510 г<br/><b>Габариты в упаковке:</b> 24 x 25 x 8.5 см<br/><b>Cтрана производитель:</b> Китай<br/><b>Материал:</b> Пластик<br/><b>Комплектация:</b> Игрушка]]></description><ostatok>10...50 шт.</ostatok><date></date><isImport>true</isImport><keywords>Игрушка</keywords><price>227.01</price><currencyId>UAH</currencyId><categoryId>99134</categoryId></offer>
+<offer available="true" id="9010091"><name>Руль музыкальный 1899</name><vendorCode>10091</vendorCode><vendor></vendor><url>https://toysi.ua/rul-muzykalnyy</url><picture>https://toysi.ua/p/enl_10091.jpg</picture><pickup>true</pickup><delivery>true</delivery><description><![CDATA[Руль имеет 8 кнопочек с различными звуковыми эффектами: сирена скорой, пожарной и полиции, клакон, звуки заднего хода, звуки заканчивающегося бензина и другие.<br/><br/><b>Упаковка:</b> Пакет<br/><b>Цвет:</b> Синий, Красный<br/><b>Тип эл-тов питания:</b> Батарейки (АА)<br/><b>Кол-во эл-тов питания:</b> 2<br/><b>Эл-ты питания в комплекте:</b> Нет<br/><b>Вес в упаковке:</b> 160 г<br/><b>Габариты в упаковке:</b> 26 x 22 x 3 см<br/><b>Габариты без упаковки:</b> 19.5 x 19.5 x 3 см<br/><b>Cтрана производитель:</b> Китай<br/><b>Материал:</b> Пластик<br/><b>Комплектация:</b> Руль]]></description><ostatok>10...50 шт.</ostatok><date></date><isImport>true</isImport><keywords>Руль</keywords><price>42.51</price><currencyId>UAH</currencyId><categoryId>99134</categoryId></offer>
+</offers></shop></yml_catalog>

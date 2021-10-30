@@ -1,0 +1,361 @@
+
+
+
+.col-sm-6 {
+    width: 50%;
+}
+.col-sm-12 {
+    width: 100%;
+}
+
+@media (max-width: 767px){
+#addcredit-popup .row {
+    display: inherit;
+}	
+.col-sm-6 {
+    width: 100%;
+}
+}
+
+
+
+.progress-bar-success {
+    background-color: #5cb85c;
+}
+.progress-bar {
+    float: left;
+    width: 0;
+    height: 100%;
+    font-size: 12px;
+    line-height: 20px;
+    color: #fff;
+    text-align: center;
+    background-color: #56ae00;
+    -webkit-box-shadow: inset 0 -1px 0 rgba(0,0,0,.15);
+    box-shadow: inset 0 -1px 0 rgba(0,0,0,.15);
+    -webkit-transition: width .6s ease;
+    -o-transition: width .6s ease;
+    transition: width .6s ease;
+}
+.progress {
+    height: 20px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    background-color: #f5f5f5;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,.1);
+    box-shadow: inset 0 1px 2px rgba(0,0,0,.1);
+}
+
+body {
+    background: transparent;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.centered {
+    margin: auto;
+}
+#privat_type-button, #privat_type-button2 {
+	margin-top:10px;
+}
+.control-element {
+    padding: 10px;
+}
+
+.numeric-input {
+    text-align: center;
+    border-radius: 3px;
+    display: inline;
+	min-width: 40px;
+}
+
+.input-holder {
+    max-width: 100%;
+}
+
+.legend {
+    display: block;
+    font-size: 18px;
+    color: #413939;
+	float:left;
+	margin-top: 8px;
+}
+
+.logo img {
+    width: 60px;
+    height: 60px;
+}
+
+#ipTitle, #ppTitle {
+    display: block;
+    font-size: 20px;
+    color: #413939;
+    height: 30px;
+}
+
+.result {
+    padding: 10px 10px 10px 10px;
+    display: inline;
+    text-align: center;
+}
+
+.result-additional-data-phys, .result-additional-data-jur {
+    margin-top: 10px;
+    font-size: 22px;
+    color: #413939;
+    font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+}
+
+.result-holder {
+    background-image: -webkit-gradient(
+            linear,
+            left top,
+            left bottom,
+            color-stop(0.06, #FFFFFF),
+            color-stop(0.6, #DBDCDC)
+    );
+    background-image: -o-linear-gradient(bottom, #FFFFFF 6%, #DBDCDC 60%);
+    background-image: -moz-linear-gradient(bottom, #FFFFFF 6%, #DBDCDC 60%);
+    background-image: -webkit-linear-gradient(bottom, #FFFFFF 6%, #DBDCDC 60%);
+    background-image: -ms-linear-gradient(bottom, #FFFFFF 6%, #DBDCDC 60%);
+    background-image: linear-gradient(to bottom, #FFFFFF 6%, #DBDCDC 60%);
+    border: 1px solid #DBDCDC;
+    padding: 20px;
+    border-radius: 3px;
+    font-size: 20px;
+    color: #413939;
+    width: 250px;
+    margin: auto;
+}
+
+.result-value {
+    background-color: #56ae00;
+    color: #fff;
+    font-size: 23px;
+    font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+    margin-top: 10px;
+    border-radius: 3px;
+	padding: 10px 0;
+}
+
+.control-element > .row {
+    display: table;
+}
+
+.control-element [class*="col-"] {
+    float: none;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.progress {
+    height: 1em;
+}
+
+.progress-bar {
+    -webkit-transition: width 0s ease-in-out;
+    transition: width 0s ease-in-out;
+}
+
+.ui-slider {
+    height: 0;
+    position: relative;
+}
+
+.ui-widget-content {
+    border: none;
+}
+
+.ui-slider .ui-slider-handle {
+    height: 1.6em;
+}
+
+.hint {
+    height: 10px;
+    font-size: 10px;
+    color: #413939;
+}
+
+.form-element {
+    padding: 6px 12px;
+    text-align: center;
+    width: 100%;
+}
+
+.disabled {
+    pointer-events: none;
+    cursor: not-allowed;
+    opacity: .65;
+    filter: alpha(opacity=65);
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+.padShowRateSheet{
+    height: 20px;
+}
+
+.padBackCalcButton{
+    height: 56px;
+}
+
+.showRateSheet {
+    position: relative;
+    cursor: pointer;
+    text-transform: uppercase;
+    background-color: #56ae00;
+    color: #fff;
+    -webkit-transition: all .1s ease-in-out;
+    -moz-transition: all .1s ease-in-out;
+    -o-transition: all .1s ease-in-out;
+    transition: all .1s ease-in-out;
+    letter-spacing: 1px;
+    display: inline-block;
+    margin-left: 313px;
+    font-size: 13px;
+    line-height: 36px;
+    padding: 0 16px;
+    border-radius: 5px;
+    font-weight: normal;
+}
+
+.showRateSheet:hover {
+    background-color: #489000;
+}
+
+.rateSheetLayout {
+    display: block;
+    position: absolute;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 15px;
+}
+
+.rateSheetTable {
+    color: #413939;
+    background-color: #fff;
+    font-size: 18px;
+    padding: 178px 20px 58px;
+    text-align: center;
+    margin: 15px;
+    display: table;
+}
+.rateSheetLayout td{
+    text-align: center;
+    padding: 10px;
+    display: table-cell;
+}
+
+
+
+.rateSheetLayout tr{
+    display: table-row;
+}
+.trRateHeader{
+    background-color: lightgrey;
+    display: table-row;
+}
+
+.printRateSheetBtn{
+    position: relative;
+    cursor: pointer;
+    text-transform: uppercase;
+    background-color: #fff;
+    letter-spacing: 1px;
+    display: inline-block;
+    font-size: 13px;
+    line-height: 36px;
+    padding: 0 16px;
+    border-radius: 5px;
+    font-weight: normal;
+    margin-top: 5px;
+    margin-right: 15px;
+    float: right;
+    margin-bottom: 15px;
+}
+
+.printIcon{
+    float: right;
+}
+
+.printRateSheetBtn:hover{
+    font-weight: bold;
+}
+
+#printRateSheetButton {
+    background-color: #F0F0EB;
+    border-radius: 5px;
+    float: right;
+    margin-right: 15px;
+    padding: 5px 0 5px 10px;
+    width: 120px;
+}
+
+#printRateSheetButton img {
+    border: 0 none;
+    float: left;
+    max-height: 16px;
+    vertical-align: bottom;
+    width: 16px;
+}
+
+#printRateSheetButton span {
+    font-size: 12px;
+    letter-spacing: 1px;
+    margin-left: 0.2em;
+    vertical-align: bottom;
+}
+
+#printRateSheetButton span:hover {
+    color: #56ae00;
+    cursor: pointer;
+    transition: all 0.4s ease 0s;
+}
+
+
+.backCalcButton{
+    position: absolute;
+    cursor: pointer;
+    text-transform: uppercase;
+    background-color: #56ae00;
+    color: #fff;
+    -webkit-transition: all .1s ease-in-out;
+    -moz-transition: all .1s ease-in-out;
+    -o-transition: all .1s ease-in-out;
+    transition: all .1s ease-in-out;
+    letter-spacing: 1px;
+    display: block;
+    font-size: 13px;
+    line-height: 36px;
+    border-radius: 5px;
+    font-weight: normal;
+    padding: 0 7px;
+    left: 44%;
+}
+
+.backCalcButton:hover {
+    background-color: #489000;
+}
+.printLayout {
+    position: relative;
+    text-align: center;
+    background-color: #ffffff;
+    margin-right: auto;
+    margin-left: auto;
+    font-size: 18pt;
+    font-family:'Times New Roman',Times,serif;
+}
+td{
+    padding: 15px 15px ;
+}
+input[type="text"]#priceInput2, input[type="text"]#priceInput {
+	width:90px;
+	margin-bottom: 20px;
+	margin-top: 20px;
+}
+#countedResults .form-control {
+	text-align-last:center;
+}

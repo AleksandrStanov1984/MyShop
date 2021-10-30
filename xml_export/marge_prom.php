@@ -1,0 +1,48 @@
+<?php
+
+// если передан get параметр с кодом для защиты от роботов
+if(isset($_GET['marge']) && $_GET['marge'] == 'kdjkfy74hh@%') {
+
+	$filepath =  __DIR__.'/prom.xml';
+	$filename = 'prom.xml';
+
+	// перед склеиванием сохраняем резервный файл
+	if (file_exists($filepath)) {
+		rename($filepath, 'rezerv_prom.xml');
+	}
+
+	// Читаем содержимое всех файло в папке xml_export/marge
+
+	$dir = __DIR__.'/marge_prom';
+
+	$files = scandir($dir);
+
+	if(count($files) > 4) {
+
+		// перед склеиванием созраняем резервный файл
+		if (file_exists($filepath)) {
+			rename($filepath, 'rezerv_prom.xml');
+		}
+
+		foreach($files as $file) {
+
+			if(stristr($file, '.xml') !== FALSE) {
+				
+				$get_file = file_get_contents('marge_prom/'.$file);
+
+				if($get_file != FALSE && $get_file != '0') {
+					if(!file_put_contents($filepath, $get_file, FILE_APPEND)) echo "Ошибка склеивания файлов"; 
+				}
+
+				unlink('marge_prom/'.$file);
+				
+			}
+		}
+
+		echo $filename.' успешно сохранен';
+
+	} else {
+		echo "Нет файлов для склеивания";
+	}
+	
+}

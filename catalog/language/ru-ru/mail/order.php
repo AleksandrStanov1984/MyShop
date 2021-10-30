@@ -1,0 +1,38 @@
+<?php
+// Text
+$_['text_new_subject']          = '%s - Заказ %s';
+$_['text_new_greeting']         = 'Спасибо, Ваш заказ в статусе ';
+$_['text_new_received']         = 'Вы получили заказ.';
+$_['text_new_link']             = 'Для просмотра заказа нажмите на ссылку ниже:';
+$_['text_new_order_detail']     = 'Покупатель';
+$_['text_new_instruction']      = 'Инструкции';
+$_['text_new_order_id']         = 'Заказ №:';
+$_['text_new_date_added']       = 'Дата:';
+$_['text_new_order_status']     = 'Статус заказа:';
+$_['text_new_payment_method']   = 'Оплата';
+$_['text_new_shipping_method']  = 'Метод доставки:';
+$_['text_new_email']  			= 'Продавец';
+$_['text_new_telephone']  		= 'Будем рады ответить на Ваши вопросы:';
+$_['text_new_ip']  				= 'Предъявите этот QR-код сотруднику для сканирования в точке выдачи при получении заказа';
+$_['text_new_payment_address']  = 'Адрес платежа';
+$_['text_new_shipping_address'] = 'Доставка';
+$_['text_new_products']         = 'Товары';
+$_['text_new_product']          = 'Товар';
+$_['text_new_model']            = 'Сумма:';
+$_['text_new_quantity']         = 'Кол-во';
+$_['text_new_price']            = 'Цена';
+$_['text_new_order_total']      = 'Итого к оплате:';
+$_['text_new_total']            = 'Итого';
+$_['text_new_download']         = 'После подтверждения платежа вы можете нажать на ссылку ниже, чтобы получить доступ к загружаемым товарам:';
+$_['text_new_comment']          = 'Комментарии к вашему заказу:';
+$_['text_new_comment_client']   = 'Комментарии к вашему заказу:';
+$_['$text_new_coupon']          = 'Промо-код';
+$_['$text_new_sub_total']       = 'Сумма:';
+$_['text_new_footer']           = 'Письмо содержит данные для получения заказа. Не передавайте его третьим лицам. Добавьте наш адрес <a href="mailto: welcome@sz.ua">welcome@sz.ua</a> в Ваш список контактов, чтобы не пропустить ни одной скидки!';
+$_['text_update_subject']       = '%s - Ваш заказ был обновлен до следующего статуса: %s';
+$_['text_update_order']         = 'Заказ №:';
+$_['text_update_date_added']    = 'Покупатель';
+$_['text_update_order_status']  = 'Ваш заказ был обновлен до следующего статуса:';
+$_['text_update_comment']       = 'Комментарии к вашему заказу:';
+$_['text_update_link']          = 'Для просмотра заказа нажмите на ссылку ниже:';
+$_['text_update_footer']        = 'Письмо содержит данные для получения заказа. Не передавайте его третьим лицам. Добавьте наш адрес <a href="mailto: welcome@sz.ua">welcome@sz.ua</a> в Ваш список контактов, чтобы не пропустить ни одной скидки!';

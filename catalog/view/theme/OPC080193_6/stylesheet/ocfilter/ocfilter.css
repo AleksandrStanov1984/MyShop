@@ -1,0 +1,633 @@
+/*=Font size */
+.ocfilter-option .ocf-option-values,
+.ocfilter-option .ocf-option-description,
+.ocfilter-option .fields-price {
+	font-size: 12px;
+}
+.ocfilter-option, .selected-options{
+	padding-top: 24px;
+	padding-bottom: 24px;
+}
+@media (max-width: 991px){
+	.ocfilter-option, .selected-options{
+		padding-top: 18px;
+		padding-bottom: 18px;
+	}
+}
+.ocfilter-option label:not(.ocf-selected) .badge:before{
+	content: '(';
+}
+.ocfilter-option label:not(.ocf-selected) .badge:after{
+	content: ')';
+}
+.ocfilter-option .ocf-option-name {
+	font-weight: 500;
+	cursor: pointer;
+}
+.selected-options .ocf-option-name {
+	font-weight: 500;
+}
+.ocf-option-name-close{
+	cursor: pointer;
+}
+
+.ocfilter-option .ocf-option-values {
+	overflow: visible;
+	margin-top: 8px;
+}
+
+.list-group-item {
+	overflow: visible!important;
+}
+
+.ocfilter-option .ocf-option-values .dropdown-menu {
+	min-width: 100%;
+	max-height: 250px;
+	overflow: auto;
+  padding: 10px;
+}
+
+.ocfilter-option .ocf-color {
+	border-radius: 3px 3px 3px 3px;
+	float: left;
+	height: 20px;
+	margin-top: 2px;
+    margin-right: -18px;
+	width: 19px;
+}
+
+.ocfilter-option .ocf-image {
+	background-repeat: no-repeat;
+	background-position: 0 0;
+	float: left;
+	height: 19px;
+	margin: 1px -16px 0 -3px;
+	position: relative;
+	width: 19px;
+	z-index: 10;
+}
+
+.ocfilter-option label {
+	font-size: 14px;
+	line-height: 20px;
+  cursor: pointer;
+  display: block;
+  font-weight: normal;
+  white-space: normal;
+  padding: 7px 0;
+  min-height: 34px;
+  width: 100%;
+	color: #666666;
+	display: flex;
+	align-items: center;
+}
+.ocfilter-option label:last-child{
+	  padding-bottom: 0px;
+}
+.ocfilter-option .dropdown-menu label{
+  white-space: nowrap;
+}
+
+.ocfilter-option label input {
+	display: inline-block;
+	margin: 0 5px 0 0;
+	vertical-align: top;
+}
+
+.ocfilter-option label small {
+	color: #D9D9D9;
+	margin-left: 4px;
+	font-weight: normal;
+	font-size: 14px;
+	line-height: 20px;
+}
+
+.ocfilter-option label.disabled {
+	color: #999999;
+}
+
+.ocfilter-option label.disabled small {
+	background-color: #EFEFEF;
+	color: #999999;
+}
+
+/*=Collapse Options */
+button[data-target="#ocfilter-hidden-options"] {
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+}
+
+button[data-target="#ocfilter-hidden-options"] .fa:before {
+	content: "\f078";
+}
+
+button[data-target="#ocfilter-hidden-options"][aria-expanded="true"] {
+	border-bottom-left-radius: 0;
+	border-bottom-right-radius: 0;
+}
+
+button[data-target="#ocfilter-hidden-options"][aria-expanded="true"] .fa:before {
+	content: "\f077";
+}
+
+/*=Collapse Values */
+.collapse-value {
+	margin-bottom: 10px;
+}
+
+.collapse-value > button, .collapse-value > button:focus, .collapse-value > button:active, .collapse-value > button:active:focus {
+	text-align: left;
+	background: transparent;
+	border: none;
+	box-shadow: none;
+	padding: 0;
+	font-size: 12px;
+	text-decoration: underline;
+	outline: none;
+}
+
+.collapse-value > button .fa:before {
+	content: "\f107";
+}
+
+.collapse-value > button[aria-expanded="true"] {
+}
+
+.collapse-value > button[aria-expanded="true"] .fa:before {
+	content: "\f106";
+}
+
+/*=Selected Options */
+.selected-options-header{
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-wrap:wrap;
+	    flex-wrap:wrap;
+-webkit-box-align:center;
+	-ms-flex-align:center;
+			align-items:center;
+			-webkit-box-pack: justify;
+			-ms-flex-pack: justify;
+					justify-content: space-between;
+		margin-bottom: 8px;
+}
+.selected-options-item>span{
+	font-weight: 500;
+	font-size: 12px;
+	line-height: 20px;
+	color: #666666;
+	padding-right: 4px;
+}
+.selected-options-item button{
+	margin-bottom: 8px;
+}
+.selected-options-item:last-child{
+	margin-bottom: 0px;
+}
+.remove_filter-parameter{
+	border: 1px solid #D9D9D9;
+	box-sizing: border-box;
+	border-radius: 8px;
+	padding: 5px 8px;
+}
+.remove_filter-parameter>span{
+	vertical-align: middle;
+	display: inline-block;
+	font-weight: 600;
+	font-size: 12px;
+	line-height: 18px;
+	width: calc(100% - 20px);
+}
+.remove_filter-parameter img{
+	margin-left: 4px;
+}
+#ocfilter-price .ocf-option-values {
+	padding: 10px 10px 5px;
+}
+
+.trackbar, .trackbar .left-block, .trackbar .right-block {
+	height: 4px;
+}
+
+.popover-content .form-inline {
+	white-space: nowrap;
+}
+
+.popover-content .form-inline .form-group {
+	display: inline-block;
+	margin-bottom: 0;
+	vertical-align: middle;
+}
+
+.scale {
+	margin-bottom: 12px;
+	margin-left: 15px;
+	margin-right: 15px;
+}
+
+.ocfilter .popover .form-inline .form-control {
+	width: 100px;
+}
+
+/* Position center style */
+.ocfilter-content-top, .ocfilter-content-bottom {
+}
+
+.ocfilter-content-top .box-content, .ocfilter-content-bottom .box-content {
+	font-size: 0;
+}
+
+.ocfilter-content-top .ocfilter-option, .ocfilter-content-bottom .ocfilter-option {
+	display: inline-block;
+	vertical-align: top;
+	width: 33%;
+}
+
+.ocfilter-content-top .ocfilter-option + .ocfilter-option, .ocfilter-content-bottom .ocfilter-option + .ocfilter-option {
+	border-top: none;
+}
+
+/*=Mobile */
+.ocf-offcanvas{
+  position: fixed;
+  top: 0;
+  background-color: #fff;
+  bottom: 0;
+  left: -100%;
+  z-index: 1000;
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  -webkit-transition: left 250ms ease;
+  -moz-transition: left 250ms ease;
+  -ms-transition: left 250ms ease;
+  -o-transition: left 250ms ease;
+  transition: left 250ms ease;
+}
+.ocf-offcanvas.active{left:0;}
+.ocf-offcanvas .ocfilter-mobile-handle{position: absolute; left: 100%; top: 88px;}
+.ocf-offcanvas .ocfilter-mobile-handle .btn{border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+.ocf-offcanvas .ocf-offcanvas-body{
+overflow-x: hidden;
+    overflow-y: auto;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+.ocf-offcanvas .panel{}
+.ocf-offcanvas{}
+.ocf-offcanvas{}
+/*------Custom-------*/
+.new-checkbox input{
+	display: none!important;
+}
+.checkbox-custom {
+	position: relative;
+	width: 24px;
+	height: 24px;
+	min-width: 24px;
+	border: 1px solid #d2d2d2;
+	border-radius: 4px;
+	margin-right: 8px;
+}
+
+.checkbox-custom,
+.label {
+	display: inline-block;
+	vertical-align: middle;
+}
+.new-checkbox input:checked + .checkbox-custom{
+	background-color: #6F38AB;;
+}
+.new-checkbox input:checked + .checkbox-custom::before {
+	content: url(catalog/view/theme/OPC080193_6/images/checked.svg);
+	display: block;
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	bottom: 0px;
+	left: 0px;
+	width: 24px;
+	height: 24px;
+}
+.ocf-option-name img{
+	position: absolute;
+	right: 0;
+	top: 0;
+	transition: 0.5s;
+	transform: rotate(180deg);
+}
+.ocf-option-name{
+	position: relative;
+}
+.transform-down{
+	transform: rotate(90deg);
+}
+.noUi-pips-horizontal {display: none;}
+.noUi-horizontal {
+    height: 2px;
+}
+.noUi-handle:after, .noUi-handle:before{
+	display: none;
+}
+.noUi-handle {
+    border-radius: 50%;
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+		background: #FFFFFF;
+		border: 1px solid #6F38AB;
+		box-sizing: border-box;
+		box-shadow: 0px 4px 32px rgba(0, 0, 0, 0.16);
+}
+.noUi-horizontal .noUi-handle {
+	width: 24px;
+    height: 24px;
+}
+.noUi-target {
+    border-radius: 4px;
+    margin-top: 26px;
+    border: none;
+    box-shadow: inset 0 1px 1px #F0F0F0, 0 3px 6px -5px #BBB;
+}
+.noUi-base {
+    height:4px;
+		background: #BEB7D1;
+		border-radius: 2px;
+}
+.noUi-connect {
+    background: #6F38AB;
+    box-shadow: none;
+}
+.noUi-horizontal .noUi-handle {
+    top: -11px;
+}
+.noUi-background {
+    background: #BEB7D1;
+		border-radius: 2px;
+    box-shadow: none;
+}
+.input-price-ocfitler{
+	width: calc((100% - 48px - 24px - 10px - 16px)/2)!important;
+	display: inline-block;
+}
+.tire-price-ocfilter{
+	display: inline-block;
+	background-color: #292929;
+	text-align: center;
+	height: 1px;
+}
+@media (min-width: 992px){
+	.input-price-ocfitler{
+	display: inline-block;
+}
+
+.tire-price-ocfilter{
+	width: 14px;
+	margin-left: 5px;
+	margin-right: 5px;
+}
+}
+.input-price-ocfitler .price{
+	width: 100%;
+	border-radius: 8px;
+	padding: 12px 16px;
+	border: 1px solid #D9D9D9;
+	font-size: 16px;
+	line-height: 24px;
+	height: 48px;
+}
+.ocf-option-name-price{
+	color: #6F38AB;
+	display: none;
+}
+#ocfilter-button-price{
+	padding-left: 16px;
+}
+#ocfilter-button-price{
+	display: inline-block;
+
+}
+.block-price-ocfilter{
+	margin-bottom: 8px;
+}
+.ocf-option-name{
+	padding-right: 17px;
+}
+@media (min-width: 768px) and (max-width: 991px) {
+	.ocf-offcanvas{
+		width: 396px;
+	}
+.input-price-ocfitler {
+    width: 50%!important;
+    display: block!important;
+}
+.modal-open .mobile-bg{
+	display: block!important;
+}
+#ocfilter>.list-group {
+		flex: 1 1;
+		overflow-y: scroll;
+		padding-right: 20px;
+		padding-left: 20px;
+}
+.tire-price-ocfilter{
+	width: 15px;
+	margin-left: 9.5px;
+	margin-right: 9.5px;
+}
+.input-price-ocfitler{
+	width: calc((100% - 48px - 16px - 34px)/2)!important;
+	display: inline-block;
+}
+#ocfilter-button-price{
+	padding-left: 16px;
+}
+}
+.button-filter-close{
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    cursor: pointer;
+}
+.button-filter-close img{
+	width: 24px;
+}
+.collapse-value > .btn-show-all-check{
+    color: #767676;
+    display: inline;
+    width: auto;
+    color: #182e81;
+
+}
+.collapse-value > .btn-show-all-check:hover, .btn-show-all-check:focus{
+    background: transparent;
+}
+.pick-selected{
+		width: calc(100% - 8px - 91px);
+}
+.pick-selected button{
+	width: 100%;
+	height: 40px!important;
+	line-height: 40px!important;
+}
+.btn-dump-bottom-panel{
+	margin-right: 16px;
+	height: 40px!important;
+	line-height: 40px!important;
+}
+.pick-selected button, .btn-dump-bottom-panel{
+	font-size: 14px;
+	line-height: 20px;
+	padding-left: 8px;
+	padding-right: 8px;
+}
+@media (min-width: 992px){
+.ocfilter.panel-default{
+	border-color: transparent!important;
+}
+.ocfilter .panel-heading{
+	display: none;
+}
+.panel.ocfilter{
+	box-shadow: none!important;
+}
+
+}
+.list-group-item {
+    border: 1px solid #eaeaea;
+}
+.ocfilter-option, .selected-options, .ocfilter-option-price{
+	border-right: 1px solid #eaeaea;
+	border-width: 1px 0px 0px 0px!important;
+}
+.ocfilter-option-selector {
+	text-align: center;
+}
+@media (min-width: 992px) {
+	.ocfilter-option-selector {
+		display: none!important;
+	}
+}
+.envelop-inputs_price{
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
+	-webkit-box-align:center;
+	-ms-flex-align:center;
+	align-items:center;
+  margin-top: 8px;
+}
+@media (max-width: 767px){
+	#ocfilter>.list-group {
+			flex: 1 1;
+			overflow-y: scroll;
+			padding-right: 15px;
+			padding-left: 15px;
+	}
+	.tire-price-ocfilter{
+		width: 8px;
+		margin-left: 5px;
+		margin-right: 5px;
+	}
+	.input-price-ocfitler{
+		width: calc((100% - 48px - 18px - 8px)/2)!important;
+		display: inline-block;
+	}
+	#ocfilter-button-price{
+		padding-left: 8px;
+	}
+}
+@media (max-width: 991px) {
+	.btn-ok-price{
+		max-width: 48px;
+		padding-left: 12px;
+		padding-right: 12px;
+	}
+
+	.ocfilter-option-selector {
+	    display: flex;
+	    flex: 1 0 46px;
+	    position: relative;
+	    padding: 3px;
+	    /*border-top: 1px solid #cfcfcf;*/
+	    max-height: 46px;
+	    /*justify-content: space-around;*/
+	}
+	#ocfilter {
+	    max-height: 100vh;
+	    display: flex;
+	    flex-direction: column;
+	    align-items: stretch;
+	    justify-content: stretch;
+	    height: 100%;
+	    margin: 0;
+	    border: 0;
+}
+	#ocfilter>.panel-heading {
+		padding: 8px 15px;
+		border-bottom: 1px solid #D9D9D9;
+		border-top: 1px solid #D9D9D9;
+		position: relative;
+		font-weight: 600;
+		font-size: 14px;
+		line-height: 20px;
+		height: 40px;
+		box-sizing: border-box;
+		color: #000000;
+	}
+	#ocfilter>.panel-heading>span:before {
+		content: url(../../images/page_category/funnel.svg);
+		display: inline-block;
+		height: 24px;
+		vertical-align: middle;
+		padding-right: 8px;
+	}
+
+	.ocfilter-mob-bottom-panel{
+	padding-bottom: 15px;
+	box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .3);
+	padding-top: 15px;
+  max-height: 66px;
+	padding-left: 15px;
+	padding-right: 15px;
+}
+.ocf-option-name{
+	font-size: 14px;
+	line-height: 20px;
+}
+.btn-dump-bottom-panel{
+	margin-right: 8px;
+}
+}
+@media (min-width: 992px) and (max-width: 1199px){
+	.btn-ok-price{
+		width: 44px;
+		padding-right: 12px;
+		padding-left: 12px;
+		font-size: 14px;
+	}
+	#ocfilter-button-price {
+    padding-left: 8px;
+}
+.tire-price-ocfilter {
+    width: 6px;
+    margin-left: 4px;
+    margin-right: 4px;
+}
+.input-price-ocfitler {
+    width: calc((100% - 44px - 14px - 8px)/2)!important;
+}
+.input-price-ocfitler .price {
+    width: 100%;
+    border-radius: 8px;
+    padding: 12px 8px;
+}
+}

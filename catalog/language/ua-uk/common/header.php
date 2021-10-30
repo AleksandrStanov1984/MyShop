@@ -1,0 +1,34 @@
+<?php
+// Text
+$_['text_home']          = 'Головна';
+$_['text_wishlist']      = 'Список бажань (%s)';
+$_['text_wishlist_total']= '%s';
+$_['text_shopping_cart'] = 'Кошик';
+$_['text_category']      = 'Категорії';
+$_['text_account_title'] = '';
+$_['text_contact']       = 'Контакти';
+$_['text_account']       = '<span style="text-decoration-line: underline;">Мій профіль</span>';
+$_['text_welcome_user']  = 'Вітаю, <span style="text-decoration-line: underline;"> %s!</span>';
+$_['text_register']      = 'Реєстрація';
+$_['text_profile']       = 'Мій профіль';
+$_['text_login']         = 'Авторизація';
+$_['text_order']         = 'Мої замовлення';
+$_['text_transaction']   = 'Транзакції';
+$_['text_download']      = 'Завантаження';
+$_['text_logout']        = 'Вихід';
+$_['text_checkout']      = 'Оформлення замовлення';
+$_['text_search']        = 'Пошук';
+$_['text_all']           = 'Дивитися всі';
+$_['call_us']            = 'Дзвоніть';
+$_['type_us']            = 'Пишіть нам';
+$_['catalog']            = 'Каталог';
+$_['text_all_caterogies'] = 'Всі категорії';
+$_['text_free_ukraine'] = 'Безкоштовно по Україні';
+$_['text_open_dropdown_phone'] = 'Приймання замовлень';
+$_['text_stellagi'] = 'Стеллажи';
+$_['text_safe'] = 'Сейфи';
+$_['text_question_city'] = 'Ваше місто';
+$_['text_yes'] = 'Так';
+$_['text_choose_another_city'] = 'Вибрати інше місто';
+$_['text_og_title'] = 'Шукаєш "%s"? Заходи і вибирай прямо зараз!';
+$_['text_og_site_name'] = 'Інтернет магазин SZ.UA';

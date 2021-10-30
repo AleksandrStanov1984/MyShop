@@ -1,0 +1,251 @@
+  body.information-about{
+        background-color: #F5F5F5;
+}
+.about_main_img{
+  position: relative;
+}
+.about_main_img img{
+  border-radius: 50px;
+}
+.welcom_content__t{
+  font-weight: bold;
+  font-size: 64px;
+  line-height: 72px;
+  color: #FFFFFF;
+  max-width: 63%;
+  margin-bottom: 24px;
+}
+.welcom_content__d{
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 24px;
+  color: #FFFFFF;
+  max-width: 50%;
+}
+.welcom_content{
+  position: absolute;
+  top: 0px;
+  left: 115px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+}
+.information-about #content{
+  margin-top: 24px;
+}
+.title_about{
+  margin-bottom: 24px;
+}
+.advantage_wh_cart{
+  background-color: #fff;
+  padding: 32px 32px 0px;
+  border-radius: 16px;
+  position: relative;
+  height: 350px;
+  display: flex;
+  flex-direction: column;
+}
+.adv_row>div:nth-child(3) img{
+    margin-top: auto;
+}
+.advantage_wh_cart img{
+  max-width: 220px;
+  margin: 0 auto;
+}
+.title_section_adv{
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 40px;
+  text-align: center;
+  margin-bottom: 40px;
+  margin-top: 56px;
+}
+.advantage_title{
+  font-weight: 600;
+  font-size: 26px;
+  line-height: 32px;
+  margin-bottom: 20px;
+  min-height: 36px;
+}
+.advantage_bottom{
+  padding-left: 32px;
+  margin-top: 32px;
+}
+.advantage_description{
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  color: #8B8B8B;
+}
+.advantage_num{
+  font-weight: 600;
+  font-size: 34px;
+  line-height: 40px;
+  margin-bottom: 8px;
+}
+@media (min-width: 768px) and (max-width: 991px){
+  .advantage_item{
+    margin-bottom: 32px;
+  }
+  .advantage_bottom {
+    margin-top: 24px;
+}
+.advantage_num{
+  font-size: 24px;
+  line-height: 32px;
+}
+.advantage_title{
+  font-size: 20px;
+  line-height: 28px;
+}
+}
+@media (max-width: 767px){
+  .advantage_title{
+    font-size: 14px;
+    line-height: 20px;
+  }
+  .advantage_wh_cart {
+    padding: 16px 16px 0px;
+  }
+  .advantage_bottom {
+    padding-left: 16px;
+    margin-top: 12px;
+}
+.advantage_num {
+    font-size: 18px;
+    line-height: 26px;
+    margin-bottom: 4px;
+}
+.advantage_description {
+    font-size: 14px;
+    line-height: 20px;
+}
+.advantage_item {
+    margin-bottom: 24px;
+}
+.adv_row>div:nth-child(2n){
+  padding-left: 8px!important;
+}
+.adv_row>div:nth-child(2n-1){
+  padding-right: 8px!important;
+}
+.title_section_adv {
+    font-size: 24px;
+    line-height: 35px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+h1.title_about {
+    font-size: 26px;
+    line-height: 32px;
+}
+.about_main_img img{
+    border-radius: 24px;
+}
+
+
+}
+@media (max-width: 480px){
+  .advantage_title {
+    font-size: 12px;
+    line-height: 18px;
+}
+.welcom_content__t{
+  font-size: 20px;
+  line-height: 23px;
+  margin-bottom: 16px;
+  max-width: 230px!important;
+}
+.welcom_content__d{
+  font-size: 12px;
+  line-height: 18px;
+  max-width: 280px!important;
+}
+.welcom_content{
+  left: 0px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.advantage_wh_cart img {
+    max-width: 105px;
+  }
+  .advantage_wh_cart {
+    height: 200px;
+  }
+}
+@media (min-width: 481px) and (max-width: 767px){
+  .welcom_content__t{
+    font-size: 26px;
+    line-height: 36px;
+    margin-bottom: 16px;
+    max-width: 270px!important;
+}
+  .welcom_content{
+    left: 0px;
+    padding-left: 24px;
+    padding-right: 24px;
+
+  }
+  .welcom_content__d{
+    max-width: 504px;
+    font-size: 16px;
+  }
+  .advantage_wh_cart img {
+    max-width: 180px;
+  }
+  .advantage_wh_cart {
+    height: 262px;
+  }
+}
+@media (min-width: 768px) and (max-width: 991px){
+  .welcom_content__t{
+    font-size: 40px;
+    line-height: 50px;
+    margin-bottom: 16px;
+    max-width: 426px!important;
+}
+.welcom_content{
+    left: 0px;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+.welcom_content__d{
+    max-width: 504px;
+    font-size: 16px;
+}
+.advantage_wh_cart {
+    height: 320px;
+}
+}
+@media (min-width: 992px) and (max-width: 1199px){
+  .welcom_content__t{
+    font-size: 40px;
+    line-height: 50px;
+    margin-bottom: 16px;
+    max-width: 426px!important;
+}
+  .welcom_content{
+    left: 0px;
+    padding-left: 40px;
+    padding-right: 40px;
+
+  }
+  .welcom_content__d{
+    max-width: 504px;
+    font-size: 16px;
+  }
+  .advantage_title {
+    font-size: 20px;
+    line-height: 26px;
+}
+.advantage_wh_cart {
+    height: 254px;
+}
+.advantage_num {
+    font-size: 30px;
+  }
+  .advantage_wh_cart img {
+      max-width: 146px;
+  }
+}

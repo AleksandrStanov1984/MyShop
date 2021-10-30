@@ -1,0 +1,10 @@
+.product-layout .owl-wrapper-outer {border:none;border-radius:0;box-shadow: none}
+.product-layout .owl-carousel .owl-buttons .owl-prev {left:0}
+.product-layout .owl-carousel .owl-buttons .owl-next {right:0}
+.product-layout .owl-carousel .product-thumb .caption {min-height:auto}
+.show-full {
+    color: #646464;
+    font-size: 13px;
+    padding-left: 10px;
+    text-transform: none;
+}

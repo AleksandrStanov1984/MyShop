@@ -1,0 +1,1288 @@
+{{ header }}{{ column_left }} 
+<div id="content">
+  <div class="page-header">
+    <div class="container-fluid">
+      <div class="pull-right">
+        <button type="submit" form="form" data-toggle="tooltip" title="{{ button_save }}" class="btn btn-primary"><i class="fa fa-save"></i></button>
+        <a href="{{ cancel }}" data-toggle="tooltip" title="{{ button_cancel }}" class="btn btn-default"><i class="fa fa-reply"></i></a></div>
+      <h1>{{ heading_title }}</h1>
+      <ul class="breadcrumb">
+        {% for breadcrumb in breadcrumbs %} 
+        <li><a href="{{ breadcrumb['href'] }}">{{ breadcrumb['text'] }}</a></li>
+        {% endfor %} 
+      </ul>
+    </div>
+  </div>
+  <div class="container-fluid">
+    {% if (error_warning) %} 
+    <div class="alert alert-danger"><i class="fa fa-exclamation-circle"></i> {{ error_warning }} 
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+    </div>
+    {% endif %} 
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title"><i class="fa fa-pencil"></i> {{ text_edit }}</h3>
+      </div>
+      <div class="panel-body">
+        <form action="{{ action }}" method="post" enctype="multipart/form-data" id="form" class="form-horizontal">
+	  
+		  <div class="form-group">
+			<label class="col-sm-2 control-label text-right" for="input-status">{{ entry_status }}</label>
+			<div class="col-sm-10">
+			  <select name="ts_google_analytics_status" id="input-status" class="form-control">
+				{% if (ts_google_analytics_status) %} 
+				<option value="1" selected="selected">{{ text_enabled }}</option>
+				<option value="0">{{ text_disabled }}</option>
+				{% else %} 
+				<option value="1">{{ text_enabled }}</option>
+				<option value="0" selected="selected">{{ text_disabled }}</option>
+				{% endif %} 
+			  </select>
+			</div>
+		  </div>
+		  <br>
+		
+          <ul class="nav nav-tabs">
+            <li class="active"><a href="#tab-main-settings" data-toggle="tab">{{ tab_main_settings }}</a></li>
+            <li><a href="#tab-userParams" data-toggle="tab">{{ tab_userParams }}</a></li>
+            <li><a href="#tab-ecommerce" data-toggle="tab">{{ tab_ecommerce }}</a></li>
+            <li><a href="#tab-goals" data-toggle="tab">{{ tab_goals }}</a></li>
+            <li><a href="#tab-help" data-toggle="tab"><i class="fa fa-question-circle" style="color:#1e91cf;"></i> {{ tab_help }}</a></li>
+          </ul>
+	      <div class="tab-content">
+		  	
+			<div class="tab-pane active" id="tab-main-settings">
+                <div class="form-group required">
+                  <label class="col-sm-2 control-label" for="input-counter-counter-id"><span data-toggle="tooltip" title="{{ help_counter['counter_id'] }}">{{ entry_counter['counter_id'] }}</span></label>
+                  <div class="col-sm-10">
+				  <input type="text" name="ts_google_analytics_settings[counter][counter_id]" value="{{ ts_google_analytics_settings['counter']['counter_id'] }}" placeholder="{{ entry_counter['counter_id'] }}" id="input-counter-counter-id" class="form-control" />
+				  {% if (error_counter_id) %} 
+				  <div class="text-danger">{{ error_counter_id }}</div>
+				  {% endif %} 
+                  </div>
+                </div>
+				<br>
+				
+              <fieldset>
+                <legend>{{ text_title['counter'] }}</legend>
+				
+                <div class="form-group">
+                  <label class="col-sm-2 control-label"><span data-toggle="tooltip" title="{{ help_counter['type'] }}">{{ entry_counter['type'] }}</span></label>
+                  <div class="col-sm-10">
+                    <label class="radio-inline">
+                      <input type="radio" name="ts_google_analytics_settings[counter][type]" value="analytics" {% if (ts_google_analytics_settings['counter']['type'] == 'analytics') %}checked="checked"{% endif %} />
+                      {{ text_counter['analytics'] }} 
+                    </label>
+                    <label class="radio-inline">
+                      <input type="radio" name="ts_google_analytics_settings[counter][type]" value="gtag" {% if (ts_google_analytics_settings['counter']['type'] == 'gtag') %}checked="checked"{% endif %} />
+                      {{ text_counter['gtag'] }} 
+                    </label>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-2 control-label"><span data-toggle="tooltip" title="{{ help_counter['mode'] }}">{{ entry_counter['mode'] }}</span></label>
+                  <div class="col-sm-10">
+                    <label class="radio-inline">
+                      <input type="radio" name="ts_google_analytics_settings[counter][mode]" value="0" {% if (not ts_google_analytics_settings['counter']['mode']) %}checked="checked"{% endif %} />
+                      {{ text_counter['default'] }} 
+                    </label>
+                    <label class="radio-inline">
+                      <input type="radio" name="ts_google_analytics_settings[counter][mode]" value="1" {% if (ts_google_analytics_settings['counter']['mode']) %}checked="checked"{% endif %} />
+                      {{ text_counter['asynch'] }} 
+                    </label>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-2 control-label"><span data-toggle="tooltip" title="{{ help_counter['pageview'] }}">{{ entry_counter['pageview'] }}</span></label>
+                  <div class="col-sm-9">
+                    <label class="radio-inline">
+                      <input type="radio" name="ts_google_analytics_settings[counter][pageview][status]" value="1" {% if (ts_google_analytics_settings['counter']['pageview']['status']) %}checked="checked"{% endif %} />
+                      {{ text_yes }} 
+                    </label>
+                    <label class="radio-inline">
+                      <input type="radio" name="ts_google_analytics_settings[counter][pageview][status]" value="0" {% if (not ts_google_analytics_settings['counter']['pageview']['status']) %}checked="checked"{% endif %} />
+                      {{ text_no }} 
+                    </label>
+                  </div>
+                  <label class="col-sm-1 counter-option-chevron" data-params="counter-pageview-params"><span {% if (ts_google_analytics_settings['counter']['pageview']['status']) %}class="rotate"{% endif %}></span></label>
+                </div>
+				<div class="form-group counter-option-params" id="counter-pageview-params" {% if (not ts_google_analytics_settings['counter']['pageview']['status']) %}style="display:none;"{% endif %}>
+					<div class="col-sm-12 counter-option-param">
+						<div class="form-group">
+						  <label class="col-sm-1"></label>
+						  <label class="col-sm-2 control-label"><span data-toggle="tooltip" title="{{ help_counter['pageview_title'] }}">{{ entry_counter['pageview_title'] }}</span></label>
+						  <div class="col-sm-9">
+							<label class="radio-inline">
+							  <input type="radio" name="ts_google_analytics_settings[counter][pageview][title]" value="1" {% if (ts_google_analytics_settings['counter']['pageview']['title']) %}checked="checked"{% endif %} />
+							  {{ text_yes }} 
+							</label>
+							<label class="radio-inline">
+							  <input type="radio" name="ts_google_analytics_settings[counter][pageview][title]" value="0" {% if (not ts_google_analytics_settings['counter']['pageview']['title']) %}checked="checked"{% endif %} />
+							  {{ text_no }} 
+							</label>
+						  </div>
+						</div>
+					</div>
+					<div class="col-sm-12 counter-option-param">
+						<div class="form-group">
+						  <label class="col-sm-1"></label>
+						  <label class="col-sm-2 control-label"><span data-toggle="tooltip" title="{{ help_counter['pageview_path'] }}">{{ entry_counter['pageview_path'] }}</span></label>
+						  <div class="col-sm-9">
+							<label class="radio-inline">
+							  <input type="radio" name="ts_google_analytics_settings[counter][pageview][path]" value="1" {% if (ts_google_analytics_settings['counter']['pageview']['path']) %}checked="checked"{% endif %} />
+							  {{ text_yes }} 
+							</label>
+							<label class="radio-inline">
+							  <input type="radio" name="ts_google_analytics_settings[counter][pageview][path]" value="0" {% if (not ts_google_analytics_settings['counter']['pageview']['path']) %}checked="checked"{% endif %} />
+							  {{ text_no }} 
+							</label>
+						  </div>
+						</div>
+					</div>
+					<div class="col-sm-12 counter-option-param">
+						<div class="form-group">
+						  <label class="col-sm-1"></label>
+						  <label class="col-sm-2 control-label"><span data-toggle="tooltip" title="{{ help_counter['pageview_location'] }}">{{ entry_counter['pageview_location'] }}</span></label>
+						  <div class="col-sm-9">
+							<label class="radio-inline">
+							  <input type="radio" name="ts_google_analytics_settings[counter][pageview][location]" value="1" {% if (ts_google_analytics_settings['counter']['pageview']['location']) %}checked="checked"{% endif %} />
+							  {{ text_yes }} 
+							</label>
+							<label class="radio-inline">
+							  <input type="radio" name="ts_google_analytics_settings[counter][pageview][location]" value="0" {% if (not ts_google_analytics_settings['counter']['pageview']['location']) %}checked="checked"{% endif %} />
+							  {{ text_no }} 
+							</label>
+						  </div>
+						</div>
+					</div>
+				</div>
+                <div class="form-group">
+                  <label class="col-sm-2 control-label"><span data-toggle="tooltip" title="{{ help_counter['timing'] }}">{{ entry_counter['timing'] }}</span></label>
+                  <div class="col-sm-9">
+                    <label class="radio-inline">
+                      <input type="radio" name="ts_google_analytics_settings[counter][timing][status]" value="1" {% if (ts_google_analytics_settings['counter']['timing']['status']) %}checked="checked"{% endif %} />
+                      {{ text_yes }} 
+                    </label>
+                    <label class="radio-inline">
+                      <input type="radio" name="ts_google_analytics_settings[counter][timing][status]" value="0" {% if (not ts_google_analytics_settings['counter']['timing']['status']) %}checked="checked"{% endif %} />
+                      {{ text_no }} 
+                    </label>
+                  </div>
+                  <label class="col-sm-1 counter-option-chevron" data-params="counter-timing-params"><span {% if (ts_google_analytics_settings['counter']['timing']['status']) %}class="rotate"{% endif %}></span></label>
+                </div>
+				<div class="form-group counter-option-params" id="counter-timing-params" {% if (not ts_google_analytics_settings['counter']['timing']['status']) %}style="display:none;"{% endif %}>
+					<div class="col-sm-12 counter-option-param">
+						<div class="form-group required">
+						  <label class="col-sm-1"></label>
+						  <label class="col-sm-2 control-label" for="input-counter-timing-name"><span data-toggle="tooltip" title="{{ help_counter['timing_name'] }}">{{ entry_counter['timing_name'] }}</span></label>
+						  <div class="col-sm-9">
+						  <input type="text" name="ts_google_analytics_settings[counter][timing][name]" value="{{ ts_google_analytics_settings['counter']['timing']['name'] }}" placeholder="{{ entry_counter['timing_name'] }}" id="input-counter-timing-name" class="form-control" />
+						  {% if (error_timing_name) %} 
+						  <div class="text-danger">{{ error_timing_name }}</div>
+						  {% endif %} 
+						  </div>
+						</div>
+					</div>
+					<div class="col-sm-12 counter-option-param">
+						<div class="form-group">
+						  <label class="col-sm-1"></label>
+						  <label class="col-sm-2 control-label" for="input-counter-timing-category"><span data-toggle="tooltip" title="{{ help_counter['timing_category'] }}">{{ entry_counter['timing_category'] }}</span></label>
+						  <div class="col-sm-9">
+						  <input type="text" name="ts_google_analytics_settings[counter][timing][category]" value="{{ ts_google_analytics_settings['counter']['timing']['category'] }}" placeholder="{{ entry_counter['timing_category'] }}" id="input-counter-timing-category" class="form-control" />
+						  {% if (error_timing_category) %} 
+						  <div class="text-danger">{{ error_timing_category }}</div>
+						  {% endif %} 
+						  </div>
+						</div>
+					</div>
+					<div class="col-sm-12 counter-option-param">
+						<div class="form-group">
+						  <label class="col-sm-1"></label>
+						  <label class="col-sm-2 control-label" for="input-counter-timing-label"><span data-toggle="tooltip" title="{{ help_counter['timing_label'] }}">{{ entry_counter['timing_label'] }}</span></label>
+						  <div class="col-sm-9">
+						  <input type="text" name="ts_google_analytics_settings[counter][timing][label]" value="{{ ts_google_analytics_settings['counter']['timing']['label'] }}" placeholder="{{ entry_counter['timing_label'] }}" id="input-counter-timing-label" class="form-control" />
+						  {% if (error_timing_label) %} 
+						  <div class="text-danger">{{ error_timing_label }}</div>
+						  {% endif %} 
+						  </div>
+						</div>
+					</div>
+				</div>
+                <div class="form-group">
+                  <label class="col-sm-2 control-label"><span data-toggle="tooltip" title="{{ help_counter['link_attr'] }}">{{ entry_counter['link_attr'] }}</span></label>
+                  <div class="col-sm-9">
+                    <label class="radio-inline">
+                      <input type="radio" name="ts_google_analytics_settings[counter][link_attr][status]" value="1" {% if (ts_google_analytics_settings['counter']['link_attr']['status']) %}checked="checked"{% endif %} />
+                      {{ text_yes }} 
+                    </label>
+                    <label class="radio-inline">
+                      <input type="radio" name="ts_google_analytics_settings[counter][link_attr][status]" value="0" {% if (not ts_google_analytics_settings['counter']['link_attr']['status']) %}checked="checked"{% endif %} />
+                      {{ text_no }} 
+                    </label>
+                  </div>
+                  <label class="col-sm-1 counter-option-chevron" data-params="counter-link-attr-params"><span {% if (ts_google_analytics_settings['counter']['link_attr']['status']) %}class="rotate"{% endif %}></span></label>
+                </div>
+				<div class="form-group counter-option-params" id="counter-link-attr-params" {% if (not ts_google_analytics_settings['counter']['link_attr']['status']) %}style="display:none;"{% endif %}>
+					<div class="col-sm-12 counter-option-param">
+						<div class="form-group required">
+						  <label class="col-sm-1"></label>
+						  <label class="col-sm-2 control-label" for="input-counter-link-attr-name"><span data-toggle="tooltip" title="{{ help_counter['link_attr_name'] }}">{{ entry_counter['link_attr_name'] }}</span></label>
+						  <div class="col-sm-9">
+						  <input type="text" name="ts_google_analytics_settings[counter][link_attr][name]" value="{{ ts_google_analytics_settings['counter']['link_attr']['name'] }}" placeholder="{{ entry_counter['link_attr_name'] }}" id="input-counter-link-attr-name" class="form-control" />
+						  {% if (error_link_attr_name) %} 
+						  <div class="text-danger">{{ error_link_attr_name }}</div>
+						  {% endif %} 
+						  </div>
+						</div>
+					</div>
+					<div class="col-sm-12 counter-option-param">
+						<div class="form-group">
+						  <label class="col-sm-1"></label>
+						  <label class="col-sm-2 control-label" for="input-counter-link-attr-expires"><span data-toggle="tooltip" title="{{ help_counter['link_attr_expires'] }}">{{ entry_counter['link_attr_expires'] }}</span></label>
+						  <div class="col-sm-9">
+						  <input type="text" name="ts_google_analytics_settings[counter][link_attr][expires]" value="{{ ts_google_analytics_settings['counter']['link_attr']['expires'] }}" placeholder="{{ entry_counter['link_attr_expires'] }}" id="input-counter-link-attr-expires" class="form-control" />
+						  {% if (error_link_attr_expires) %} 
+						  <div class="text-danger">{{ error_link_attr_expires }}</div>
+						  {% endif %} 
+						  </div>
+						</div>
+					</div>
+				</div>
+                <div class="form-group">
+                  <label class="col-sm-2 control-label"><span data-toggle="tooltip" title="{{ help_counter['linker'] }}">{{ entry_counter['linker'] }}</span></label>
+                  <div class="col-sm-9">
+                    <label class="radio-inline">
+                      <input type="radio" name="ts_google_analytics_settings[counter][linker][status]" value="1" {% if (ts_google_analytics_settings['counter']['linker']['status']) %}checked="checked"{% endif %} />
+                      {{ text_yes }} 
+                    </label>
+                    <label class="radio-inline">
+                      <input type="radio" name="ts_google_analytics_settings[counter][linker][status]" value="0" {% if (not ts_google_analytics_settings['counter']['linker']['status']) %}checked="checked"{% endif %} />
+                      {{ text_no }} 
+                    </label>
+                  </div>
+                  <label class="col-sm-1 counter-option-chevron" data-params="counter-linker-params"><span {% if (ts_google_analytics_settings['counter']['linker']['status']) %}class="rotate"{% endif %}></span></label>
+                </div>
+				<div class="form-group counter-option-params" id="counter-linker-params" {% if (not ts_google_analytics_settings['counter']['linker']['status']) %}style="display:none;"{% endif %}>
+					<div class="col-sm-12 counter-option-param">
+						<div class="form-group">
+						  <label class="col-sm-1"></label>
+						  <label class="col-sm-2 control-label"><span data-toggle="tooltip" title="{{ help_counter['linker_incoming'] }}">{{ entry_counter['linker_incoming'] }}</span></label>
+						  <div class="col-sm-9">
+							<label class="radio-inline">
+							  <input type="radio" name="ts_google_analytics_settings[counter][linker][incoming]" value="1" {% if (ts_google_analytics_settings['counter']['linker']['incoming']) %}checked="checked"{% endif %} />
+							  {{ text_yes }} 
+							</label>
+							<label class="radio-inline">
+							  <input type="radio" name="ts_google_analytics_settings[counter][linker][incoming]" value="0" {% if (not ts_google_analytics_settings['counter']['linker']['incoming']) %}checked="checked"{% endif %} />
+							  {{ text_no }} 
+							</label>
+						  </div>
+						</div>
+					</div>
+					<div class="col-sm-12 counter-option-param" id="counter-linker-domains">
+						{% for did,domain in ts_google_analytics_settings['counter']['linker']['domains'] %} 
+						<div class="form-group" id="counter-linker-domain-{{ did }}">
+						  <label class="col-sm-1"></label>
+						  {% if (did == 0) %} 
+						  <label class="col-sm-2 control-label"><span data-toggle="tooltip" title="{{ help_counter['linker_domains'] }}">{{ entry_counter['linker_domains'] }}</span></label>
+						  {% else %} 
+						  <label class="col-sm-2"></label>
+						  {% endif %} 
+						  <div class="col-sm-8">
+						  <input type="text" name="ts_google_analytics_settings[counter][linker][domains][]" value="{{ domain }}" placeholder="{{ entry_counter['linker_domain'] }}" id="input-counter-linker-domains-{{ did }}" class="form-control" />
+						  {% if (error_linker_domains[did] is defined and error_linker_domains[did]) %} 
+						  <div class="text-danger">{{ error_linker_domains[did] }}</div>
+						  {% endif %} 
+						  </div>
+						  {% if (did == 0) %} 
+						  <label class="col-sm-1"><button type="button" onclick="addLinkerDomain();" data-toggle="tooltip" title="{{ button_add }}" class="btn btn-primary"><i class="fa fa-plus-circle"></i></button></label>
+						  {% else %} 
+						  <label class="col-sm-1"><button type="button" onclick="removeLinkerDomain({{ did }});" data-toggle="tooltip" title="{{ button_remove }}" class="btn btn-danger"><i class="fa fa-minus-circle"></i></button></label>
+						  {% endif %} 
+						</div>
+						{% endfor %} 
+					</div>
+				</div>
+                <div class="form-group">
+                  <label class="col-sm-2 control-label"><span data-toggle="tooltip" title="{{ help_counter['ad_features'] }}">{{ entry_counter['ad_features'] }}</span></label>
+                  <div class="col-sm-10">
+                    <label class="radio-inline">
+                      <input type="radio" name="ts_google_analytics_settings[counter][ad_features]" value="1" {% if (ts_google_analytics_settings['counter']['ad_features']) %}checked="checked"{% endif %} />
+                      {{ text_yes }} 
+                    </label>
+                    <label class="radio-inline">
+                      <input type="radio" name="ts_google_analytics_settings[counter][ad_features]" value="0" {% if (not ts_google_analytics_settings['counter']['ad_features']) %}checked="checked"{% endif %} />
+                      {{ text_no }} 
+                    </label>
+                  </div>
+                </div>
+				<div class="form-group">
+				  <label class="col-sm-2 control-label" for="input-counter-country"><span data-toggle="tooltip" title="{{ help_counter['country'] }}">{{ entry_counter['country'] }}</span></label>
+				  <div class="col-sm-10">
+					<select name="ts_google_analytics_settings[counter][country]" id="input-counter-country" class="form-control">
+					  {% for country in countries %} 
+					  <option value="{{ country['iso_code_2'] }}" {% if (country['iso_code_2'] == ts_google_analytics_settings['counter']['country']) %}selected="selected"{% endif %}>{{ country['iso_code_2'] }} - {{ country['name'] }}</option>
+					  {% endfor %} 
+					</select>
+				  </div>
+				</div>
+				<div class="form-group">
+				  <label class="col-sm-2 control-label" for="input-counter-currency"><span data-toggle="tooltip" title="{{ help_counter['currency'] }}">{{ entry_counter['currency'] }}</span></label>
+				  <div class="col-sm-10">
+					<select name="ts_google_analytics_settings[counter][currency]" id="input-counter-currency" class="form-control">
+					  {% for currency in currencies %} 
+					  <option value="{{ currency }}" {% if (currency == ts_google_analytics_settings['counter']['currency']) %}selected="selected"{% endif %}>{{ currency }}</option>
+					  {% endfor %} 
+					</select>
+				  </div>
+				</div>
+				
+			  </fieldset>
+			  <br>
+			  
+			</div>
+
+			
+			<div class="tab-pane" id="tab-userParams">
+				
+				<div class="form-group">
+				  <label class="col-sm-2 control-label" for="input-userParams-status"><span data-toggle="tooltip" title="{{ help_userParams['status'] }}">{{ entry_userParams['status'] }}</span></label>
+				  <div class="col-sm-10">
+					<select name="ts_google_analytics_settings[userParams][status]" id="input-userParams-status" class="form-control">
+					  {% if (ts_google_analytics_settings['userParams']['status']) %} 
+					  <option value="1" selected="selected">{{ text_enabled }}</option>
+					  <option value="0">{{ text_disabled }}</option>
+					  {% else %} 
+					  <option value="1">{{ text_enabled }}</option>
+					  <option value="0" selected="selected">{{ text_disabled }}</option>
+					  {% endif %} 
+					</select>
+				  </div>
+				</div>
+				<br>
+				
+              <fieldset>
+                <legend>{{ text_title['userCookies'] }}</legend>
+				
+				<div class="form-group required">
+				  <label class="col-sm-2 control-label" for="input-counter-userCookies-name"><span data-toggle="tooltip" title="{{ help_counter['cookie_name'] }}">{{ entry_counter['cookie_name'] }}</span></label>
+				  <div class="col-sm-10">
+				  <input type="text" name="ts_google_analytics_settings[counter][userCookies][name]" value="{{ ts_google_analytics_settings['counter']['userCookies']['name'] }}" placeholder="{{ entry_counter['cookie_name'] }}" id="input-counter-userCookies-name" class="form-control" />
+				  {% if (error_cookie_name) %} 
+				  <div class="text-danger">{{ error_cookie_name }}</div>
+				  {% endif %} 
+				  </div>
+				</div>
+				<div class="form-group required">
+				  <label class="col-sm-2 control-label" for="input-counter-userCookies-domain"><span data-toggle="tooltip" title="{{ help_counter['cookie_domain'] }}">{{ entry_counter['cookie_domain'] }}</span></label>
+				  <div class="col-sm-10">
+				  <input type="text" name="ts_google_analytics_settings[counter][userCookies][domain]" value="{{ ts_google_analytics_settings['counter']['userCookies']['domain'] }}" placeholder="{{ entry_counter['cookie_domain'] }}" id="input-counter-userCookies-domain" class="form-control" />
+				  {% if (error_cookie_domain) %} 
+				  <div class="text-danger">{{ error_cookie_domain }}</div>
+				  {% endif %} 
+				  </div>
+				</div>
+				<div class="form-group">
+				  <label class="col-sm-2 control-label" for="input-counter-userCookies-expires"><span data-toggle="tooltip" title="{{ help_counter['cookie_expires'] }}">{{ entry_counter['cookie_expires'] }}</span></label>
+				  <div class="col-sm-10">
+				  <input type="text" name="ts_google_analytics_settings[counter][userCookies][expires]" value="{{ ts_google_analytics_settings['counter']['userCookies']['expires'] }}" placeholder="{{ entry_counter['cookie_expires'] }}" id="input-counter-userCookies-expires" class="form-control" />
+				  {% if (error_cookie_expires) %} 
+				  <div class="text-danger">{{ error_cookie_expires }}</div>
+				  {% endif %} 
+				  </div>
+				</div>
+                <div class="form-group">
+                  <label class="col-sm-2 control-label"><span data-toggle="tooltip" title="{{ help_counter['cookie_update'] }}">{{ entry_counter['cookie_update'] }}</span></label>
+                  <div class="col-sm-10">
+                    <label class="radio-inline">
+                      <input type="radio" name="ts_google_analytics_settings[counter][userCookies][update]" value="1" {% if (ts_google_analytics_settings['counter']['userCookies']['update']) %}checked="checked"{% endif %} />
+                      {{ text_yes }} 
+                    </label>
+                    <label class="radio-inline">
+                      <input type="radio" name="ts_google_analytics_settings[counter][userCookies][update]" value="0" {% if (not ts_google_analytics_settings['counter']['userCookies']['update']) %}checked="checked"{% endif %} />
+                      {{ text_no }} 
+                    </label>
+                  </div>
+                </div>
+			
+              </fieldset>
+			  <br>
+			  <br>
+				
+              <fieldset>
+                <legend>{{ text_title['userParams'] }}</legend>
+				
+                <div class="form-group">
+                  <label class="col-sm-2 control-label"><span data-toggle="tooltip" title="{{ help_userParams['userId'] }}">{{ entry_userParams['userId'] }}</span></label>
+                  <div class="col-sm-6"><br>&mdash;</div>
+                  <div class="col-sm-2 copy-userParams">
+					<i class="fa fa-files-o copy-to-clipboard" data-toggle="tooltip" title="{{ text_copy_to_clipboard['param_id'] }}" data-copy="dimension1"></i> dimension1
+                  </div>
+                  <div class="col-sm-2 copy-userParams">
+					<i class="fa fa-files-o copy-to-clipboard" data-toggle="tooltip" title="{{ text_copy_to_clipboard['param_name'] }}" data-copy="userId"></i> userId
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-2 control-label"><span data-toggle="tooltip" title="{{ help_userParams['type'] }}">{{ entry_userParams['type'] }}</span></label>
+                  <div class="col-sm-6">
+                    <label class="radio-inline">
+                      <input type="radio" name="ts_google_analytics_settings[userParams][type]" value="1" {% if (ts_google_analytics_settings['userParams']['type']) %}checked="checked"{% endif %} />
+                      {{ text_yes }} 
+                    </label>
+                    <label class="radio-inline">
+                      <input type="radio" name="ts_google_analytics_settings[userParams][type]" value="0" {% if (not ts_google_analytics_settings['userParams']['type']) %}checked="checked"{% endif %} />
+                      {{ text_no }} 
+                    </label>
+                  </div>
+                  <div class="col-sm-2 copy-userParams">
+					<i class="fa fa-files-o copy-to-clipboard" data-toggle="tooltip" title="{{ text_copy_to_clipboard['param_id'] }}" data-copy="dimension2"></i> dimension2
+                  </div>
+                  <div class="col-sm-2 copy-userParams">
+					<i class="fa fa-files-o copy-to-clipboard" data-toggle="tooltip" title="{{ text_copy_to_clipboard['param_name'] }}" data-copy="type"></i> type
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-2 control-label"><span data-toggle="tooltip" title="{{ help_userParams['group'] }}">{{ entry_userParams['group'] }}</span></label>
+                  <div class="col-sm-6">
+                    <label class="radio-inline">
+                      <input type="radio" name="ts_google_analytics_settings[userParams][group]" value="1" {% if (ts_google_analytics_settings['userParams']['group']) %}checked="checked"{% endif %} />
+                      {{ text_yes }} 
+                    </label>
+                    <label class="radio-inline">
+                      <input type="radio" name="ts_google_analytics_settings[userParams][group]" value="0" {% if (not ts_google_analytics_settings['userParams']['group']) %}checked="checked"{% endif %} />
+                      {{ text_no }} 
+                    </label>
+                  </div>
+                  <div class="col-sm-2 copy-userParams">
+					<i class="fa fa-files-o copy-to-clipboard" data-toggle="tooltip" title="{{ text_copy_to_clipboard['param_id'] }}" data-copy="dimension3"></i> dimension3
+                  </div>
+                  <div class="col-sm-2 copy-userParams">
+					<i class="fa fa-files-o copy-to-clipboard" data-toggle="tooltip" title="{{ text_copy_to_clipboard['param_name'] }}" data-copy="group"></i> group
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-2 control-label"><span data-toggle="tooltip" title="{{ help_userParams['date_added'] }}">{{ entry_userParams['date_added'] }}</span></label>
+                  <div class="col-sm-6">
+                    <label class="radio-inline">
+                      <input type="radio" name="ts_google_analytics_settings[userParams][date_added]" value="1" {% if (ts_google_analytics_settings['userParams']['date_added']) %}checked="checked"{% endif %} />
+                      {{ text_yes }} 
+                    </label>
+                    <label class="radio-inline">
+                      <input type="radio" name="ts_google_analytics_settings[userParams][date_added]" value="0" {% if (not ts_google_analytics_settings['userParams']['date_added']) %}checked="checked"{% endif %} />
+                      {{ text_no }} 
+                    </label>
+                  </div>
+                  <div class="col-sm-2 copy-userParams">
+					<i class="fa fa-files-o copy-to-clipboard" data-toggle="tooltip" title="{{ text_copy_to_clipboard['param_id'] }}" data-copy="dimension4"></i> dimension4
+                  </div>
+                  <div class="col-sm-2 copy-userParams">
+					<i class="fa fa-files-o copy-to-clipboard" data-toggle="tooltip" title="{{ text_copy_to_clipboard['param_name'] }}" data-copy="date_added"></i> date_added
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-2 control-label"><span data-toggle="tooltip" title="{{ help_userParams['safe'] }}">{{ entry_userParams['safe'] }}</span></label>
+                  <div class="col-sm-6">
+                    <label class="radio-inline">
+                      <input type="radio" name="ts_google_analytics_settings[userParams][safe]" value="1" {% if (ts_google_analytics_settings['userParams']['safe']) %}checked="checked"{% endif %} />
+                      {{ text_yes }} 
+                    </label>
+                    <label class="radio-inline">
+                      <input type="radio" name="ts_google_analytics_settings[userParams][safe]" value="0" {% if (not ts_google_analytics_settings['userParams']['safe']) %}checked="checked"{% endif %} />
+                      {{ text_no }} 
+                    </label>
+                  </div>
+                  <div class="col-sm-2 copy-userParams">
+					<i class="fa fa-files-o copy-to-clipboard" data-toggle="tooltip" title="{{ text_copy_to_clipboard['param_id'] }}" data-copy="dimension5"></i> dimension5
+                  </div>
+                  <div class="col-sm-2 copy-userParams">
+					<i class="fa fa-files-o copy-to-clipboard" data-toggle="tooltip" title="{{ text_copy_to_clipboard['param_name'] }}" data-copy="safe"></i> safe
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-2 control-label"><span data-toggle="tooltip" title="{{ help_userParams['newsletter'] }}">{{ entry_userParams['newsletter'] }}</span></label>
+                  <div class="col-sm-6">
+                    <label class="radio-inline">
+                      <input type="radio" name="ts_google_analytics_settings[userParams][newsletter]" value="1" {% if (ts_google_analytics_settings['userParams']['newsletter']) %}checked="checked"{% endif %} />
+                      {{ text_yes }} 
+                    </label>
+                    <label class="radio-inline">
+                      <input type="radio" name="ts_google_analytics_settings[userParams][newsletter]" value="0" {% if (not ts_google_analytics_settings['userParams']['newsletter']) %}checked="checked"{% endif %} />
+                      {{ text_no }} 
+                    </label>
+                  </div>
+                  <div class="col-sm-2 copy-userParams">
+					<i class="fa fa-files-o copy-to-clipboard" data-toggle="tooltip" title="{{ text_copy_to_clipboard['param_id'] }}" data-copy="dimension6"></i> dimension6
+                  </div>
+                  <div class="col-sm-2 copy-userParams">
+					<i class="fa fa-files-o copy-to-clipboard" data-toggle="tooltip" title="{{ text_copy_to_clipboard['param_name'] }}" data-copy="newsletter"></i> newsletter
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-2 control-label"><span data-toggle="tooltip" title="{{ help_userParams['country'] }}">{{ entry_userParams['country'] }}</span></label>
+                  <div class="col-sm-6">
+                    <label class="radio-inline">
+                      <input type="radio" name="ts_google_analytics_settings[userParams][country]" value="1" {% if (ts_google_analytics_settings['userParams']['country']) %}checked="checked"{% endif %} />
+                      {{ text_yes }} 
+                    </label>
+                    <label class="radio-inline">
+                      <input type="radio" name="ts_google_analytics_settings[userParams][country]" value="0" {% if (not ts_google_analytics_settings['userParams']['country']) %}checked="checked"{% endif %} />
+                      {{ text_no }} 
+                    </label>
+                  </div>
+                  <div class="col-sm-2 copy-userParams">
+					<i class="fa fa-files-o copy-to-clipboard" data-toggle="tooltip" title="{{ text_copy_to_clipboard['param_id'] }}" data-copy="dimension7"></i> dimension7
+                  </div>
+                  <div class="col-sm-2 copy-userParams">
+					<i class="fa fa-files-o copy-to-clipboard" data-toggle="tooltip" title="{{ text_copy_to_clipboard['param_name'] }}" data-copy="country"></i> country
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-2 control-label"><span data-toggle="tooltip" title="{{ help_userParams['zone'] }}">{{ entry_userParams['zone'] }}</span></label>
+                  <div class="col-sm-6">
+                    <label class="radio-inline">
+                      <input type="radio" name="ts_google_analytics_settings[userParams][zone]" value="1" {% if (ts_google_analytics_settings['userParams']['zone']) %}checked="checked"{% endif %} />
+                      {{ text_yes }} 
+                    </label>
+                    <label class="radio-inline">
+                      <input type="radio" name="ts_google_analytics_settings[userParams][zone]" value="0" {% if (not ts_google_analytics_settings['userParams']['zone']) %}checked="checked"{% endif %} />
+                      {{ text_no }} 
+                    </label>
+                  </div>
+                  <div class="col-sm-2 copy-userParams">
+					<i class="fa fa-files-o copy-to-clipboard" data-toggle="tooltip" title="{{ text_copy_to_clipboard['param_id'] }}" data-copy="dimension8"></i> dimension8
+                  </div>
+                  <div class="col-sm-2 copy-userParams">
+					<i class="fa fa-files-o copy-to-clipboard" data-toggle="tooltip" title="{{ text_copy_to_clipboard['param_name'] }}" data-copy="zone"></i> zone
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-2 control-label"><span data-toggle="tooltip" title="{{ help_userParams['city'] }}">{{ entry_userParams['city'] }}</span></label>
+                  <div class="col-sm-6">
+                    <label class="radio-inline">
+                      <input type="radio" name="ts_google_analytics_settings[userParams][city]" value="1" {% if (ts_google_analytics_settings['userParams']['city']) %}checked="checked"{% endif %} />
+                      {{ text_yes }} 
+                    </label>
+                    <label class="radio-inline">
+                      <input type="radio" name="ts_google_analytics_settings[userParams][city]" value="0" {% if (not ts_google_analytics_settings['userParams']['city']) %}checked="checked"{% endif %} />
+                      {{ text_no }} 
+                    </label>
+                  </div>
+                  <div class="col-sm-2 copy-userParams">
+					<i class="fa fa-files-o copy-to-clipboard" data-toggle="tooltip" title="{{ text_copy_to_clipboard['param_id'] }}" data-copy="dimension9"></i> dimension9
+                  </div>
+                  <div class="col-sm-2 copy-userParams">
+					<i class="fa fa-files-o copy-to-clipboard" data-toggle="tooltip" title="{{ text_copy_to_clipboard['param_name'] }}" data-copy="city"></i> city
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-2 control-label"><span data-toggle="tooltip" title="{{ help_userParams['postcode'] }}">{{ entry_userParams['postcode'] }}</span></label>
+                  <div class="col-sm-6">
+                    <label class="radio-inline">
+                      <input type="radio" name="ts_google_analytics_settings[userParams][postcode]" value="1" {% if (ts_google_analytics_settings['userParams']['postcode']) %}checked="checked"{% endif %} />
+                      {{ text_yes }} 
+                    </label>
+                    <label class="radio-inline">
+                      <input type="radio" name="ts_google_analytics_settings[userParams][postcode]" value="0" {% if (not ts_google_analytics_settings['userParams']['postcode']) %}checked="checked"{% endif %} />
+                      {{ text_no }} 
+                    </label>
+                  </div>
+                  <div class="col-sm-2 copy-userParams">
+					<i class="fa fa-files-o copy-to-clipboard" data-toggle="tooltip" title="{{ text_copy_to_clipboard['param_id'] }}" data-copy="dimension10"></i> dimension10
+                  </div>
+                  <div class="col-sm-2 copy-userParams">
+					<i class="fa fa-files-o copy-to-clipboard" data-toggle="tooltip" title="{{ text_copy_to_clipboard['param_name'] }}" data-copy="postcode"></i> postcode
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-2 control-label"><span data-toggle="tooltip" title="{{ help_userParams['custom_field'] }}">{{ entry_userParams['custom_field'] }}</span></label>
+                  <div class="col-sm-10">
+					<div class="well well-sm">
+					  <table class="table">
+						{% for custom_field in custom_fields %} 
+						<tr>
+						  <td class="checkbox">
+							<label>
+							  <input type="checkbox" name="ts_google_analytics_settings[userParams][custom_fields][]" value="{{ custom_field['custom_field_id'] }}" {% if (ts_google_analytics_settings['userParams']['custom_fields'] is defined and custom_field['custom_field_id'] in ts_google_analytics_settings['userParams']['custom_fields']) %}checked="checked"{% endif %} />
+							  {{ custom_field['name'] }} 
+							</label>
+						  </td>
+						  <td>{{ custom_field['type'] }}</td>
+						  <td>{{ custom_field['status'] ? text_enabled : text_disabled }}</td>
+						  <td><i class="fa fa-files-o copy-to-clipboard" data-toggle="tooltip" title="{{ text_copy_to_clipboard['param_id'] }}" data-copy="{{ custom_field['param_id'] }}"></i> {{ custom_field['param_id'] }}</td>
+						  <td><i class="fa fa-files-o copy-to-clipboard" data-toggle="tooltip" title="{{ text_copy_to_clipboard['param_name'] }}" data-copy="{{ custom_field['param_name'] }}"></i> {{ custom_field['param_name'] }}</td>
+						</tr>
+						{% endfor %} 
+					  </table>
+					</div>
+					<a onclick="$(this).parent().find(':checkbox').prop('checked', true);">{{ text_select_all }}</a> / 
+					<a onclick="$(this).parent().find(':checkbox').prop('checked', false);">{{ text_unselect_all }}</a>
+                  </div>
+                </div>
+				
+			  </fieldset>
+			  <br>				
+			
+			</div>
+			
+			
+			<div class="tab-pane" id="tab-ecommerce">
+			
+				<div class="form-group">
+				  <label class="col-sm-2 control-label" for="input-ecommerce-status"><span data-toggle="tooltip" title="{{ help_ecommerce['status'] }}">{{ entry_ecommerce['status'] }}</span></label>
+				  <div class="col-sm-10">
+					<select name="ts_google_analytics_settings[ecommerce][status]" id="input-ecommerce-status" class="form-control">
+					  {% if (ts_google_analytics_settings['ecommerce']['status']) %} 
+					  <option value="1" selected="selected">{{ text_enabled }}</option>
+					  <option value="0">{{ text_disabled }}</option>
+					  {% else %} 
+					  <option value="1">{{ text_enabled }}</option>
+					  <option value="0" selected="selected">{{ text_disabled }}</option>
+					  {% endif %} 
+					</select>
+				  </div>
+				</div>
+				<br>
+				
+              <fieldset>
+                <legend>{{ text_title['ecommerce_actions'] }}</legend>
+				
+				<div class="form-group">
+				  <label class="col-sm-2 control-label"><span data-toggle="tooltip" title="{{ help_ecommerce['view'] }}">{{ entry_ecommerce['view'] }}</span></label>
+				  <div class="col-sm-9">
+					<label class="radio-inline">
+					  <input type="radio" name="ts_google_analytics_settings[ecommerce][actionType][view]" value="1" {% if (ts_google_analytics_settings['ecommerce']['actionType']['view']) %}checked="checked"{% endif %} />
+					  {{ text_yes }} 
+					</label>
+					<label class="radio-inline">
+					  <input type="radio" name="ts_google_analytics_settings[ecommerce][actionType][view]" value="0" {% if (not ts_google_analytics_settings['ecommerce']['actionType']['view']) %}checked="checked"{% endif %} />
+					  {{ text_no }} 
+					</label>
+				  </div>
+                </div>
+				
+				<div class="form-group">
+				  <label class="col-sm-2 control-label"><span data-toggle="tooltip" title="{{ help_ecommerce['click'] }}">{{ entry_ecommerce['click'] }}</span></label>
+				  <div class="col-sm-9">
+					<label class="radio-inline">
+					  <input type="radio" name="ts_google_analytics_settings[ecommerce][actionType][click]" value="1" {% if (ts_google_analytics_settings['ecommerce']['actionType']['click']) %}checked="checked"{% endif %} />
+					  {{ text_yes }} 
+					</label>
+					<label class="radio-inline">
+					  <input type="radio" name="ts_google_analytics_settings[ecommerce][actionType][click]" value="0" {% if (not ts_google_analytics_settings['ecommerce']['actionType']['click']) %}checked="checked"{% endif %} />
+					  {{ text_no }} 
+					</label>
+				  </div>
+                </div>
+				
+				<div class="form-group">
+				  <label class="col-sm-2 control-label"><span data-toggle="tooltip" title="{{ help_ecommerce['detail'] }}">{{ entry_ecommerce['detail'] }}</span></label>
+				  <div class="col-sm-10">
+					<label class="radio-inline">
+					  <input type="radio" name="ts_google_analytics_settings[ecommerce][actionType][detail]" value="1" {% if (ts_google_analytics_settings['ecommerce']['actionType']['detail']) %}checked="checked"{% endif %} />
+					  {{ text_yes }} 
+					</label>
+					<label class="radio-inline">
+					  <input type="radio" name="ts_google_analytics_settings[ecommerce][actionType][detail]" value="0" {% if (not ts_google_analytics_settings['ecommerce']['actionType']['detail']) %}checked="checked"{% endif %} />
+					  {{ text_no }} 
+					</label>
+				  </div>
+                </div>
+				
+				<div class="form-group">
+				  <label class="col-sm-2 control-label"><span data-toggle="tooltip" title="{{ help_ecommerce['add'] }}">{{ entry_ecommerce['add'] }}</span></label>
+				  <div class="col-sm-10">
+					<label class="radio-inline">
+					  <input type="radio" name="ts_google_analytics_settings[ecommerce][actionType][add]" value="1" {% if (ts_google_analytics_settings['ecommerce']['actionType']['add']) %}checked="checked"{% endif %} />
+					  {{ text_yes }} 
+					</label>
+					<label class="radio-inline">
+					  <input type="radio" name="ts_google_analytics_settings[ecommerce][actionType][add]" value="0" {% if (not ts_google_analytics_settings['ecommerce']['actionType']['add']) %}checked="checked"{% endif %} />
+					  {{ text_no }} 
+					</label>
+				  </div>
+                </div>
+				
+				<div class="form-group">
+				  <label class="col-sm-2 control-label"><span data-toggle="tooltip" title="{{ help_ecommerce['remove'] }}">{{ entry_ecommerce['remove'] }}</span></label>
+				  <div class="col-sm-10">
+					<label class="radio-inline">
+					  <input type="radio" name="ts_google_analytics_settings[ecommerce][actionType][remove]" value="1" {% if (ts_google_analytics_settings['ecommerce']['actionType']['remove']) %}checked="checked"{% endif %} />
+					  {{ text_yes }} 
+					</label>
+					<label class="radio-inline">
+					  <input type="radio" name="ts_google_analytics_settings[ecommerce][actionType][remove]" value="0" {% if (not ts_google_analytics_settings['ecommerce']['actionType']['remove']) %}checked="checked"{% endif %} />
+					  {{ text_no }} 
+					</label>
+				  </div>
+                </div>
+				
+				<div class="form-group">
+				  <label class="col-sm-2 control-label"><span data-toggle="tooltip" title="{{ help_ecommerce['checkout'] }}">{{ entry_ecommerce['checkout'] }}</span></label>
+				  <div class="col-sm-10">
+					<label class="radio-inline">
+					  <input type="radio" name="ts_google_analytics_settings[ecommerce][actionType][checkout]" value="1" {% if (ts_google_analytics_settings['ecommerce']['actionType']['checkout']) %}checked="checked"{% endif %} />
+					  {{ text_yes }} 
+					</label>
+					<label class="radio-inline">
+					  <input type="radio" name="ts_google_analytics_settings[ecommerce][actionType][checkout]" value="0" {% if (not ts_google_analytics_settings['ecommerce']['actionType']['checkout']) %}checked="checked"{% endif %} />
+					  {{ text_no }} 
+					</label>
+				  </div>
+                </div>
+				
+				<div class="form-group">
+				  <label class="col-sm-2 control-label"><span data-toggle="tooltip" title="{{ help_ecommerce['purchase'] }}">{{ entry_ecommerce['purchase'] }}</span></label>
+				  <div class="col-sm-10">
+					<label class="radio-inline">
+					  <input type="radio" name="ts_google_analytics_settings[ecommerce][actionType][purchase]" value="1" {% if (ts_google_analytics_settings['ecommerce']['actionType']['purchase']) %}checked="checked"{% endif %} />
+					  {{ text_yes }} 
+					</label>
+					<label class="radio-inline">
+					  <input type="radio" name="ts_google_analytics_settings[ecommerce][actionType][purchase]" value="0" {% if (not ts_google_analytics_settings['ecommerce']['actionType']['purchase']) %}checked="checked"{% endif %} />
+					  {{ text_no }} 
+					</label>
+				  </div>
+                </div>
+				
+			  </fieldset>
+			  <br>
+			  <br>
+				
+              <fieldset>
+                <legend>{{ text_title['ecommerce_products'] }}</legend>
+				
+				<div class="form-group">
+				  <label class="col-sm-2 control-label" for="input-ecommerce-brand"><span data-toggle="tooltip" title="{{ help_ecommerce['brand'] }}">{{ entry_ecommerce['brand'] }}</span></label>
+				  <div class="col-sm-10">
+					<label class="radio-inline">
+					  <input type="radio" name="ts_google_analytics_settings[ecommerce][products][brand]" value="1" {% if (ts_google_analytics_settings['ecommerce']['products']['brand']) %}checked="checked"{% endif %} />
+					  {{ text_yes }} 
+					</label>
+					<label class="radio-inline">
+					  <input type="radio" name="ts_google_analytics_settings[ecommerce][products][brand]" value="0" {% if (not ts_google_analytics_settings['ecommerce']['products']['brand']) %}checked="checked"{% endif %} />
+					  {{ text_no }} 
+					</label>
+				  </div>
+                </div>
+				<div class="form-group">
+				  <label class="col-sm-2 control-label" for="input-ecommerce-category"><span data-toggle="tooltip" title="{{ help_ecommerce['category'] }}">{{ entry_ecommerce['category'] }}</span></label>
+				  <div class="col-sm-10">
+					<label class="radio-inline">
+					  <input type="radio" name="ts_google_analytics_settings[ecommerce][products][category]" value="1" {% if (ts_google_analytics_settings['ecommerce']['products']['category']) %}checked="checked"{% endif %} />
+					  {{ text_yes }} 
+					</label>
+					<label class="radio-inline">
+					  <input type="radio" name="ts_google_analytics_settings[ecommerce][products][category]" value="0" {% if (not ts_google_analytics_settings['ecommerce']['products']['category']) %}checked="checked"{% endif %} />
+					  {{ text_no }} 
+					</label>
+				  </div>
+                </div>
+				<div class="form-group">
+				  <label class="col-sm-2 control-label" for="input-ecommerce-list-name"><span data-toggle="tooltip" title="{{ help_ecommerce['list_name'] }}">{{ entry_ecommerce['list_name'] }}</span></label>
+				  <div class="col-sm-10">
+					<label class="radio-inline">
+					  <input type="radio" name="ts_google_analytics_settings[ecommerce][products][list_name]" value="1" {% if (ts_google_analytics_settings['ecommerce']['products']['list_name']) %}checked="checked"{% endif %} />
+					  {{ text_yes }} 
+					</label>
+					<label class="radio-inline">
+					  <input type="radio" name="ts_google_analytics_settings[ecommerce][products][list_name]" value="0" {% if (not ts_google_analytics_settings['ecommerce']['products']['list_name']) %}checked="checked"{% endif %} />
+					  {{ text_no }} 
+					</label>
+				  </div>
+                </div>
+				<div class="form-group">
+				  <label class="col-sm-2 control-label" for="input-ecommerce-position"><span data-toggle="tooltip" title="{{ help_ecommerce['position'] }}">{{ entry_ecommerce['position'] }}</span></label>
+				  <div class="col-sm-10">
+					<label class="radio-inline">
+					  <input type="radio" name="ts_google_analytics_settings[ecommerce][products][position]" value="1" {% if (ts_google_analytics_settings['ecommerce']['products']['position']) %}checked="checked"{% endif %} />
+					  {{ text_yes }} 
+					</label>
+					<label class="radio-inline">
+					  <input type="radio" name="ts_google_analytics_settings[ecommerce][products][position]" value="0" {% if (not ts_google_analytics_settings['ecommerce']['products']['position']) %}checked="checked"{% endif %} />
+					  {{ text_no }} 
+					</label>
+				  </div>
+                </div>
+				<div class="form-group">
+				  <label class="col-sm-2 control-label" for="input-ecommerce-price"><span data-toggle="tooltip" title="{{ help_ecommerce['price'] }}">{{ entry_ecommerce['price'] }}</span></label>
+				  <div class="col-sm-10">
+					<label class="radio-inline">
+					  <input type="radio" name="ts_google_analytics_settings[ecommerce][products][price]" value="1" {% if (ts_google_analytics_settings['ecommerce']['products']['price']) %}checked="checked"{% endif %} />
+					  {{ text_yes }} 
+					</label>
+					<label class="radio-inline">
+					  <input type="radio" name="ts_google_analytics_settings[ecommerce][products][price]" value="0" {% if (not ts_google_analytics_settings['ecommerce']['products']['price']) %}checked="checked"{% endif %} />
+					  {{ text_no }} 
+					</label>
+				  </div>
+                </div>
+				<div class="form-group">
+				  <label class="col-sm-2 control-label" for="input-ecommerce-quantity"><span data-toggle="tooltip" title="{{ help_ecommerce['quantity'] }}">{{ entry_ecommerce['quantity'] }}</span></label>
+				  <div class="col-sm-10">
+					<label class="radio-inline">
+					  <input type="radio" name="ts_google_analytics_settings[ecommerce][products][quantity]" value="1" {% if (ts_google_analytics_settings['ecommerce']['products']['quantity']) %}checked="checked"{% endif %} />
+					  {{ text_yes }} 
+					</label>
+					<label class="radio-inline">
+					  <input type="radio" name="ts_google_analytics_settings[ecommerce][products][quantity]" value="0" {% if (not ts_google_analytics_settings['ecommerce']['products']['quantity']) %}checked="checked"{% endif %} />
+					  {{ text_no }} 
+					</label>
+				  </div>
+                </div>
+				<div class="form-group">
+				  <label class="col-sm-2 control-label" for="input-ecommerce-variant"><span data-toggle="tooltip" title="{{ help_ecommerce['variant'] }}">{{ entry_ecommerce['variant'] }}</span></label>
+				  <div class="col-sm-10">
+					<label class="radio-inline">
+					  <input type="radio" name="ts_google_analytics_settings[ecommerce][products][variant]" value="1" {% if (ts_google_analytics_settings['ecommerce']['products']['variant']) %}checked="checked"{% endif %} />
+					  {{ text_yes }} 
+					</label>
+					<label class="radio-inline">
+					  <input type="radio" name="ts_google_analytics_settings[ecommerce][products][variant]" value="0" {% if (not ts_google_analytics_settings['ecommerce']['products']['variant']) %}checked="checked"{% endif %} />
+					  {{ text_no }} 
+					</label>
+				  </div>
+                </div>
+				
+			  </fieldset>
+			  <br>
+			  <br>
+				
+              <fieldset>
+                <legend>{{ text_title['ecommerce_purchase'] }}</legend>
+				
+				<div class="form-group">
+				  <label class="col-sm-2 control-label" for="input-ecommerce-affiliation"><span data-toggle="tooltip" title="{{ help_ecommerce['affiliation'] }}">{{ entry_ecommerce['affiliation'] }}</span></label>
+				  <div class="col-sm-10">
+					<label class="radio-inline">
+					  <input type="radio" name="ts_google_analytics_settings[ecommerce][actionField][affiliation]" value="1" {% if (ts_google_analytics_settings['ecommerce']['actionField']['affiliation']) %}checked="checked"{% endif %} />
+					  {{ text_yes }} 
+					</label>
+					<label class="radio-inline">
+					  <input type="radio" name="ts_google_analytics_settings[ecommerce][actionField][affiliation]" value="0" {% if (not ts_google_analytics_settings['ecommerce']['actionField']['affiliation']) %}checked="checked"{% endif %} />
+					  {{ text_no }} 
+					</label>
+				  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-2 control-label"><span data-toggle="tooltip" title="{{ help_ecommerce['revenue'] }}">{{ entry_ecommerce['revenue'] }}</span></label>
+                  <div class="col-sm-9">
+                    <label class="radio-inline">
+                      <input type="radio" name="ts_google_analytics_settings[ecommerce][actionField][revenue][status]" value="1" {% if (ts_google_analytics_settings['ecommerce']['actionField']['revenue']['status']) %}checked="checked"{% endif %} />
+                      {{ text_yes }} 
+                    </label>
+                    <label class="radio-inline">
+                      <input type="radio" name="ts_google_analytics_settings[ecommerce][actionField][revenue][status]" value="0" {% if (not ts_google_analytics_settings['ecommerce']['actionField']['revenue']['status']) %}checked="checked"{% endif %} />
+                      {{ text_no }} 
+                    </label>
+                  </div>
+                  <label class="col-sm-1 ecommerce-option-chevron" data-params="ecommerce-revenue-params"><span {% if (ts_google_analytics_settings['ecommerce']['actionField']['revenue']['status']) %}class="rotate"{% endif %}></span></label>
+                </div>
+				<div class="form-group ecommerce-option-params" id="ecommerce-revenue-params" {% if (not ts_google_analytics_settings['ecommerce']['actionField']['revenue']['status']) %}style="display:none;"{% endif %}>
+					<div class="col-sm-12 ecommerce-option-param">
+						<div class="form-group">
+						  <label class="col-sm-1"></label>
+						  <label class="col-sm-2 control-label"><span data-toggle="tooltip" title="{{ help_ecommerce['revenue_codes'] }}">{{ entry_ecommerce['revenue_codes'] }}</span></label>
+						  <div class="col-sm-9">
+							<div class="well well-sm">
+							  <table class="table">
+								{% for total_code in total_codes %} 
+								<tr>
+								  <td class="checkbox">
+									<label>
+									  <input type="checkbox" name="ts_google_analytics_settings[ecommerce][actionField][revenue][total_codes][]" value="{{ total_code['code'] }}" {% if (ts_google_analytics_settings['ecommerce']['actionField']['revenue']['codes'] is defined and total_code['code'] in ts_google_analytics_settings['ecommerce']['actionField']['revenue']['codes']) %}checked="checked"{% endif %} />
+									  {{ total_code['name'] }} 
+									</label>
+								  </td>
+								</tr>
+								{% endfor %} 
+							  </table>
+							</div>
+							<a onclick="$(this).parent().find(':checkbox').prop('checked', true);">{{ text_select_all }}</a> / 
+							<a onclick="$(this).parent().find(':checkbox').prop('checked', false);">{{ text_unselect_all }}</a>
+						  </div>
+						</div>
+					</div>
+					<div class="col-sm-12 ecommerce-option-param">
+						<div class="form-group">
+						  <label class="col-sm-1"></label>
+						  <label class="col-sm-2 control-label" for="input-ecommerce-revenue-tax"><span data-toggle="tooltip" title="{{ help_ecommerce['revenue_tax'] }}">{{ entry_ecommerce['revenue_tax'] }}</span></label>
+						  <div class="col-sm-9">
+							<div class="input-group">
+							  <span class="input-group-addon"><b>%</b></span>
+							  <input type="text" name="ts_google_analytics_settings[ecommerce][actionField][revenue][tax]" value="{{ ts_google_analytics_settings['ecommerce']['actionField']['revenue']['tax'] }}" placeholder="{{ entry_ecommerce['revenue_tax'] }}" id="input-ecommerce-revenue-tax" class="form-control" />
+							</div>
+							{% if (error_ecommerce_revenue_tax) %} 
+							<div class="text-danger">{{ error_ecommerce_revenue_tax }}</div>
+							{% endif %} 
+						  </div>
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+				  <label class="col-sm-2 control-label" for="input-ecommerce-tax"><span data-toggle="tooltip" title="{{ help_ecommerce['tax'] }}">{{ entry_ecommerce['tax'] }}</span></label>
+				  <div class="col-sm-10">
+					<label class="radio-inline">
+					  <input type="radio" name="ts_google_analytics_settings[ecommerce][actionField][tax]" value="1" {% if (ts_google_analytics_settings['ecommerce']['actionField']['tax']) %}checked="checked"{% endif %} />
+					  {{ text_yes }} 
+					</label>
+					<label class="radio-inline">
+					  <input type="radio" name="ts_google_analytics_settings[ecommerce][actionField][tax]" value="0" {% if (not ts_google_analytics_settings['ecommerce']['actionField']['tax']) %}checked="checked"{% endif %} />
+					  {{ text_no }} 
+					</label>
+				  </div>
+                </div>
+				<div class="form-group">
+				  <label class="col-sm-2 control-label" for="input-ecommerce-shipping"><span data-toggle="tooltip" title="{{ help_ecommerce['shipping'] }}">{{ entry_ecommerce['shipping'] }}</span></label>
+				  <div class="col-sm-10">
+					<label class="radio-inline">
+					  <input type="radio" name="ts_google_analytics_settings[ecommerce][actionField][shipping]" value="1" {% if (ts_google_analytics_settings['ecommerce']['actionField']['shipping']) %}checked="checked"{% endif %} />
+					  {{ text_yes }} 
+					</label>
+					<label class="radio-inline">
+					  <input type="radio" name="ts_google_analytics_settings[ecommerce][actionField][shipping]" value="0" {% if (not ts_google_analytics_settings['ecommerce']['actionField']['shipping']) %}checked="checked"{% endif %} />
+					  {{ text_no }} 
+					</label>
+				  </div>
+                </div>
+				<div class="form-group">
+				  <label class="col-sm-2 control-label" for="input-ecommerce-coupon"><span data-toggle="tooltip" title="{{ help_ecommerce['coupon'] }}">{{ entry_ecommerce['coupon'] }}</span></label>
+				  <div class="col-sm-10">
+					<label class="radio-inline">
+					  <input type="radio" name="ts_google_analytics_settings[ecommerce][actionField][coupon]" value="1" {% if (ts_google_analytics_settings['ecommerce']['actionField']['coupon']) %}checked="checked"{% endif %} />
+					  {{ text_yes }} 
+					</label>
+					<label class="radio-inline">
+					  <input type="radio" name="ts_google_analytics_settings[ecommerce][actionField][coupon]" value="0" {% if (not ts_google_analytics_settings['ecommerce']['actionField']['coupon']) %}checked="checked"{% endif %} />
+					  {{ text_no }} 
+					</label>
+				  </div>
+                </div>
+
+				
+			  </fieldset>
+			  <br>
+				
+ 			</div>
+			
+			
+			<div class="tab-pane" id="tab-goals">
+			
+				<div class="form-group">
+				  <label class="col-sm-2 control-label" for="input-goal-status"><span data-toggle="tooltip" title="{{ help_goal['status'] }}">{{ entry_goal['status'] }}</span></label>
+				  <div class="col-sm-10">
+					<select name="ts_google_analytics_settings[goal][status]" id="input-goal-status" class="form-control">
+					  {% if (ts_google_analytics_settings['goal']['status']) %} 
+					  <option value="1" selected="selected">{{ text_enabled }}</option>
+					  <option value="0">{{ text_disabled }}</option>
+					  {% else %} 
+					  <option value="1">{{ text_enabled }}</option>
+					  <option value="0" selected="selected">{{ text_disabled }}</option>
+					  {% endif %} 
+					</select>
+				  </div>
+				</div>
+				<br>
+				
+              <fieldset>
+                <legend>{{ text_title['goal_action'] }}</legend>
+				<div id="goalsList"></div>
+              </fieldset>
+			  <br>
+			  
+			</div>
+			
+			
+			<div class="tab-pane" id="tab-help">
+				<div class="form-group">
+					<div class="col-sm-12">
+						 {{ text_help }} 
+					</div>
+				</div>
+				<div class="form-group text-left">
+					<div class="col-sm-12">
+						 {{ text_author }} 
+					</div>
+				</div>
+			</div>
+	  
+		</div>
+		</form>
+	  </div>
+	</div>
+  </div>
+</div>
+<div class="modal fade" id="modal-goal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Title</h4>
+      </div>
+      <div class="modal-body form-horizontal">
+		<fieldset>
+			<legend>{{ text_goal_modal['goal_title'] }}</legend>
+			<div class="form-group">
+				<label class="col-sm-4 control-label">
+					<span data-toggle="tooltip" title="{{ help_goal['label'] }}">{{ entry_goal['label'] }}</span>
+				</label>
+				<div class="col-sm-8">
+					<input type="text" name="label" id="goal_label" value="" class="form-control">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-4 control-label">
+					<span data-toggle="tooltip" title="{{ help_goal['category'] }}">{{ entry_goal['category'] }}</span>
+				</label>
+				<div class="col-sm-8">
+					<input type="text" name="category" id="goal_category" value="" class="form-control">
+				</div>
+			</div>
+			<div class="form-group required">
+				<label class="col-sm-4 control-label">
+					<span data-toggle="tooltip" title="{{ help_goal['action'] }}">{{ entry_goal['action'] }}</span>
+				</label>
+				<div class="col-sm-8">
+					<input type="text" name="action" id="goal_action" value="" class="form-control">
+				</div>
+			</div>
+			<div class="form-group required">
+				<label class="col-sm-4 control-label">
+					<span data-toggle="tooltip" title="{{ help_goal['element'] }}">{{ entry_goal['element'] }}</span>
+				</label>
+				<div class="col-sm-8">
+					<input type="text" name="element" id="goal_element" value="" class="form-control">
+				</div>
+			</div>
+			<div class="form-group required">
+				<label class="col-sm-4 control-label">
+					<span data-toggle="tooltip" title="{{ help_goal['event'] }}">{{ entry_goal['event'] }}</span>
+				</label>
+				<div class="col-sm-8">
+					<select name="event" id="goal_event" class="form-control">
+						<optgroup label="{{ text_goal_event['mouse'] }}">
+							<option value="click">click</option>
+							<option value="dblclick">dblclick</option>
+							<option value="mousedown">mousedown</option>
+							<option value="mouseup">mouseup</option>
+							<option value="mouseout">mouseout</option>
+							<option value="mousemove">mousemove</option>
+							<option value="mouseover">mouseover</option>
+							<option value="mousewheel">mousewheel</option>
+							<option value="contextmenu">contextmenu</option>
+						</optgroup>
+						<optgroup label="{{ text_goal_event['touch'] }}">
+							<option value="touchstart">touchstart</option>
+							<option value="touchmove">touchmove</option>
+							<option value="touchend">touchend</option>
+							<option value="touchcancel">touchcancel</option>
+						</optgroup>
+						<optgroup label="{{ text_goal_event['keyboard'] }}">
+							<option value="keypress">keypress</option>
+							<option value="keydown">keydown</option>
+							<option value="keyup">keyup</option>
+						</optgroup>
+						<optgroup label="{{ text_goal_event['form'] }}">
+							<option value="submit">submit</option>
+							<option value="change">change</option>
+							<option value="focus">focus</option>
+							<option value="blur">blur</option>
+						</optgroup>
+						<optgroup label="{{ text_goal_event['window'] }}">
+							<option value="load">load</option>
+							<option value="unload">unload</option>
+							<option value="scroll">scroll</option>
+							<option value="resize">resize</option>
+							<option value="hashchange">hashchange</option>
+						</optgroup>
+					</select>
+				</div>
+			</div>
+		</fieldset>
+		<fieldset>
+			<legend>{{ text_goal_modal['value_title'] }}</legend>
+			<div class="form-group">
+				<label class="col-sm-4 control-label">
+					<span data-toggle="tooltip" title="{{ help_goal['value'] }}">{{ entry_goal['value'] }}</span>
+				</label>
+				<div class="col-sm-8">
+					<input type="text" name="value" id="goal_value" value="" class="form-control">
+				</div>
+			</div>
+		</fieldset>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success" id="goal_submit" data-goal-id="" data-goal-action="">Button</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript"><!--
+	{% if (token is defined) %} 
+	var token = '{{ token }}';
+	var user_token = '';
+	{% else %} 
+	var token = '';
+	var user_token = '{{ user_token }}';
+	{% endif %} 
+	var modal_goal_text = {
+		title_add: '{{ text_goal_modal['title_add'] }}',
+		title_edit: '{{ text_goal_modal['title_edit'] }}',
+		button_add: '{{ button_add }}',
+		button_edit: '{{ button_save }}',
+	};
+	
+	var linker_domain_row = {{ ts_google_analytics_settings['counter']['linker']['domains']|length }};
+
+	function addLinkerDomain() {
+		if (linker_domain_row == 10) {
+			return false;
+		}
+		html  = '<div class="form-group" id="counter-linker-domain-' + linker_domain_row + '">';
+		html += '  <label class="col-sm-1"></label>';
+		html += '  <label class="col-sm-2"></label>';
+		html += '  <div class="col-sm-8">';
+		html += '  <input type="text" name="ts_google_analytics_settings[counter][linker][domains][]" value="" placeholder="{{ entry_counter['linker_domain'] }}" id="input-counter-linker-domains-' + linker_domain_row + '" class="form-control" />';
+		html += '  </div>';
+		html += '  <label class="col-sm-1"><button type="button" onclick="removeLinkerDomain(' + linker_domain_row + ')" data-toggle="tooltip" title="{{ button_remove }}" class="btn btn-danger"><i class="fa fa-minus-circle"></i></button></label>';
+		html += '</div>';
+		
+		$('#counter-linker-domains').append(html);
+		
+		linker_domain_row++;
+	}
+	function removeLinkerDomain(domain_id) {
+		$('#counter-linker-domain-' + domain_id).remove();
+		linker_domain_row--; 
+	}
+	
+	$('.counter-option-chevron, .ecommerce-option-chevron').closest('div.form-group').find('input[type=radio]').change(function() {
+		var chevron = $(this).closest('div.form-group').find('.counter-option-chevron, .ecommerce-option-chevron');
+		if (parseInt($(this).val()) > 0) {
+			$('#' + chevron.data('params') ).slideDown(250);
+			chevron.find('span').addClass('rotate');
+		} else {
+			$('#' + chevron.data('params') ).slideUp(250);
+			chevron.find('span').removeClass('rotate');
+		}
+	});
+//--></script>
+<style>
+	#counter-linker-domains .btn {
+		width: 100%;
+	}
+	#counter-linker-domains .form-group+.form-group {
+		border: none;
+		padding-top: 0;
+	}
+	.counter-option-chevron,
+	.ecommerce-option-chevron {
+		height: 44px;
+		margin: 0;
+	}
+	.counter-option-chevron span,
+	.ecommerce-option-chevron span {
+		display: inline-block;
+		width: 100%;
+	}
+	.counter-option-chevron span:before,
+	.ecommerce-option-chevron span:before {
+		display: block;
+		width: 100%;
+		font-family: "FontAwesome";
+		content: '\f105';
+		font-size: 36px;
+		line-height: 42px;
+		text-align: center;
+		color: #bbb;
+		-webkit-transition: all 0.25s ease 0s;
+		-moz-transition: all 0.25s ease 0s;
+		-o-transition: all 0.25s ease 0s;
+		transition: all 0.25s ease 0s;
+	}
+	.counter-option-chevron span.rotate:before,
+	.ecommerce-option-chevron span.rotate:before {
+		-webkit-transform: rotate(90deg);
+		-moz-transform: rotate(90deg);
+		-o-transform: rotate(90deg);
+		transform: rotate(90deg);
+	}
+	.counter-option-params,
+	.ecommerce-option-params {
+		background: linear-gradient(to bottom, #fff, #fbfbfb);
+	}
+	#tab-userParams .copy-userParams {
+		padding-top: 9px;
+	}
+	#tab-userParams .copy-to-clipboard {
+		color: #1e91cf;
+		cursor: pointer;
+		padding: 0 5px;
+	}
+	#tab-userParams .well {
+		height: 205px;
+		margin-bottom: 0;
+		overflow-y: scroll;
+	}
+	#tab-userParams .well .table {
+		margin-bottom: 0;
+	}
+	#tab-userParams .well .table tr td {
+		display: table-cell;
+	}
+	#tab-userParams .well .table tr td:nth-child(2),
+	#tab-userParams .well .table tr td:nth-child(3) {
+		width: 150px;
+	}    
+	#tab-userParams .well .table tr td:nth-child(4) {
+		width: 175px;
+	}    
+	#tab-userParams .well .table tr td:nth-child(5) {
+		width: 130px;
+	}    
+	#tab-userParams .well .table tr td input[type="checkbox"] {
+		vertical-align: top;
+	}
+	.modal .modal-title,
+	.modal .modal-footer button {
+		font-weight: bold;
+	}
+	.modal .modal-body fieldset legend {
+		margin-bottom: 0;
+		padding-top: 10px;
+	}
+	.modal .modal-body fieldset:first-child legend {
+		padding-top: 0;
+	}
+	.modal .modal-body .form-group {
+		padding-top: 10px;
+		padding-bottom: 10px;
+	}
+	#goalsList .table tr td:nth-child(5) > span,
+	#goalsList .table tr td:nth-child(6) > span {
+		width: 100px;
+	}
+	#goalsList .table tr td:nth-child(7) {
+		width: 100px;
+	}
+	#goalsList .table tr td > span {
+		width: 150px;
+		display: inline-block;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		overflow: hidden;
+	}
+	#goalsList .table tr td .copy-to-clipboard {
+		color: #1e91cf;
+		cursor: pointer;
+		padding: 0 5px;
+	}
+	#goalsList .table tr td .goals-results {
+		float: right;
+		width: auto;
+		margin: 10px;
+	}
+	#goalsList .table tr td nav {
+		float: left;
+	}
+</style>
+{{ footer }}

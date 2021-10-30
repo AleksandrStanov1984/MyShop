@@ -1,0 +1,54 @@
+.sidemenu li a {
+    display: inline-block;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    color: #666666;
+    text-decoration: none;
+    color: #767676;
+}
+.sidemenu li a:hover {
+    text-decoration: underline;
+    border-bottom: none;
+}
+.sidemenu li {
+    margin-bottom: 16px;
+}
+.sidemenu li.active{
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 20px;
+  display: flex;
+  align-items: flex-end;
+  text-decoration-line: underline;
+  color: #6F38AB;
+}
+.sidemenu-title{
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+  margin-bottom: 16px;
+}
+.sidemenu{
+    margin-top: 8px;
+}
+.box-category.sidemenu{
+  margin-bottom: 24px;
+  position: relative;
+}
+.box-category:after{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 18px;
+  background: linear-gradient(180deg,hsla(0,0%,100%,0),#fff);
+  content: "";
+}
+.box-category li:first-child{
+  padding-top: 6px;
+}
+.box-category li:last-child{
+  padding-bottom: 8px;
+}

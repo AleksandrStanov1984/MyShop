@@ -1,0 +1,388 @@
+.page-contacts {
+    padding: 50px 0 0;
+}
+.h2-title:before{
+    display: inline-block;
+    content: '';
+    background-color: #7D4198;
+    height: 40px;
+    width: 3px;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+.contacts-wrap {
+    margin: 0 auto;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+.contacts-list {
+    width: 40%;
+    padding-left: 40px;
+    padding-top: 40px;
+    padding-right: 10px;
+}
+.contacts-list .item {
+    font-weight: 500;
+    padding-left: 30px;
+}
+.contacts-list .item-phones {
+    padding-left: 0;
+}
+.contacts-list .item-phones a {
+    display: inline-block;
+    margin-bottom: 5px;
+}
+.contacts-list .item+.item {
+    margin-top: 50px;
+}
+.contacts-list .item-1 {
+    background: url(../images/ico-contacts-1.svg) 0 0 no-repeat;
+    background-size: 19px auto;
+}
+.contacts-list .item-3 {
+    background: url(../images/ico-contacts-3.svg) 0 1px no-repeat;
+    background-size: 20px auto;
+}
+.contacts-list .item-4 {
+    background: url(../images/ico-contacts-4.svg) 0 0 no-repeat;
+    background-size: 21px auto;
+}
+.contacts-wrap .map {
+    width: 60%;
+}
+
+.page-delivery-payment {
+    padding: 50px 0 0px;
+}
+.delpay-wrap .wrapper {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+}
+.delpay-wrap .delivery,
+.delpay-wrap .payment {
+    width: 100%;
+    line-height: 1.5;
+}
+.delpay-wrap .delivery{
+    border-bottom: 1px solid #ccc;
+        margin-bottom: 30px;
+}
+.delpay-title{
+    font-size: 24px;
+    margin-bottom: 1em;
+    color: #222;
+}
+.delpay-subtitle{
+    font-size: 18px;
+    margin-bottom: 0.7em;
+    color: #222;
+}
+.delpay-img {
+    margin-right: 1rem;
+    vertical-align: middle;
+}
+.delpay-wrap .item {
+    position: relative;
+    width: 33.3%;
+    width: calc((100% - 30px)/3);
+    display: inline-block;
+    vertical-align: text-top;
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 30px;
+}
+.delpay-wrap .item + .item {
+    margin-left: 15px;
+}
+.delpay-wrap .item span {
+    display: block;
+    font-size: 14px;
+    margin-top: 0.5em;
+}
+.delpay-wrap .item a {
+    text-decoration: underline;
+    color: #7D4198;
+}
+.delpay-wrap .item a:hover {
+    text-decoration: none;
+}
+
+.page-point {
+    padding: 50px 0 0;
+}
+.point-wrap {
+    background: #f9f9f9;
+    padding: 30px 0;
+    margin-bottom: 50px;
+}
+.point-wrap .subtitle {
+    text-align: left;
+}
+.point-wrap .item b {
+    display: inline-block;
+    vertical-align: top;
+    font-size: 38px;
+    font-weight: 500;
+    /*/margin-right: 15px; */
+    width: 38px;
+}
+.point-wrap .item span {
+    display: inline-block;
+    vertical-align: top;
+    width: calc(100% - 38px);
+    padding-left: 15px;
+    font-size: 16px;
+}
+.point-list {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+}
+.point-wrap .item {
+    display: inline-block;
+    vertical-align: top;
+    /*/margin-right: 50px; */
+    width: 50%;
+    margin-bottom: 20px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+.point-wrap .item .scheme-link {
+    border-bottom: 1px dashed #292929;
+    color: #292929;
+    display: inline-block;
+    margin-top: 10px;
+    position: relative;
+    margin-left: 16px;
+}
+.point-wrap .item .scheme-link:before {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 13px;
+    height: 20px;
+    background: url(../images/ico-contacts-1.svg) 0 3px no-repeat;
+    background-size: 13px auto;
+    left: -15px;
+    top: 0;
+}
+.point-wrap .item .scheme-link:after {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 15px;
+    height: 20px;
+    background: url(../images/ico-arrow-down.svg) 100% 3px no-repeat;
+    background-size: 15px auto;
+    right: -23px;
+    top: 1px;
+    transition: .2s;
+}
+.point-wrap .item .scheme-link.open:after {
+    -moz-transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+.point-wrap .item .scheme-link:hover {
+    border-color: transparent;
+}
+
+.scheme-item .scheme-link-up {
+    border-bottom: 1px dashed #fbad24;
+    color: #fbad24;
+    display: inline-block;
+    margin-top: 10px;
+    font-size: 14px;
+    position: relative;
+}
+.scheme-item .scheme-link-up:after {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 15px;
+    height: 20px;
+    background: url(../images/ico-arrow-down.svg) 100% 3px no-repeat;
+    background-size: 15px auto;
+    right: -23px;
+    top: 1px;
+    -moz-transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+.scheme-item .scheme-link-up:hover {
+    border-color: transparent;
+}
+.scheme-item {
+    padding: 20px 0;
+    display: none;
+}
+.scheme-item p {
+    line-height: 1.4;
+    font-size: 14px;
+}
+.scheme-item .image {
+    margin-top: 20px;
+}
+.page-point .step {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+.page-point .step .item {
+    width: 26%;
+    text-align: center;
+}
+.page-point .step .arrow {
+    width: 11%;
+    padding-top: 0;
+    text-align: center;
+}
+.page-point .step .arrow img {
+    width: 40px;
+    height: auto;
+}
+.page-point .note {
+    font-size: 14px;
+    color: #5c5c5c;
+}
+@media (max-width: 991px) {
+    .delpay-wrap .row{
+        -webkit-flex-wrap: wrap;
+        -moz-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+        -o-flex-wrap: wrap;
+        flex-wrap: wrap;
+    }
+    .delpay-wrap .item + .item {
+        margin-left: 0;
+    }
+    .delpay-wrap .item{
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    .delpay-title {
+        font-size: 22px;
+    }
+    .delpay-subtitle {
+        font-size: 16px;
+    }
+
+}
+@media (max-width: 760px) {
+      .contacts-wrap .map,
+    .contacts-list {
+        width: 100%;
+    }
+    .contacts-list {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        -webkit-box-pack: justify;
+        -webkit-justify-content: space-between;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        margin-bottom: 30px;
+    }
+    .contacts-list .item+.item {
+        margin-top: 0;
+    }
+    .delpay-wrap .delivery,
+    .delpay-wrap .payment {
+        width: 100%;
+    }
+    .delpay-wrap .delivery {
+        margin-bottom: 50px;
+    }
+        .delpay-wrap .item {
+        width: calc((100% - 15px)/2);
+    }
+}
+@media (max-width: 650px) {
+      .contacts-list {
+        display: block;
+        width: 270px;
+        margin: 0 auto 30px auto;
+    }
+    .contacts-list .item+.item {
+        margin-top: 20px;
+    }
+    .page-point .step {
+        max-width: 350px;
+        margin: 0 auto;
+    }
+    .page-point .step .item {
+        width: 100%;
+        padding: 20px 0;
+    }
+    .page-point .step .arrow {
+        width: 100%;
+        text-align: center;
+        padding: 0;
+        transform: rotate(90deg);
+    }
+      .page-delivery-payment {
+        padding: 0px 0 0px;
+    }
+    .point-wrap .item {
+        width: 100%;
+    }
+}
+@media (max-width: 475px) {
+    .delpay-wrap .item{
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    .delpay-subtitle{
+        margin-bottom: 0.5em;
+    }
+    .page-delivery-payment {
+        padding: 0px 0 0px;
+    }
+    .delpay-title {
+        font-size: 18px;
+    }
+    .delpay-wrap .delivery, .delpay-wrap .payment{
+        margin-bottom: 30px;
+    }
+    .page-delivery-payment .h2-title {
+        margin-bottom: 30px;
+    }
+}

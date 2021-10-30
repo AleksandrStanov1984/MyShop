@@ -1,0 +1,12 @@
+<?php
+// теги которые надо заменить
+$GLOBALS['SEOSHIELD_CONFIG']['replace_tag']=array(
+	"b",
+	"strong"
+);
+
+// типы страниц, на которых нужно заменять теги (комментарий или атрибут)
+$GLOBALS['SEOSHIELD_CONFIG']['replace_tag_page_types']=array(
+	// "<!--this_is_product-->",
+	// "<!--isset_listing_page-->"
+);

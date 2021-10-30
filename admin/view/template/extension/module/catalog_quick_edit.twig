@@ -1,0 +1,1083 @@
+{% macro alert_icon(type) %}{% spaceless %}
+		{% if type == 'error' %}
+			fa-times-circle
+		{% elseif type == 'warning' %}
+			fa-exclamation-triangle
+		{% elseif type == 'success' %}
+			fa-check-circle
+		{% elseif type == 'info' %}
+			fa-info-circle
+		{% else %}
+		{% endif %}
+{% endspaceless %}{% endmacro %}
+{{ header }}
+{{ column_left }}
+<div id="content">
+	<div class="page-header">
+		<div class="container-fluid">
+			<div class="pull-right">
+			<button type="button" data-toggle="tooltip" data-container="body" data-placement="bottom" title="{{ button_apply }}" class="btn btn-success" id="btn-apply" data-url="{{ save }}" data-form="#sForm" data-context="#content" data-vm="ExtVM" data-overlay="#page-overlay" data-loading-text="<i class='fa fa-spinner fa-spin'></i>"{% if update_pending %} disabled{% endif %}><i class="fa fa-check"></i></button>
+			<button type="submit" data-toggle="tooltip" data-container="body" data-placement="bottom" title="{{ button_save }}" class="btn btn-primary" id="btn-save" data-url="{{ save }}" data-form="#sForm" data-context="#content" data-overlay="#page-overlay" data-loading-text="<i class='fa fa-spinner fa-spin'></i>"{% if update_pending %} disabled{% endif %}><i class="fa fa-save"></i></button>
+            <a href="{{ cancel }}" data-toggle="tooltip" data-container="body" data-placement="bottom" title="{{ button_cancel }}" class="btn btn-default" id="btn-cancel" data-loading-text="<i class='fa fa-spinner fa-spin'></i>"><i class="fa fa-reply"></i></a>
+			</div>
+			<h1><i class="fa fa-list fa-fw ext-icon"></i> {{ heading_title }}</h1>
+			<ul class="breadcrumb">
+				{% for breadcrumb in breadcrumbs %}
+				<li><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
+				{% endfor %}
+			</ul>
+		</div>
+	</div>
+
+	<div class="alerts">
+		<div class="container-fluid" id="alerts">
+			{% for type, _alerts in alerts %}
+				{% for alert in _alerts %}
+					{% if alert %}
+			<div class="alert alert-{% if type == "error" %}danger{% else %}{{ type }}{% endif %} fade in">
+				<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+				<i class="fa {{ _self.alert_icon(type) }}"></i>{{ alert }}
+			</div>
+					{% endif %}
+				{% endfor %}
+			{% endfor %}
+		</div>
+	</div>
+
+	<div class="container-fluid bull5i-content bull5i-container">
+		<form action="{{ save }}" method="post" enctype="multipart/form-data" id="sForm" class="form-horizontal" role="form">
+			<div class="tab-content">
+				<div class="tab-pane active" id="settings">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+								<h3 class="panel-title"><i class="fa fa-cog fa-fw"></i> {{ tab_settings }}</h3>
+						</div>	
+							<div class="collapse navbar-collapse" id="settings-navbar-collapse">
+								<ul class="nav nav-tabs">
+									<li class="active"><a href="#general-settings" data-toggle="tab"><!-- ko if: general_errors() --><i class="fa fa-exclamation-circle text-danger hidden" data-bind="css:{'hidden': !general_errors()}"></i> <!-- /ko -->{{ tab_general }}</a></li>
+									<li><a href="#catalog-settings" data-toggle="tab"><!-- ko if: catalog_errors() --><i class="fa fa-exclamation-circle text-danger hidden" data-bind="css:{'hidden': !catalog_errors()}"></i> <!-- /ko -->{{ tab_catalog }}</a></li>
+								</ul>
+							</div>
+						
+						<div class="panel-body">
+							<div class="tab-content">
+								<div class="tab-pane active" id="general-settings">
+									<div class="row">
+										<div class="col-sm-12">
+											<fieldset>
+												<div class="form-group">
+													<label class="col-sm-3 col-md-2 control-label" for="module_catalog_quick_edit_status">{{ entry_extension_status }}</label>
+													<div class="col-sm-2 fc-auto-width">
+														<select name="module_catalog_quick_edit_status" id="module_catalog_quick_edit_status" data-bind="value: status" class="form-control">
+															<option value="1">{{ text_enabled }}</option>
+															<option value="0">{{ text_disabled }}</option>
+														</select>
+														<input type="hidden" name="module_catalog_quick_edit_installed" value="1" />
+														<input type="hidden" name="module_catalog_quick_edit_installed_version" value="{{ installed_version }}" />
+													</div>
+												</div>
+												<div class="form-group">
+													<label class="col-sm-3 col-md-2 control-label" for="module_catalog_quick_edit_override_menu_entry0">{{ entry_override_menu_entry }}</label>
+													<div class="col-sm-9 col-md-10">
+														<label class="radio-inline">
+															<input type="radio" name="module_catalog_quick_edit_override_menu_entry" id="module_catalog_quick_edit_override_menu_entry1" value="1" data-bind="checked: override_menu_entry"> {{ text_yes }}
+														</label>
+														<label class="radio-inline">
+															<input type="radio" name="module_catalog_quick_edit_override_menu_entry" id="module_catalog_quick_edit_override_menu_entry0" value="0" data-bind="checked: override_menu_entry"> {{ text_no }}
+														</label>
+													</div>
+													<div class="col-sm-offset-3 col-md-offset-2 col-sm-9 col-md-10 help-container">
+														<span class="help-block help-text">{{ help_override_menu_entry }}</span>
+													</div>
+												</div>
+												<div class="form-group">
+													<label class="col-sm-3 col-md-2 control-label" for="module_catalog_quick_edit_match_anywhere0">{{ entry_match_anywhere }}</label>
+													<div class="col-sm-9 col-md-10">
+														<label class="radio-inline">
+															<input type="radio" name="module_catalog_quick_edit_match_anywhere" id="module_catalog_quick_edit_match_anywhere1" value="1" data-bind="checked: match_anywhere"> {{ text_yes }}
+														</label>
+														<label class="radio-inline">
+															<input type="radio" name="module_catalog_quick_edit_match_anywhere" id="module_catalog_quick_edit_match_anywhere0" value="0" data-bind="checked: match_anywhere"> {{ text_no }}
+														</label>
+													</div>
+													<div class="col-sm-offset-3 col-md-offset-2 col-sm-9 col-md-10 help-container">
+														<span class="help-block help-text">{{ help_match_anywhere }}</span>
+													</div>
+												</div>
+												<div class="form-group">
+													<label class="col-sm-3 col-md-2 control-label" for="module_catalog_quick_edit_alternate_row_colour0">{{ entry_alternate_row_colour }}</label>
+													<div class="col-sm-9 col-md-10">
+														<label class="radio-inline">
+															<input type="radio" name="module_catalog_quick_edit_alternate_row_colour" id="module_catalog_quick_edit_alternate_row_colour1" value="1" data-bind="checked: alternate_row_colour"> {{ text_yes }}
+														</label>
+														<label class="radio-inline">
+															<input type="radio" name="module_catalog_quick_edit_alternate_row_colour" id="module_catalog_quick_edit_alternate_row_colour0" value="0" data-bind="checked: alternate_row_colour"> {{ text_no }}
+														</label>
+													</div>
+													<div class="col-sm-offset-3 col-md-offset-2 col-sm-9 col-md-10 help-container">
+														<span class="help-block help-text">{{ help_alternate_row_colour }}</span>
+													</div>
+												</div>
+												<div class="form-group">
+													<label class="col-sm-3 col-md-2 control-label" for="module_catalog_quick_edit_row_hover_highlighting0">{{ entry_row_hover_highlighting }}</label>
+													<div class="col-sm-9 col-md-10">
+														<label class="radio-inline">
+															<input type="radio" name="module_catalog_quick_edit_row_hover_highlighting" id="module_catalog_quick_edit_row_hover_highlighting1" value="1" data-bind="checked: row_hover_highlighting"> {{ text_yes }}
+														</label>
+														<label class="radio-inline">
+															<input type="radio" name="module_catalog_quick_edit_row_hover_highlighting" id="module_catalog_quick_edit_row_hover_highlighting0" value="0" data-bind="checked: row_hover_highlighting"> {{ text_no }}
+														</label>
+													</div>
+													<div class="col-sm-offset-3 col-md-offset-2 col-sm-9 col-md-10 help-container">
+														<span class="help-block help-text">{{ help_row_hover_highlighting }}</span>
+													</div>
+												</div>
+												<div class="form-group">
+													<label class="col-sm-3 col-md-2 control-label" for="module_catalog_quick_edit_highlight_status0">{{ entry_highlight_status }}</label>
+													<div class="col-sm-9 col-md-10">
+														<label class="radio-inline">
+															<input type="radio" name="module_catalog_quick_edit_highlight_status" id="module_catalog_quick_edit_highlight_status1" value="1" data-bind="checked: highlight_status"> {{ text_yes }}
+														</label>
+														<label class="radio-inline">
+															<input type="radio" name="module_catalog_quick_edit_highlight_status" id="module_catalog_quick_edit_highlight_status0" value="0" data-bind="checked: highlight_status"> {{ text_no }}
+														</label>
+													</div>
+													<div class="col-sm-offset-3 col-md-offset-2 col-sm-9 col-md-10 help-container">
+														<span class="help-block help-text">{{ help_highlight_status }}</span>
+													</div>
+												</div>
+												<div class="form-group">
+													<label class="col-sm-3 col-md-2 control-label" for="module_catalog_quick_edit_highlight_actions0">{{ entry_highlight_actions }}</label>
+													<div class="col-sm-9 col-md-10">
+														<label class="radio-inline">
+															<input type="radio" name="module_catalog_quick_edit_highlight_actions" id="module_catalog_quick_edit_highlight_actions1" value="1" data-bind="checked: highlight_actions"> {{ text_yes }}
+														</label>
+														<label class="radio-inline">
+															<input type="radio" name="module_catalog_quick_edit_highlight_actions" id="module_catalog_quick_edit_highlight_actions0" value="0" data-bind="checked: highlight_actions"> {{ text_no }}
+														</label>
+													</div>
+													<div class="col-sm-offset-3 col-md-offset-2 col-sm-9 col-md-10 help-container">
+														<span class="help-block help-text">{{ help_highlight_actions }}</span>
+													</div>
+												</div>
+												<div class="form-group">
+													<label class="col-sm-3 col-md-2 control-label" for="module_catalog_quick_edit_interval_filter0">{{ entry_interval_filter }}</label>
+													<div class="col-sm-9 col-md-10">
+														<label class="radio-inline">
+															<input type="radio" name="module_catalog_quick_edit_interval_filter" id="module_catalog_quick_edit_interval_filter1" value="1" data-bind="checked: interval_filter"> {{ text_yes }}
+														</label>
+														<label class="radio-inline">
+															<input type="radio" name="module_catalog_quick_edit_interval_filter" id="module_catalog_quick_edit_interval_filter0" value="0" data-bind="checked: interval_filter"> {{ text_no }}
+														</label>
+													</div>
+													<div class="col-sm-offset-3 col-md-offset-2 col-sm-9 col-md-10 help-container">
+														<span class="help-block help-text">{{ help_interval_filter }}</span>
+													</div>
+												</div>
+												<div class="form-group">
+													<label class="col-sm-3 col-md-2 control-label" for="module_catalog_quick_edit_batch_edit0">{{ entry_batch_edit }}</label>
+													<div class="col-sm-9 col-md-10">
+														<label class="radio-inline">
+															<input type="radio" name="module_catalog_quick_edit_batch_edit" id="module_catalog_quick_edit_batch_edit1" value="1" data-bind="checked: batch_edit"> {{ text_yes }}
+														</label>
+														<label class="radio-inline">
+															<input type="radio" name="module_catalog_quick_edit_batch_edit" id="module_catalog_quick_edit_batch_edit0" value="0" data-bind="checked: batch_edit"> {{ text_no }}
+														</label>
+													</div>
+													<div class="col-sm-offset-3 col-md-offset-2 col-sm-9 col-md-10 help-container">
+														<span class="help-block help-text">{{ help_batch_edit }}</span>
+													</div>
+												</div>
+												<div class="form-group">
+													<label class="col-sm-3 col-md-2 control-label" for="module_catalog_quick_edit_quick_edit_on">{{ entry_quick_edit_on }}</label>
+													<div class="col-sm-3 fc-auto-width">
+														<select name="module_catalog_quick_edit_quick_edit_on" id="module_catalog_quick_edit_quick_edit_on" data-bind="value: quick_edit_on" class="form-control">
+															<option value="click">{{ text_single_click }}</option>
+															<option value="dblclick">{{ text_double_click }}</option>
+														</select>
+													</div>
+												</div>
+												<div class="form-group">
+													<label class="col-sm-3 col-md-2 control-label" for="module_catalog_quick_edit_single_language_editing0">{{ entry_single_language_editing }}</label>
+													<div class="col-sm-9 col-md-10">
+														<label class="radio-inline">
+															<input type="radio" name="module_catalog_quick_edit_single_language_editing" id="module_catalog_quick_edit_single_language_editing1" value="1" data-bind="checked: single_language_editing"> {{ text_yes }}
+														</label>
+														<label class="radio-inline">
+															<input type="radio" name="module_catalog_quick_edit_single_language_editing" id="module_catalog_quick_edit_single_language_editing0" value="0" data-bind="checked: single_language_editing"> {{ text_no }}
+														</label>
+													</div>
+												</div>
+												<div class="form-group">
+													<label class="col-sm-3 col-md-2 control-label" for="module_catalog_quick_edit_list_view_image_width" data-bind="css: {'has-error': list_view_image_width.hasError || list_view_image_height.hasError}">{{ entry_list_view_image_size }}</label>
+													<div class="col-sm-3 col-md-3 col-lg-2">
+														<div class="input-group">
+														<input type="text" class="form-control text-right" name="module_catalog_quick_edit_list_view_image_width" id="module_catalog_quick_edit_list_view_image_width" data-bind="value: list_view_image_width, css: {'has-error': list_view_image_width.hasError}">
+														<span class="input-group-addon"><i class="fa fa-times"></i></span>
+														<input type="text" class="form-control" name="module_catalog_quick_edit_list_view_image_height" id="module_catalog_quick_edit_list_view_image_height" data-bind="value: list_view_image_height, css: {'has-error': list_view_image_height.hasError}">
+														</div>
+													</div>
+													<div class="col-sm-offset-3 col-md-offset-2 col-sm-9 col-md-10 error-container has-error" data-bind="visible: list_view_image_width.hasError && list_view_image_width.errorMsg">
+														<span class="help-block error-text" data-bind="text: list_view_image_width.errorMsg"></span>
+													</div>
+													<div class="col-sm-offset-3 col-md-offset-2 col-sm-9 col-md-10 error-container has-error" data-bind="visible: list_view_image_height.hasError && list_view_image_height.errorMsg">
+														<span class="help-block error-text" data-bind="text: list_view_image_height.errorMsg"></span>
+													</div>
+												</div>
+											</fieldset>
+										</div>
+									</div>
+								</div>
+								<div class="tab-pane" id="catalog-settings">
+									<div class="row">
+										<div class="col-sm-12">
+											<ul class="nav nav-tabs" role="tablist">
+												<li class="active"><a href="#tab-catalog-categories" role="tab" data-toggle="tab">{{ tab_categories }}</a></li>
+												<li><a href="#tab-catalog-products" role="tab" data-toggle="tab">{{ tab_products }}</a></li>
+												<li><a href="#tab-catalog-filters" role="tab" data-toggle="tab">{{ tab_filters }}</a></li>
+												<li><a href="#tab-catalog-attributes" role="tab" data-toggle="tab">{{ tab_attributes }}</a></li>
+												<li><a href="#tab-catalog-attribute-groups" role="tab" data-toggle="tab">{{ tab_attribute_groups }}</a></li>
+												<li><a href="#tab-catalog-options" role="tab" data-toggle="tab">{{ tab_options }}</a></li>
+												<li><a href="#tab-catalog-manufacturers" role="tab" data-toggle="tab">{{ tab_manufacturers }}</a></li>
+												<li><a href="#tab-catalog-downloads" role="tab" data-toggle="tab">{{ tab_downloads }}</a></li>
+												<li><a href="#tab-catalog-reviews" role="tab" data-toggle="tab">{{ tab_reviews }}</a></li>
+												<li><a href="#tab-catalog-information" role="tab" data-toggle="tab">{{ tab_information }}</a></li>
+											</ul>
+												<div class="tab-content">
+													<div class="tab-pane fade in active" id="tab-catalog-categories" role="tab">
+														<fieldset>
+															<div class="form-group">
+																<label class="col-sm-3 col-md-2 control-label" for="module_catalog_quick_edit_catalog_categories_status">{{ entry_catalog_categories_status }}</label>
+																<div class="col-sm-2 fc-auto-width">
+																	<select name="module_catalog_quick_edit_catalog_categories_status" id="module_catalog_quick_edit_catalog_categories_status" data-bind="value: catalog_categories_status" class="form-control">
+																		<option value="1">{{ text_enabled }}</option>
+																		<option value="0">{{ text_disabled }}</option>
+																	</select>
+																</div>
+															</div>
+															<div class="form-group">
+																<label class="col-sm-3 col-md-2 control-label" for="module_catalog_quick_edit_catalog_categories_default_sort">{{ entry_default_sorting }}</label>
+																<div class="col-sm-3 fc-auto-width">
+																	<select name="module_catalog_quick_edit_catalog_categories_default_sort" id="module_catalog_quick_edit_catalog_categories_default_sort" data-bind="value: catalog_categories_default_sort" class="form-control">
+																		{% for sort in sorts.module_catalog_quick_edit_catalog_categories %}
+																		<option value="{{ sort.value }}">{{ sort.name }}</option>
+																		{% endfor %}
+																	</select>
+																</div>
+																<div class="col-sm-3 fc-auto-width">
+																	<select name="module_catalog_quick_edit_catalog_categories_default_order" id="module_catalog_quick_edit_catalog_categories_default_order" data-bind="value: catalog_categories_default_order" class="form-control">
+																		<option value="ASC">{{ text_ascending }}</option>
+																		<option value="DESC">{{ text_descending }}</option>
+																	</select>
+																</div>
+															</div>
+															<div class="form-group">
+																<label class="col-sm-3 col-md-2 control-label"><span data-toggle="tooltip" data-title="{{ help_columns }}" data-container="body">{{ entry_fields }}</span></label>
+																<div class="col-sm-6 col-md-5 col-lg-4">
+																	<table class="table table-hover table-condensed page-columns sortable">
+																		<thead>
+																			<tr>
+																				<th>#</th>
+																				<th>{{ text_column_name }}</th>
+																				<th class="text-center">{{ text_display }}</th>
+																				<th class="text-center">{{ text_editable }}</th>
+																			</tr>
+																		</thead>
+																		<tbody>
+																			<!-- ko foreach: catalog_categories -->
+																			<tr  data-bind="attr: {'data-id': column}, css: {'info': !visible()}">
+																				<td><i class="fa fa-arrows-v cur-crosshair"></i></td>
+																				<td><!-- ko text: name --><!-- /ko --><input data-bind="value: index, attr: {name:'index[module_catalog_quick_edit_catalog_categories][' + column +']'}" type="hidden" class="column-index" /></td>
+																				<td class="text-center"><input data-bind="checked: visible, attr: {name:'display[module_catalog_quick_edit_catalog_categories][' + column +']'}" type="checkbox" class="column-display" /></td>
+																				<td class="text-center"><input data-bind="checked: editable, attr: {name:'qe_status[module_catalog_quick_edit_catalog_categories][' + column +']'}, disable: !quick_editable" type="checkbox" /></td>
+																			</tr>
+																			<!-- /ko -->
+																		</tbody>
+																	</table>
+																</div>
+															</div>
+														</fieldset>
+													</div>
+													<div class="tab-pane fade" id="tab-catalog-products" role="tab">
+														<fieldset>
+															<div class="form-group">
+																<label class="col-sm-3 col-md-2 control-label" for="module_catalog_quick_edit_catalog_products_status">{{ entry_catalog_products_status }}</label>
+																<div class="col-sm-2 fc-auto-width">
+																	<select name="module_catalog_quick_edit_catalog_products_status" id="module_catalog_quick_edit_catalog_products_status" data-bind="value: catalog_products_status" class="form-control">
+																		<option value="1">{{ text_enabled }}</option>
+																		<option value="0">{{ text_disabled }}</option>
+																	</select>
+																</div>
+															</div>
+															<div class="form-group">
+																<label class="col-sm-3 col-md-2 control-label" for="module_catalog_quick_edit_catalog_products_default_sort">{{ entry_default_sorting }}</label>
+																<div class="col-sm-3 fc-auto-width">
+																	<select name="module_catalog_quick_edit_catalog_products_default_sort" id="module_catalog_quick_edit_catalog_products_default_sort" data-bind="value: catalog_products_default_sort" class="form-control">
+																		{% for sort in sorts.module_catalog_quick_edit_catalog_products %}
+																		<option value="{{ sort.value }}">{{ sort.name }}</option>
+																		{% endfor %}
+																	</select>
+																</div>
+																<div class="col-sm-3 fc-auto-width">
+																	<select name="module_catalog_quick_edit_catalog_products_default_order" id="module_catalog_quick_edit_catalog_products_default_order" data-bind="value: catalog_products_default_order" class="form-control">
+																		<option value="ASC">{{ text_ascending }}</option>
+																		<option value="DESC">{{ text_descending }}</option>
+																	</select>
+																</div>
+															</div>
+															<div class="form-group">
+																<label class="col-sm-3 col-md-2 control-label"><span data-toggle="tooltip" data-title="{{ help_columns }}" data-container="body">{{ entry_fields }}</span></label>
+																<div class="col-sm-6 col-md-5 col-lg-4">
+																	<table class="table table-hover table-condensed page-columns sortable">
+																		<thead>
+																			<tr>
+																				<th>#</th>
+																				<th>{{ text_column_name }}</th>
+																				<th class="text-center">{{ text_display }}</th>
+																				<th class="text-center">{{ text_editable }}</th>
+																			</tr>
+																		</thead>
+																		<tbody>
+																			<!-- ko foreach: catalog_products -->
+																			<tr  data-bind="attr: {'data-id': column}, css: {'info': !visible()}">
+																				<td><i class="fa fa-arrows-v cur-crosshair"></i></td>
+																				<td><!-- ko text: name --><!-- /ko --><input data-bind="value: index, attr: {name:'index[module_catalog_quick_edit_catalog_products][' + column +']'}" type="hidden" class="column-index" /></td>
+																				<td class="text-center"><input data-bind="checked: visible, attr: {name:'display[module_catalog_quick_edit_catalog_products][' + column +']'}" type="checkbox" class="column-display" /></td>
+																				<td class="text-center"><input data-bind="checked: editable, attr: {name:'qe_status[module_catalog_quick_edit_catalog_products][' + column +']'}, disable: !quick_editable" type="checkbox" /></td>
+																			</tr>
+																			<!-- /ko -->
+																		</tbody>
+																	</table>
+																</div>
+															</div>
+															<div class="form-group">
+																<label class="col-sm-3 col-md-2 control-label"><span data-toggle="tooltip" data-title="{{ help_actions }}" data-container="body">{{ entry_actions }}</span></label>
+																<div class="col-sm-6 col-md-5 col-lg-4">
+																	<table class="table table-hover table-condensed page-columns sortable">
+																		<thead>
+																			<tr>
+																				<th>#</th>
+																				<th>{{ text_column_name }}</th>
+																				<th class="text-center">{{ text_display }}</th>
+																			</tr>
+																		</thead>
+																		<tbody>
+																			<!-- ko foreach: catalog_products_actions -->
+																			<tr data-bind="attr: {'data-id': column}, css: {'info': !visible()}">
+																				<td><i class="fa fa-arrows-v cur-crosshair"></i></td>
+																				<td><!-- ko text: name --><!-- /ko --><input data-bind="value: index, attr: {name:'index[module_catalog_quick_edit_catalog_products_actions][' + column +']'}" type="hidden" class="column-index" /></td>
+																				<td class="text-center"><input data-bind="checked: visible, attr: {name:'display[module_catalog_quick_edit_catalog_products_actions][' + column +']'}" type="checkbox" class="column-display" /></td>
+																			</tr>
+																			<!-- /ko -->
+																		</tbody>
+																	</table>
+																</div>
+															</div>
+															<div class="form-group">
+																<label class="col-sm-3 col-md-2 control-label" for="module_catalog_quick_edit_catalog_products_filter_sub_category0">{{ entry_catalog_products_filter_sub_category }}</label>
+																<div class="col-sm-9 col-md-10">
+																	<label class="radio-inline">
+																		<input type="radio" name="module_catalog_quick_edit_catalog_products_filter_sub_category" id="module_catalog_quick_edit_catalog_products_filter_sub_category1" value="1" data-bind="checked: catalog_products_filter_sub_category"> {{ text_yes }}
+																	</label>
+																	<label class="radio-inline">
+																		<input type="radio" name="module_catalog_quick_edit_catalog_products_filter_sub_category" id="module_catalog_quick_edit_catalog_products_filter_sub_category0" value="0" data-bind="checked: catalog_products_filter_sub_category"> {{ text_no }}
+																	</label>
+																</div>
+																<div class="col-sm-offset-3 col-md-offset-2 col-sm-9 col-md-10 help-container">
+																	<span class="help-block help-text">{{ help_filter_sub_category }}</span>
+																</div>
+															</div>
+														</fieldset>
+													</div>
+													<div class="tab-pane fade" id="tab-catalog-filters" role="tab">
+														<fieldset>
+															<div class="form-group">
+																<label class="col-sm-3 col-md-2 control-label" for="module_catalog_quick_edit_catalog_filters_status">{{ entry_catalog_filters_status }}</label>
+																<div class="col-sm-2 fc-auto-width">
+																	<select name="module_catalog_quick_edit_catalog_filters_status" id="module_catalog_quick_edit_catalog_filters_status" data-bind="value: catalog_filters_status" class="form-control">
+																		<option value="1">{{ text_enabled }}</option>
+																		<option value="0">{{ text_disabled }}</option>
+																	</select>
+																</div>
+															</div>
+															<div class="form-group">
+																<label class="col-sm-3 col-md-2 control-label" for="module_catalog_quick_edit_catalog_filters_default_sort">{{ entry_default_sorting }}</label>
+																<div class="col-sm-3 fc-auto-width">
+																	<select name="module_catalog_quick_edit_catalog_filters_default_sort" id="module_catalog_quick_edit_catalog_filters_default_sort" data-bind="value: catalog_filters_default_sort" class="form-control">
+																		{% for sort in sorts.module_catalog_quick_edit_catalog_filters %}
+																		<option value="{{ sort.value }}">{{ sort.name }}</option>
+																		{% endfor %}
+																	</select>
+																</div>
+																<div class="col-sm-3 fc-auto-width">
+																	<select name="module_catalog_quick_edit_catalog_filters_default_order" id="module_catalog_quick_edit_catalog_filters_default_order" data-bind="value: catalog_filters_default_order" class="form-control">
+																		<option value="ASC">{{ text_ascending }}</option>
+																		<option value="DESC">{{ text_descending }}</option>
+																	</select>
+																</div>
+															</div>
+															<div class="form-group">
+																<label class="col-sm-3 col-md-2 control-label"><span data-toggle="tooltip" data-title="{{ help_columns }}" data-container="body">{{ entry_fields }}</span></label>
+																<div class="col-sm-6 col-md-5 col-lg-4">
+																	<table class="table table-hover table-condensed page-columns sortable">
+																		<thead>
+																			<tr>
+																				<th>#</th>
+																				<th>{{ text_column_name }}</th>
+																				<th class="text-center">{{ text_display }}</th>
+																				<th class="text-center">{{ text_editable }}</th>
+																			</tr>
+																		</thead>
+																		<tbody>
+																			<!-- ko foreach: catalog_filters -->
+																			<tr  data-bind="attr: {'data-id': column}, css: {'info': !visible()}">
+																				<td><i class="fa fa-arrows-v cur-crosshair"></i></td>
+																				<td><!-- ko text: name --><!-- /ko --><input data-bind="value: index, attr: {name:'index[module_catalog_quick_edit_catalog_filters][' + column +']'}" type="hidden" class="column-index" /></td>
+																				<td class="text-center"><input data-bind="checked: visible, attr: {name:'display[module_catalog_quick_edit_catalog_filters][' + column +']'}" type="checkbox" class="column-display" /></td>
+																				<td class="text-center"><input data-bind="checked: editable, attr: {name:'qe_status[module_catalog_quick_edit_catalog_filters][' + column +']'}, disable: !quick_editable" type="checkbox" /></td>
+																			</tr>
+																			<!-- /ko -->
+																		</tbody>
+																	</table>
+																</div>
+															</div>
+														</fieldset>
+													</div>
+													<div class="tab-pane fade" id="tab-catalog-attributes" role="tab">
+														<fieldset>
+															<div class="form-group">
+																<label class="col-sm-3 col-md-2 control-label" for="module_catalog_quick_edit_catalog_attributes_status">{{ entry_catalog_attributes_status }}</label>
+																<div class="col-sm-2 fc-auto-width">
+																	<select name="module_catalog_quick_edit_catalog_attributes_status" id="module_catalog_quick_edit_catalog_attributes_status" data-bind="value: catalog_attributes_status" class="form-control">
+																		<option value="1">{{ text_enabled }}</option>
+																		<option value="0">{{ text_disabled }}</option>
+																	</select>
+																</div>
+															</div>
+															<div class="form-group">
+																<label class="col-sm-3 col-md-2 control-label" for="module_catalog_quick_edit_catalog_attributes_default_sort">{{ entry_default_sorting }}</label>
+																<div class="col-sm-3 fc-auto-width">
+																	<select name="module_catalog_quick_edit_catalog_attributes_default_sort" id="module_catalog_quick_edit_catalog_attributes_default_sort" data-bind="value: catalog_attributes_default_sort" class="form-control">
+																		{% for sort in sorts.module_catalog_quick_edit_catalog_attributes %}
+																		<option value="{{ sort.value }}">{{ sort.name }}</option>
+																		{% endfor %}
+																	</select>
+																</div>
+																<div class="col-sm-3 fc-auto-width">
+																	<select name="module_catalog_quick_edit_catalog_attributes_default_order" id="module_catalog_quick_edit_catalog_attributes_default_order" data-bind="value: catalog_attributes_default_order" class="form-control">
+																		<option value="ASC">{{ text_ascending }}</option>
+																		<option value="DESC">{{ text_descending }}</option>
+																	</select>
+																</div>
+															</div>
+															<div class="form-group">
+																<label class="col-sm-3 col-md-2 control-label"><span data-toggle="tooltip" data-title="{{ help_columns }}" data-container="body">{{ entry_fields }}</span></label>
+																<div class="col-sm-6 col-md-5 col-lg-4">
+																	<table class="table table-hover table-condensed page-columns sortable">
+																		<thead>
+																			<tr>
+																				<th>#</th>
+																				<th>{{ text_column_name }}</th>
+																				<th class="text-center">{{ text_display }}</th>
+																				<th class="text-center">{{ text_editable }}</th>
+																			</tr>
+																		</thead>
+																		<tbody>
+																			<!-- ko foreach: catalog_attributes -->
+																			<tr  data-bind="attr: {'data-id': column}, css: {'info': !visible()}">
+																				<td><i class="fa fa-arrows-v cur-crosshair"></i></td>
+																				<td><!-- ko text: name --><!-- /ko --><input data-bind="value: index, attr: {name:'index[module_catalog_quick_edit_catalog_attributes][' + column +']'}" type="hidden" class="column-index" /></td>
+																				<td class="text-center"><input data-bind="checked: visible, attr: {name:'display[module_catalog_quick_edit_catalog_attributes][' + column +']'}" type="checkbox" class="column-display" /></td>
+																				<td class="text-center"><input data-bind="checked: editable, attr: {name:'qe_status[module_catalog_quick_edit_catalog_attributes][' + column +']'}, disable: !quick_editable" type="checkbox" /></td>
+																			</tr>
+																			<!-- /ko -->
+																		</tbody>
+																	</table>
+																</div>
+															</div>
+														</fieldset>
+													</div>
+													<div class="tab-pane fade" id="tab-catalog-attribute-groups" role="tab">
+														<fieldset>
+															<div class="form-group">
+																<label class="col-sm-3 col-md-2 control-label" for="module_catalog_quick_edit_catalog_attribute_groups_status">{{ entry_catalog_attribute_groups_status }}</label>
+																<div class="col-sm-2 fc-auto-width">
+																	<select name="module_catalog_quick_edit_catalog_attribute_groups_status" id="module_catalog_quick_edit_catalog_attribute_groups_status" data-bind="value: catalog_attribute_groups_status" class="form-control">
+																		<option value="1">{{ text_enabled }}</option>
+																		<option value="0">{{ text_disabled }}</option>
+																	</select>
+																</div>
+															</div>
+															<div class="form-group">
+																<label class="col-sm-3 col-md-2 control-label" for="module_catalog_quick_edit_catalog_attribute_groups_default_sort">{{ entry_default_sorting }}</label>
+																<div class="col-sm-3 fc-auto-width">
+																	<select name="module_catalog_quick_edit_catalog_attribute_groups_default_sort" id="module_catalog_quick_edit_catalog_attribute_groups_default_sort" data-bind="value: catalog_attribute_groups_default_sort" class="form-control">
+																		{% for sort in sorts.module_catalog_quick_edit_catalog_attribute_groups %}
+																		<option value="{{ sort.value }}">{{ sort.name }}</option>
+																		{% endfor %}
+																	</select>
+																</div>
+																<div class="col-sm-3 fc-auto-width">
+																	<select name="module_catalog_quick_edit_catalog_attribute_groups_default_order" id="module_catalog_quick_edit_catalog_attribute_groups_default_order" data-bind="value: catalog_attribute_groups_default_order" class="form-control">
+																		<option value="ASC">{{ text_ascending }}</option>
+																		<option value="DESC">{{ text_descending }}</option>
+																	</select>
+																</div>
+															</div>
+															<div class="form-group">
+																<label class="col-sm-3 col-md-2 control-label"><span data-toggle="tooltip" data-title="{{ help_columns }}" data-container="body">{{ entry_fields }}</span></label>
+																<div class="col-sm-6 col-md-5 col-lg-4">
+																	<table class="table table-hover table-condensed page-columns sortable">
+																		<thead>
+																			<tr>
+																				<th>#</th>
+																				<th>{{ text_column_name }}</th>
+																				<th class="text-center">{{ text_display }}</th>
+																				<th class="text-center">{{ text_editable }}</th>
+																			</tr>
+																		</thead>
+																		<tbody>
+																			<!-- ko foreach: catalog_attribute_groups -->
+																			<tr  data-bind="attr: {'data-id': column}, css: {'info': !visible()}">
+																				<td><i class="fa fa-arrows-v cur-crosshair"></i></td>
+																				<td><!-- ko text: name --><!-- /ko --><input data-bind="value: index, attr: {name:'index[module_catalog_quick_edit_catalog_attribute_groups][' + column +']'}" type="hidden" class="column-index" /></td>
+																				<td class="text-center"><input data-bind="checked: visible, attr: {name:'display[module_catalog_quick_edit_catalog_attribute_groups][' + column +']'}" type="checkbox" class="column-display" /></td>
+																				<td class="text-center"><input data-bind="checked: editable, attr: {name:'qe_status[module_catalog_quick_edit_catalog_attribute_groups][' + column +']'}, disable: !quick_editable" type="checkbox" /></td>
+																			</tr>
+																			<!-- /ko -->
+																		</tbody>
+																	</table>
+																</div>
+															</div>
+														</fieldset>
+													</div>
+													<div class="tab-pane fade" id="tab-catalog-options" role="tab">
+														<fieldset>
+															<div class="form-group">
+																<label class="col-sm-3 col-md-2 control-label" for="module_catalog_quick_edit_catalog_options_status">{{ entry_catalog_options_status }}</label>
+																<div class="col-sm-2 fc-auto-width">
+																	<select name="module_catalog_quick_edit_catalog_options_status" id="module_catalog_quick_edit_catalog_options_status" data-bind="value: catalog_options_status" class="form-control">
+																		<option value="1">{{ text_enabled }}</option>
+																		<option value="0">{{ text_disabled }}</option>
+																	</select>
+																</div>
+															</div>
+															<div class="form-group">
+																<label class="col-sm-3 col-md-2 control-label" for="module_catalog_quick_edit_catalog_options_default_sort">{{ entry_default_sorting }}</label>
+																<div class="col-sm-3 fc-auto-width">
+																	<select name="module_catalog_quick_edit_catalog_options_default_sort" id="module_catalog_quick_edit_catalog_options_default_sort" data-bind="value: catalog_options_default_sort" class="form-control">
+																		{% for sort in sorts.module_catalog_quick_edit_catalog_options %}
+																		<option value="{{ sort.value }}">{{ sort.name }}</option>
+																		{% endfor %}
+																	</select>
+																</div>
+																<div class="col-sm-3 fc-auto-width">
+																	<select name="module_catalog_quick_edit_catalog_options_default_order" id="module_catalog_quick_edit_catalog_options_default_order" data-bind="value: catalog_options_default_order" class="form-control">
+																		<option value="ASC">{{ text_ascending }}</option>
+																		<option value="DESC">{{ text_descending }}</option>
+																	</select>
+																</div>
+															</div>
+															<div class="form-group">
+																<label class="col-sm-3 col-md-2 control-label"><span data-toggle="tooltip" data-title="{{ help_columns }}" data-container="body">{{ entry_fields }}</span></label>
+																<div class="col-sm-6 col-md-5 col-lg-4">
+																	<table class="table table-hover table-condensed page-columns sortable">
+																		<thead>
+																			<tr>
+																				<th>#</th>
+																				<th>{{ text_column_name }}</th>
+																				<th class="text-center">{{ text_display }}</th>
+																				<th class="text-center">{{ text_editable }}</th>
+																			</tr>
+																		</thead>
+																		<tbody>
+																			<!-- ko foreach: catalog_options -->
+																			<tr  data-bind="attr: {'data-id': column}, css: {'info': !visible()}">
+																				<td><i class="fa fa-arrows-v cur-crosshair"></i></td>
+																				<td><!-- ko text: name --><!-- /ko --><input data-bind="value: index, attr: {name:'index[module_catalog_quick_edit_catalog_options][' + column +']'}" type="hidden" class="column-index" /></td>
+																				<td class="text-center"><input data-bind="checked: visible, attr: {name:'display[module_catalog_quick_edit_catalog_options][' + column +']'}" type="checkbox" class="column-display" /></td>
+																				<td class="text-center"><input data-bind="checked: editable, attr: {name:'qe_status[module_catalog_quick_edit_catalog_options][' + column +']'}, disable: !quick_editable" type="checkbox" /></td>
+																			</tr>
+																			<!-- /ko -->
+																		</tbody>
+																	</table>
+																</div>
+															</div>
+														</fieldset>
+													</div>
+													<div class="tab-pane fade" id="tab-catalog-manufacturers" role="tab">
+														<fieldset>
+															<div class="form-group">
+																<label class="col-sm-3 col-md-2 control-label" for="module_catalog_quick_edit_catalog_manufacturers_status">{{ entry_catalog_manufacturers_status }}</label>
+																<div class="col-sm-2 fc-auto-width">
+																	<select name="module_catalog_quick_edit_catalog_manufacturers_status" id="module_catalog_quick_edit_catalog_manufacturers_status" data-bind="value: catalog_manufacturers_status" class="form-control">
+																		<option value="1">{{ text_enabled }}</option>
+																		<option value="0">{{ text_disabled }}</option>
+																	</select>
+																</div>
+															</div>
+															<div class="form-group">
+																<label class="col-sm-3 col-md-2 control-label" for="module_catalog_quick_edit_catalog_manufacturers_default_sort">{{ entry_default_sorting }}</label>
+																<div class="col-sm-3 fc-auto-width">
+																	<select name="module_catalog_quick_edit_catalog_manufacturers_default_sort" id="module_catalog_quick_edit_catalog_manufacturers_default_sort" data-bind="value: catalog_manufacturers_default_sort" class="form-control">
+																		{% for sort in sorts.module_catalog_quick_edit_catalog_manufacturers %}
+																		<option value="{{ sort.value }}">{{ sort.name }}</option>
+																		{% endfor %}
+																	</select>
+																</div>
+																<div class="col-sm-3 fc-auto-width">
+																	<select name="module_catalog_quick_edit_catalog_manufacturers_default_order" id="module_catalog_quick_edit_catalog_manufacturers_default_order" data-bind="value: catalog_manufacturers_default_order" class="form-control">
+																		<option value="ASC">{{ text_ascending }}</option>
+																		<option value="DESC">{{ text_descending }}</option>
+																	</select>
+																</div>
+															</div>
+															<div class="form-group">
+																<label class="col-sm-3 col-md-2 control-label"><span data-toggle="tooltip" data-title="{{ help_columns }}" data-container="body">{{ entry_fields }}</span></label>
+																<div class="col-sm-6 col-md-5 col-lg-4">
+																	<table class="table table-hover table-condensed page-columns sortable">
+																		<thead>
+																			<tr>
+																				<th>#</th>
+																				<th>{{ text_column_name }}</th>
+																				<th class="text-center">{{ text_display }}</th>
+																				<th class="text-center">{{ text_editable }}</th>
+																			</tr>
+																		</thead>
+																		<tbody>
+																			<!-- ko foreach: catalog_manufacturers -->
+																			<tr  data-bind="attr: {'data-id': column}, css: {'info': !visible()}">
+																				<td><i class="fa fa-arrows-v cur-crosshair"></i></td>
+																				<td><!-- ko text: name --><!-- /ko --><input data-bind="value: index, attr: {name:'index[module_catalog_quick_edit_catalog_manufacturers][' + column +']'}" type="hidden" class="column-index" /></td>
+																				<td class="text-center"><input data-bind="checked: visible, attr: {name:'display[module_catalog_quick_edit_catalog_manufacturers][' + column +']'}" type="checkbox" class="column-display" /></td>
+																				<td class="text-center"><input data-bind="checked: editable, attr: {name:'qe_status[module_catalog_quick_edit_catalog_manufacturers][' + column +']'}, disable: !quick_editable" type="checkbox" /></td>
+																			</tr>
+																			<!-- /ko -->
+																		</tbody>
+																	</table>
+																</div>
+															</div>
+														</fieldset>
+													</div>
+													<div class="tab-pane fade" id="tab-catalog-downloads" role="tab">
+														<fieldset>
+															<div class="form-group">
+																<label class="col-sm-3 col-md-2 control-label" for="module_catalog_quick_edit_catalog_downloads_status">{{ entry_catalog_downloads_status }}</label>
+																<div class="col-sm-2 fc-auto-width">
+																	<select name="module_catalog_quick_edit_catalog_downloads_status" id="module_catalog_quick_edit_catalog_downloads_status" data-bind="value: catalog_downloads_status" class="form-control">
+																		<option value="1">{{ text_enabled }}</option>
+																		<option value="0">{{ text_disabled }}</option>
+																	</select>
+																</div>
+															</div>
+															<div class="form-group">
+																<label class="col-sm-3 col-md-2 control-label" for="module_catalog_quick_edit_catalog_downloads_default_sort">{{ entry_default_sorting }}</label>
+																<div class="col-sm-3 fc-auto-width">
+																	<select name="module_catalog_quick_edit_catalog_downloads_default_sort" id="module_catalog_quick_edit_catalog_downloads_default_sort" data-bind="value: catalog_downloads_default_sort" class="form-control">
+																		{% for sort in sorts.module_catalog_quick_edit_catalog_downloads %}
+																		<option value="{{ sort.value }}">{{ sort.name }}</option>
+																		{% endfor %}
+																	</select>
+																</div>
+																<div class="col-sm-3 fc-auto-width">
+																	<select name="module_catalog_quick_edit_catalog_downloads_default_order" id="module_catalog_quick_edit_catalog_downloads_default_order" data-bind="value: catalog_downloads_default_order" class="form-control">
+																		<option value="ASC">{{ text_ascending }}</option>
+																		<option value="DESC">{{ text_descending }}</option>
+																	</select>
+																</div>
+															</div>
+															<div class="form-group">
+																<label class="col-sm-3 col-md-2 control-label"><span data-toggle="tooltip" data-title="{{ help_columns }}" data-container="body">{{ entry_fields }}</span></label>
+																<div class="col-sm-6 col-md-5 col-lg-4">
+																	<table class="table table-hover table-condensed page-columns sortable">
+																		<thead>
+																			<tr>
+																				<th>#</th>
+																				<th>{{ text_column_name }}</th>
+																				<th class="text-center">{{ text_display }}</th>
+																				<th class="text-center">{{ text_editable }}</th>
+																			</tr>
+																		</thead>
+																		<tbody>
+																			<!-- ko foreach: catalog_downloads -->
+																			<tr  data-bind="attr: {'data-id': column}, css: {'info': !visible()}">
+																				<td><i class="fa fa-arrows-v cur-crosshair"></i></td>
+																				<td><!-- ko text: name --><!-- /ko --><input data-bind="value: index, attr: {name:'index[module_catalog_quick_edit_catalog_downloads][' + column +']'}" type="hidden" class="column-index" /></td>
+																				<td class="text-center"><input data-bind="checked: visible, attr: {name:'display[module_catalog_quick_edit_catalog_downloads][' + column +']'}" type="checkbox" class="column-display" /></td>
+																				<td class="text-center"><input data-bind="checked: editable, attr: {name:'qe_status[module_catalog_quick_edit_catalog_downloads][' + column +']'}, disable: !quick_editable" type="checkbox" /></td>
+																			</tr>
+																			<!-- /ko -->
+																		</tbody>
+																	</table>
+																</div>
+															</div>
+														</fieldset>
+													</div>
+													
+											
+													<div class="tab-pane fade" id="tab-catalog-reviews" role="tab">
+														<fieldset>
+															<div class="form-group">
+																<label class="col-sm-3 col-md-2 control-label" for="module_catalog_quick_edit_catalog_reviews_status">{{ entry_catalog_reviews_status }}</label>
+																<div class="col-sm-2 fc-auto-width">
+																	<select name="module_catalog_quick_edit_catalog_reviews_status" id="module_catalog_quick_edit_catalog_reviews_status" data-bind="value: catalog_reviews_status" class="form-control">
+																		<option value="1">{{ text_enabled }}</option>
+																		<option value="0">{{ text_disabled }}</option>
+																	</select>
+																</div>
+															</div>
+															<div class="form-group">
+																<label class="col-sm-3 col-md-2 control-label" for="module_catalog_quick_edit_catalog_reviews_default_sort">{{ entry_default_sorting }}</label>
+																<div class="col-sm-3 fc-auto-width">
+																	<select name="module_catalog_quick_edit_catalog_reviews_default_sort" id="module_catalog_quick_edit_catalog_reviews_default_sort" data-bind="value: catalog_reviews_default_sort" class="form-control">
+																		{% for sort in sorts.module_catalog_quick_edit_catalog_reviews %}
+																		<option value="{{ sort.value }}">{{ sort.name }}</option>
+																		{% endfor %}
+																	</select>
+																</div>
+																<div class="col-sm-3 fc-auto-width">
+																	<select name="module_catalog_quick_edit_catalog_reviews_default_order" id="module_catalog_quick_edit_catalog_reviews_default_order" data-bind="value: catalog_reviews_default_order" class="form-control">
+																		<option value="ASC">{{ text_ascending }}</option>
+																		<option value="DESC">{{ text_descending }}</option>
+																	</select>
+																</div>
+															</div>
+															<div class="form-group">
+																<label class="col-sm-3 col-md-2 control-label"><span data-toggle="tooltip" data-title="{{ help_columns }}" data-container="body">{{ entry_fields }}</span></label>
+																<div class="col-sm-6 col-md-5 col-lg-4">
+																	<table class="table table-hover table-condensed page-columns sortable">
+																		<thead>
+																			<tr>
+																				<th>#</th>
+																				<th>{{ text_column_name }}</th>
+																				<th class="text-center">{{ text_display }}</th>
+																				<th class="text-center">{{ text_editable }}</th>
+																			</tr>
+																		</thead>
+																		<tbody>
+																			<!-- ko foreach: catalog_reviews -->
+																			<tr  data-bind="attr: {'data-id': column}, css: {'info': !visible()}">
+																				<td><i class="fa fa-arrows-v cur-crosshair"></i></td>
+																				<td><!-- ko text: name --><!-- /ko --><input data-bind="value: index, attr: {name:'index[module_catalog_quick_edit_catalog_reviews][' + column +']'}" type="hidden" class="column-index" /></td>
+																				<td class="text-center"><input data-bind="checked: visible, attr: {name:'display[module_catalog_quick_edit_catalog_reviews][' + column +']'}" type="checkbox" class="column-display" /></td>
+																				<td class="text-center"><input data-bind="checked: editable, attr: {name:'qe_status[module_catalog_quick_edit_catalog_reviews][' + column +']'}, disable: !quick_editable" type="checkbox" /></td>
+																			</tr>
+																			<!-- /ko -->
+																		</tbody>
+																	</table>
+																</div>
+															</div>
+														</fieldset>
+													</div>
+													
+													<div class="tab-pane fade" id="tab-catalog-information" role="tab">
+														<fieldset>
+															<div class="form-group">
+																<label class="col-sm-3 col-md-2 control-label" for="module_catalog_quick_edit_catalog_information_status">{{ entry_catalog_information_status }}</label>
+																<div class="col-sm-2 fc-auto-width">
+																	<select name="module_catalog_quick_edit_catalog_information_status" id="module_catalog_quick_edit_catalog_information_status" data-bind="value: catalog_information_status" class="form-control">
+																		<option value="1">{{ text_enabled }}</option>
+																		<option value="0">{{ text_disabled }}</option>
+																	</select>
+																</div>
+															</div>
+															<div class="form-group">
+																<label class="col-sm-3 col-md-2 control-label" for="module_catalog_quick_edit_catalog_information_default_sort">{{ entry_default_sorting }}</label>
+																<div class="col-sm-3 fc-auto-width">
+																	<select name="module_catalog_quick_edit_catalog_information_default_sort" id="module_catalog_quick_edit_catalog_information_default_sort" data-bind="value: catalog_information_default_sort" class="form-control">
+																		{% for sort in sorts.module_catalog_quick_edit_catalog_information %}
+																		<option value="{{ sort.value }}">{{ sort.name }}</option>
+																		{% endfor %}
+																	</select>
+																</div>
+																<div class="col-sm-3 fc-auto-width">
+																	<select name="module_catalog_quick_edit_catalog_information_default_order" id="module_catalog_quick_edit_catalog_information_default_order" data-bind="value: catalog_information_default_order" class="form-control">
+																		<option value="ASC">{{ text_ascending }}</option>
+																		<option value="DESC">{{ text_descending }}</option>
+																	</select>
+																</div>
+															</div>
+															<div class="form-group">
+																<label class="col-sm-3 col-md-2 control-label"><span data-toggle="tooltip" data-title="{{ help_columns }}" data-container="body">{{ entry_fields }}</span></label>
+																<div class="col-sm-6 col-md-5 col-lg-4">
+																	<table class="table table-hover table-condensed page-columns sortable">
+																		<thead>
+																			<tr>
+																				<th>#</th>
+																				<th>{{ text_column_name }}</th>
+																				<th class="text-center">{{ text_display }}</th>
+																				<th class="text-center">{{ text_editable }}</th>
+																			</tr>
+																		</thead>
+																		<tbody>
+																			<!-- ko foreach: catalog_information -->
+																			<tr  data-bind="attr: {'data-id': column}, css: {'info': !visible()}">
+																				<td><i class="fa fa-arrows-v cur-crosshair"></i></td>
+																				<td><!-- ko text: name --><!-- /ko --><input data-bind="value: index, attr: {name:'index[module_catalog_quick_edit_catalog_information][' + column +']'}" type="hidden" class="column-index" /></td>
+																				<td class="text-center"><input data-bind="checked: visible, attr: {name:'display[module_catalog_quick_edit_catalog_information][' + column +']'}" type="checkbox" class="column-display" /></td>
+																				<td class="text-center"><input data-bind="checked: editable, attr: {name:'qe_status[module_catalog_quick_edit_catalog_information][' + column +']'}, disable: !quick_editable" type="checkbox" /></td>
+																			</tr>
+																			<!-- /ko -->
+																		</tbody>
+																	</table>
+																</div>
+															</div>
+														</fieldset>
+													</div>
+												</div>
+										</div>
+									</div>
+								</div>
+								
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</form>
+	</div>
+</div>
+<script type="text/javascript"><!--
+(function(bull5i,$,undefined){
+	var errors = {{ errors|json_encode() }},
+		catalog_categories = {{ module_catalog_quick_edit_catalog_categories|json_encode() }},
+		catalog_products = {{ module_catalog_quick_edit_catalog_products|json_encode() }},
+		catalog_products_actions = {{ module_catalog_quick_edit_catalog_products_actions|json_encode() }},
+		catalog_recurrings = {{ module_catalog_quick_edit_catalog_recurrings|json_encode() }},
+		catalog_filters = {{ module_catalog_quick_edit_catalog_filters|json_encode() }},
+		catalog_attributes = {{ module_catalog_quick_edit_catalog_attributes|json_encode() }},
+		catalog_attribute_groups = {{ module_catalog_quick_edit_catalog_attribute_groups|json_encode() }},
+		catalog_options = {{ module_catalog_quick_edit_catalog_options|json_encode() }},
+		catalog_manufacturers = {{ module_catalog_quick_edit_catalog_manufacturers|json_encode() }},
+		catalog_downloads = {{ module_catalog_quick_edit_catalog_downloads|json_encode() }},
+		catalog_reviews = {{ module_catalog_quick_edit_catalog_reviews|json_encode() }},
+		catalog_information = {{ module_catalog_quick_edit_catalog_information|json_encode() }},
+		ExtVM;
+
+	bull5i.texts = $.extend({}, bull5i.texts, {
+		error_ajax_request: '{{ error_ajax_request|addslashes() }}',
+		error_image_width: '{{ error_image_width|addslashes() }}',
+		error_image_height: '{{ error_image_height|addslashes() }}',
+	});
+
+	$(".sortable").sortable({
+		containerSelector: 'table',
+		itemPath: '> tbody',
+		itemSelector: 'tr',
+		placeholder: '<tr class="placeholder"/>',
+		distance: 5,
+		onDragStart: function ($item, container, _super, event) {
+			$item.children().each(function() {
+				$(this).width($(this).width());
+			});
+			$item.addClass("dragged");
+			$("body").addClass("dragging");
+		},
+		onDrag: function ($item, position, _super, event) {
+			position['left'] = 0;
+			$item.css(position)
+		},
+		onDrop: function ($item, container, _super, event) {
+			$item.children().each(function() {
+				$(this).removeAttr("style");
+			});
+			$item.removeClass("dragged").removeAttr("style");
+			$("body").removeClass("dragging");
+			$("tbody tr", $(container.el[0])).each(function(i){
+				var data = ko.dataFor(this);
+				data.index(i);
+			})
+		},
+	});
+
+	bull5i.load_service_list = function(force) {
+		var force = force !== undefined ? force * 1 : 0,
+			dfd = $.Deferred();
+		if ((!ExtVM.service_list_loaded() || force) && !ExtVM.service_list_loading()) {
+			ExtVM.service_list_loading(true);
+			$.when($.ajax({
+				url: '{{ services }}',
+				data: {force: force},
+				dataType: 'json'
+			})).then(function(data) {
+				ExtVM.service_list_loaded(true);
+				ExtVM.service_list_loading(false);
+				ExtVM.clearServices();
+				if (data.services) {
+					$.each(data.services, function(i, service) {
+						var code = service.code,
+							name = service.name,
+							description = service.description || "",
+							currency = service.currency,
+							price = service.price,
+							turnaround = service.turnaround;
+						ExtVM.addService(code, name, description, currency, price, turnaround);
+					})
+				}
+				if (data.rate) {
+					$("#hourly_rate").html(data.rate);
+				}
+				dfd.resolve();
+			}, function (jqXHR, textStatus, errorThrown) {
+				ExtVM.service_list_loaded(true);
+				ExtVM.service_list_loading(false);
+				dfd.reject();
+				if (window.console && window.console.log) {
+					window.console.log("Failed to load services list: " + errorThrown)
+				}
+			});
+		} else {
+			dfd.reject();
+		}
+		return dfd.promise();
+	}
+
+	var positiveInteger = function(newValue) {
+		if (isNaN(parseInt(newValue)) || parseInt(newValue) < 0) {
+			this.target.hasError(true);
+			this.target.errorMsg(this.message);
+		} else {
+			this.target.hasError(false);
+			this.target.errorMsg("");
+		}
+	}
+
+	var Service = function(code, name, description, currency, price, turnaround) {
+		this.code = code;
+		this.name = name;
+		this.description = description;
+		this.currency = currency;
+		this.price = price;
+		this.turnaround = turnaround;
+	}
+
+	var Column = function(column, index, name, editable, visible, quick_editable) {
+		this.column = column;
+		this.index = ko.observable(index);
+		this.name = name;
+		this.editable = ko.observable(editable);
+		this.visible = ko.observable(visible);
+		this.quick_editable = quick_editable;
+	}
+
+	var ModuleViewModel = function() {
+		var self = this;
+
+		// Settings : General
+		this.status = ko.observable('{{ module_catalog_quick_edit_status }}');
+		this.override_menu_entry = ko.observable('{{ module_catalog_quick_edit_override_menu_entry }}');
+		this.match_anywhere = ko.observable('{{ module_catalog_quick_edit_match_anywhere }}');
+		this.alternate_row_colour = ko.observable('{{ module_catalog_quick_edit_alternate_row_colour }}');
+		this.row_hover_highlighting = ko.observable('{{ module_catalog_quick_edit_row_hover_highlighting }}');
+		this.highlight_status = ko.observable('{{ module_catalog_quick_edit_highlight_status }}');
+		this.highlight_actions = ko.observable('{{ module_catalog_quick_edit_highlight_actions }}');
+		this.interval_filter = ko.observable('{{ module_catalog_quick_edit_interval_filter }}');
+		this.batch_edit = ko.observable('{{ module_catalog_quick_edit_batch_edit }}');
+		this.quick_edit_on = ko.observable('{{ module_catalog_quick_edit_quick_edit_on }}');
+		this.list_view_image_width = ko.observable('{{ module_catalog_quick_edit_list_view_image_width * 1 }}').extend({numeric: {precision: 0, context: self}, validate: {message: bull5i.texts.error_image_width, context: self, method: positiveInteger}});
+		this.list_view_image_height = ko.observable('{{ module_catalog_quick_edit_list_view_image_height * 1 }}').extend({numeric: {precision: 0, context: self}, validate: {message: bull5i.texts.error_image_height, context: self, method: positiveInteger}});
+		this.single_language_editing = ko.observable('{{ module_catalog_quick_edit_single_language_editing }}');
+		this.general_errors = ko.computed(function() {
+			return self.list_view_image_width.hasError() || self.list_view_image_height.hasError();
+		})
+
+		// Settings : Catalog
+		this.catalog_categories_status = ko.observable('{{ module_catalog_quick_edit_catalog_categories_status }}');
+		this.catalog_categories_default_sort = ko.observable('{{ module_catalog_quick_edit_catalog_categories_default_sort }}');
+		this.catalog_categories_default_order = ko.observable('{{ module_catalog_quick_edit_catalog_categories_default_order }}');
+		this.catalog_categories = ko.observableArray($.map(catalog_categories, function(c, n) { return new Column(n, c.hasOwnProperty('index') ? c.index : 0, c.hasOwnProperty('name') ? c.name : "<unknown>", c.hasOwnProperty('qe_status') ? c.qe_status : 1, c.hasOwnProperty('display') ? c.display : 1, c.hasOwnProperty('editable') ? c.editable : 1); } ));
+		this.catalog_products_status = ko.observable('{{ module_catalog_quick_edit_catalog_products_status }}');
+		this.catalog_products_default_sort = ko.observable('{{ module_catalog_quick_edit_catalog_products_default_sort }}');
+		this.catalog_products_default_order = ko.observable('{{ module_catalog_quick_edit_catalog_products_default_order }}');
+		this.catalog_products = ko.observableArray($.map(catalog_products, function(c, n) { return new Column(n, c.hasOwnProperty('index') ? c.index : 0, c.hasOwnProperty('name') ? c.name : "<unknown>", c.hasOwnProperty('qe_status') ? c.qe_status : 1, c.hasOwnProperty('display') ? c.display : 1, c.hasOwnProperty('editable') ? c.editable : 1); } ));
+		this.catalog_products_actions = ko.observableArray($.map(catalog_products_actions, function(c, n) { return new Column(n, c.hasOwnProperty('index') ? c.index : 0, c.hasOwnProperty('name') ? c.name : "<unknown>", c.hasOwnProperty('qe_status') ? c.qe_status : 1, c.hasOwnProperty('display') ? c.display : 1, c.hasOwnProperty('editable') ? c.editable : 1); } ));
+		this.catalog_products_filter_sub_category = ko.observable('{{ module_catalog_quick_edit_catalog_products_filter_sub_category }}');
+		this.catalog_filters_status = ko.observable('{{ module_catalog_quick_edit_catalog_filters_status }}');
+		this.catalog_filters_default_sort = ko.observable('{{ module_catalog_quick_edit_catalog_filters_default_sort }}');
+		this.catalog_filters_default_order = ko.observable('{{ module_catalog_quick_edit_catalog_filters_default_order }}');
+		this.catalog_filters = ko.observableArray($.map(catalog_filters, function(c, n) { return new Column(n, c.hasOwnProperty('index') ? c.index : 0, c.hasOwnProperty('name') ? c.name : "<unknown>", c.hasOwnProperty('qe_status') ? c.qe_status : 1, c.hasOwnProperty('display') ? c.display : 1, c.hasOwnProperty('editable') ? c.editable : 1); } ));
+		this.catalog_attributes_status = ko.observable('{{ module_catalog_quick_edit_catalog_attributes_status }}');
+		this.catalog_attributes_default_sort = ko.observable('{{ module_catalog_quick_edit_catalog_attributes_default_sort }}');
+		this.catalog_attributes_default_order = ko.observable('{{ module_catalog_quick_edit_catalog_attributes_default_order }}');
+		this.catalog_attributes = ko.observableArray($.map(catalog_attributes, function(c, n) { return new Column(n, c.hasOwnProperty('index') ? c.index : 0, c.hasOwnProperty('name') ? c.name : "<unknown>", c.hasOwnProperty('qe_status') ? c.qe_status : 1, c.hasOwnProperty('display') ? c.display : 1, c.hasOwnProperty('editable') ? c.editable : 1); } ));
+		this.catalog_attribute_groups_status = ko.observable('{{ module_catalog_quick_edit_catalog_attribute_groups_status }}');
+		this.catalog_attribute_groups_default_sort = ko.observable('{{ module_catalog_quick_edit_catalog_attribute_groups_default_sort }}');
+		this.catalog_attribute_groups_default_order = ko.observable('{{ module_catalog_quick_edit_catalog_attribute_groups_default_order }}');
+		this.catalog_attribute_groups = ko.observableArray($.map(catalog_attribute_groups, function(c, n) { return new Column(n, c.hasOwnProperty('index') ? c.index : 0, c.hasOwnProperty('name') ? c.name : "<unknown>", c.hasOwnProperty('qe_status') ? c.qe_status : 1, c.hasOwnProperty('display') ? c.display : 1, c.hasOwnProperty('editable') ? c.editable : 1); } ));
+		this.catalog_options_status = ko.observable('{{ module_catalog_quick_edit_catalog_options_status }}');
+		this.catalog_options_default_sort = ko.observable('{{ module_catalog_quick_edit_catalog_options_default_sort }}');
+		this.catalog_options_default_order = ko.observable('{{ module_catalog_quick_edit_catalog_options_default_order }}');
+		this.catalog_options = ko.observableArray($.map(catalog_options, function(c, n) { return new Column(n, c.hasOwnProperty('index') ? c.index : 0, c.hasOwnProperty('name') ? c.name : "<unknown>", c.hasOwnProperty('qe_status') ? c.qe_status : 1, c.hasOwnProperty('display') ? c.display : 1, c.hasOwnProperty('editable') ? c.editable : 1); } ));
+		this.catalog_manufacturers_status = ko.observable('{{ module_catalog_quick_edit_catalog_manufacturers_status }}');
+		this.catalog_manufacturers_default_sort = ko.observable('{{ module_catalog_quick_edit_catalog_manufacturers_default_sort }}');
+		this.catalog_manufacturers_default_order = ko.observable('{{ module_catalog_quick_edit_catalog_manufacturers_default_order }}');
+		this.catalog_manufacturers = ko.observableArray($.map(catalog_manufacturers, function(c, n) { return new Column(n, c.hasOwnProperty('index') ? c.index : 0, c.hasOwnProperty('name') ? c.name : "<unknown>", c.hasOwnProperty('qe_status') ? c.qe_status : 1, c.hasOwnProperty('display') ? c.display : 1, c.hasOwnProperty('editable') ? c.editable : 1); } ));
+		this.catalog_downloads_status = ko.observable('{{ module_catalog_quick_edit_catalog_downloads_status }}');
+		this.catalog_downloads_default_sort = ko.observable('{{ module_catalog_quick_edit_catalog_downloads_default_sort }}');
+		this.catalog_downloads_default_order = ko.observable('{{ module_catalog_quick_edit_catalog_downloads_default_order }}');
+		this.catalog_downloads = ko.observableArray($.map(catalog_downloads, function(c, n) { return new Column(n, c.hasOwnProperty('index') ? c.index : 0, c.hasOwnProperty('name') ? c.name : "<unknown>", c.hasOwnProperty('qe_status') ? c.qe_status : 1, c.hasOwnProperty('display') ? c.display : 1, c.hasOwnProperty('editable') ? c.editable : 1); } ));
+		this.catalog_reviews_status = ko.observable('{{ module_catalog_quick_edit_catalog_reviews_status }}');
+		this.catalog_reviews_default_sort = ko.observable('{{ module_catalog_quick_edit_catalog_reviews_default_sort }}');
+		this.catalog_reviews_default_order = ko.observable('{{ module_catalog_quick_edit_catalog_reviews_default_order }}');
+		this.catalog_reviews = ko.observableArray($.map(catalog_reviews, function(c, n) { return new Column(n, c.hasOwnProperty('index') ? c.index : 0, c.hasOwnProperty('name') ? c.name : "<unknown>", c.hasOwnProperty('qe_status') ? c.qe_status : 1, c.hasOwnProperty('display') ? c.display : 1, c.hasOwnProperty('editable') ? c.editable : 1); } ));
+		this.catalog_information_status = ko.observable('{{ module_catalog_quick_edit_catalog_information_status }}');
+		this.catalog_information_default_sort = ko.observable('{{ module_catalog_quick_edit_catalog_information_default_sort }}');
+		this.catalog_information_default_order = ko.observable('{{ module_catalog_quick_edit_catalog_information_default_order }}');
+		this.catalog_information = ko.observableArray($.map(catalog_information, function(c, n) { return new Column(n, c.hasOwnProperty('index') ? c.index : 0, c.hasOwnProperty('name') ? c.name : "<unknown>", c.hasOwnProperty('qe_status') ? c.qe_status : 1, c.hasOwnProperty('display') ? c.display : 1, c.hasOwnProperty('editable') ? c.editable : 1); } ));
+
+		this.catalog_errors = ko.computed(function() {
+			return false;
+		}, self);
+
+
+		this.settings_errors = ko.computed(function() {
+			var hasErrors = false;
+			for (var key in this) {
+				if (ko.isObservable(self[key]) && typeof(self[key].hasError) === 'function') {
+					hasErrors |= self[key].hasError();
+				}
+			}
+			return hasErrors;
+		}, self);
+
+		self.service_list_loaded = ko.observable(false);
+		self.service_list_loading = ko.observable(false);
+		self.services = ko.observableArray([]);
+
+		// Operations
+		self.addService = function(code, name, description, currency, price, turnaround) {
+			self.services.push(new Service(code, name, description, currency, price, turnaround));
+		}
+
+		self.clearServices = function() {
+			self.services.removeAll();
+		}
+	}
+	ModuleViewModel.prototype = new bull5i.observable_object_methods;
+
+	$(function() {
+		var hash = window.location.hash,
+			hashPiece = hash.split('?')[0];
+
+		ExtVM = bull5i.view_model = new ModuleViewModel;
+		bull5i.view_models = $.extend({}, bull5i.view_models, {
+			ExtVM: bull5i.view_model
+		});
+		ExtVM.applyErrors(errors);
+
+		ko.applyBindings(ExtVM, $("#content")[0]);
+
+
+		$("body").on("shown.bs.tab", "a[data-toggle='tab'][href='#ext-support'],a[data-toggle='tab'][href='#services']", function(e) {
+			bull5i.load_service_list();
+		})
+
+		bull5i.onComplete($("#page-overlay"), $("#content"))
+		bull5i.loading = true;
+		bull5i.activateTab(hashPiece);
+		bull5i.loading = false;
+	});
+}( window.bull5i = window.bull5i || {}, jQuery ));
+//--></script>
+{{ footer }}
